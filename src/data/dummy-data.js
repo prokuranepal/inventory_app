@@ -120,7 +120,7 @@ export const ITEMS = [
   ),
 
   new Item(
-    'i10',
+    'i9',
     'Masks',
     5,
     'BGuyz',
