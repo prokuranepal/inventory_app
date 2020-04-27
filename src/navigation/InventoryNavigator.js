@@ -2,12 +2,14 @@ import React from 'react';
 import Platform from 'react-native';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { createDrawerNavigator } from 'react-navigation-drawer';
 import CategoriesScreen from '../screens/CategoriesScreen';
 import ItemListScreen from '../screens/ItemListScreen';
 import ItemDetailScreen from '../screens/ItemDetailScreen';
 import EditItemScreen from '../screens/EditItemScreen';
 import ManageItemScreen from '../screens/ManageItemScreen';
 import AuthScreen from '../screens/AuthScreen';
+import SettingsSreen from '../screens/SettingsScreen';
 
 import Colors from '../constants/Colors';
 
@@ -32,10 +34,34 @@ const InventoryNavigator = createStackNavigator({
 },
 
 );
+const SettingsNavigator = createStackNavigator({
+    Settings: SettingsSreen
+},
+    {
+        defaultNavigationOptions: defaultData
+
+    }
+)
+
+
+const MainNavigator = createDrawerNavigator({
+
+    Categories: InventoryNavigator,
+    Settings: SettingsNavigator
+},
+    {
+        contentOptions: {
+            activeTintColor: Colors.accentColor,
+            labelStyle: {
+                fontFamily: 'open-sans-bold'
+            }
+        }
+    }
+)
 
 const loginNavigator = createSwitchNavigator({
     Login: AuthScreen,
-    Tabs: InventoryNavigator
+    Tabs: MainNavigator
 }, {
     defaultNavigationOptions: defaultData
 }
