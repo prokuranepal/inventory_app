@@ -42,7 +42,7 @@ const ItemsNavigator = createStackNavigator({
 );
 
 const ShowAllNavigator = createStackNavigator({
-    ItemDetail: ItemDetailScreen,
+    ItemDetail: ItemListScreen,
 }, {
     mode: 'card',
     defaultNavigationOptions: defaultData
