@@ -1,5 +1,5 @@
 import { ITEMS } from "../../data/dummy-data";
-import { ADD_ITEMS } from '../actions/items';
+import { ADD_ITEMS, UPDATE_ITEMS } from '../actions/items';
 import Item from "../../models/item";
 
 const initialState = {
@@ -35,6 +35,42 @@ const itemsReducer = (state = initialState, action) => {
                 ...state,
                 items: state.items.concat(newProduct),
                 attentionItems: updatedAttention1,
+            };
+        case UPDATE_ITEMS:
+            const itemIndex = state.items.findIndex(
+                item => item.id === action.iid
+            );
+            const itemIndexAttention = state.attentionItems.findIndex(
+                item => item.id === action.iid
+            );
+            const updatedItem = new Item(
+                action.iid,
+                action.productData.title,
+                action.productData.price,
+                action.productData.company,
+                state.items[itemIndex].imageUrl,
+                action.productData.quantity,
+                action.productData.description,
+
+            );
+            const updatedItems = [...state.items];
+            updatedItems[itemIndex] = updatedItem;
+
+            const updatedAttention = [...state.attentionItems];
+            if (action.productData.quantity < 30 && itemIndexAttention >= 0) {
+                updatedAttention[itemIndexAttention] = updatedItem;
+            }
+            else if (action.productData.quantity < 30) {
+                updatedAttention.push(updatedItem)
+            }
+            else if (action.productData.quantity >= 30 && itemIndexAttention >= 0 && action.productData.title === updatedAttention[itemIndexAttention].title) {
+                updatedAttention.splice(itemIndexAttention, 1)
+            }
+
+            return {
+                ...state,
+                items: updatedItems,
+                attentionItems: updatedAttention,
             };
         default:
             return state;

@@ -38,31 +38,43 @@ const EditItemScreen = props => {
     state.items.items.find(item => item.id === itemId)
   );
 
+
   const [formState, dispatchFormState] = useReducer(formReducer, {
     inputValues: {
-      title: '',
-      company: '',
-      description: '',
-      quantity: '',
-      price: ''
+      title: editedItem ? editedItem.title : '',
+      company: editedItem ? editedItem.company : '',
+      description: editedItem ? editedItem.description : '',
+      quantity: editedItem ? editedItem.quantity : '',
+      price: editedItem ? editedItem.price : ''
     }
   });
 
   const submitHandler = useCallback(() => {
 
-    console.log("EditItemScreen", formState)
+    console.log("EditProductScreen", formState)
+    if (editedItem) {
+      dispatch(
+        itemsActions.updateItem(
+          itemId,
+          formState.inputValues.title,
+          formState.inputValues.company,
+          +formState.inputValues.quantity,
+          formState.inputValues.description,
+          +formState.inputValues.price
+        )
+      );
+    } else {
 
-
-    dispatch(
-      itemsActions.addItems(
-        formState.inputValues.title,
-        formState.inputValues.company,
-        +formState.inputValues.quantity,
-        formState.inputValues.description,
-        +formState.inputValues.price
-      )
-    );
-
+      dispatch(
+        itemsActions.addItems(
+          formState.inputValues.title,
+          formState.inputValues.company,
+          +formState.inputValues.quantity,
+          formState.inputValues.description,
+          +formState.inputValues.price
+        )
+      );
+    }
     props.navigation.goBack();
   }, [dispatch, formState]);
 
@@ -80,7 +92,6 @@ const EditItemScreen = props => {
     },
     [dispatchFormState]
   );
-
 
 
   return (
