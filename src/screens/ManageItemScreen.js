@@ -16,8 +16,6 @@ const ManageItemScreen = props => {
 ManageItemScreen.navigationOptions = navData => {
     return {
         headerTitle: 'Manage Inventory',
-
-
     }
 };
 

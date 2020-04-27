@@ -82,6 +82,7 @@ const EditItemScreen = props => {
   );
 
 
+
   return (
     <KeyboardAvoidingView
       behavior="padding"
@@ -98,7 +99,7 @@ const EditItemScreen = props => {
             autoCorrect
             onInputChange={inputChangeHandler}
             returnKeyType="next"
-            initialValue={''}
+            initialValue={editedItem ? editedItem.title : ''}
             required
           />
           <Input
@@ -109,7 +110,7 @@ const EditItemScreen = props => {
             autoCapitalize="sentences"
             onInputChange={inputChangeHandler}
             autoCorrect
-            initialValue={''}
+            initialValue={editedItem ? editedItem.company : ''}
             returnKeyType="next"
             required
           />
@@ -120,7 +121,7 @@ const EditItemScreen = props => {
             keyboardType="numeric"
             onInputChange={inputChangeHandler}
             returnKeyType="next"
-            initialValue={''}
+            initialValue={editedItem ? `${editedItem.quantity}` : ''}
             required
           />
 
@@ -132,7 +133,7 @@ const EditItemScreen = props => {
             returnKeyType="next"
             onInputChange={inputChangeHandler}
             required
-            initialValue={''}
+            initialValue={editedItem ? `${editedItem.price}` : ''}
             min={0.1}
           />
 
@@ -144,7 +145,7 @@ const EditItemScreen = props => {
             autoCapitalize="sentences"
             autoCorrect
             multiline
-            initialValue={''}
+            initialValue={editedItem ? editedItem.description[0] : ''}
             onInputChange={inputChangeHandler}
             numberOfLines={3}
             required
@@ -179,5 +180,4 @@ const styles = StyleSheet.create({
     margin: 20
   }
 });
-
 export default EditItemScreen;

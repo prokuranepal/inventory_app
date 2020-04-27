@@ -14,7 +14,14 @@ const ManageList = props => {
                 price={itemData.item.price}
                 serialNo={itemData.item.id}
                 onSelectItem={() => {
-
+                    props.navigation.navigate({
+                        routeName: 'AddItem',
+                        params: {
+                            itemId: itemData.item.id,
+                            itemTitle: itemData.item.title,
+                        }
+                    }
+                    );
                 }}
             />
         );
