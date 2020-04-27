@@ -15,6 +15,8 @@ import AuthScreen from '../screens/AuthScreen';
 import EditItemScreen from '../screens/EditItemScreen';
 
 import ManageItemScreen from '../screens/ManageItemScreen';
+import LogsScreen from '../screens/LogsScreen';
+import TransportScreen from '../screens/TransportScreen';
 
 const defaultData = {
     headerStyle: {
@@ -28,7 +30,9 @@ const ItemsNavigator = createStackNavigator({
     CategoryItems: ItemListScreen, //same as others, long form
     ItemDetail: ItemDetailScreen,
     AddItem: EditItemScreen,
-    ManageInventory: ManageItemScreen
+    ManageInventory: ManageItemScreen,
+    Transport: TransportScreen,
+    Logs: LogsScreen
 }, {
     mode: 'card',
     defaultNavigationOptions: defaultData

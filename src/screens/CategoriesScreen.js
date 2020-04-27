@@ -18,6 +18,32 @@ const CategoriesScreen = props => {
                 color={itemData.item.color}
                 onSelect={() => {
 
+                    let route = 'CategoryItems';
+                    switch (itemData.item.title) {
+                        case "Manage":
+                            route = "ManageInventory"
+                            break;
+                        case "Add Item":
+                            route = "AddItem"
+                            break;
+                        case "Send/Req":
+                            route = "Transport"
+                            break;
+                        case "Logs":
+                            route = "Logs"
+                            break;
+
+                        default:
+                            break;
+                    }
+                    props.navigation.navigate
+                        ({
+                            routeName: route,
+                            params: {
+                                categoryId: itemData.item.id,
+                                title: itemData.item.title
+                            }
+                        })
                 }} />
 
         )
