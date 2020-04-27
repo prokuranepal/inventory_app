@@ -27,14 +27,14 @@ const defaultData = {
 
 const ItemsNavigator = createStackNavigator({
     Categories: CategoriesScreen,
-    CategoryItems: ItemListScreen, //same as others, long form
+    CategoryItems: ItemListScreen,
     ItemDetail: ItemDetailScreen,
     AddItem: EditItemScreen,
     ManageInventory: ManageItemScreen,
     Transport: TransportScreen,
     Logs: LogsScreen
 }, {
-    mode: 'card',
+
     defaultNavigationOptions: defaultData
 
 },
@@ -69,7 +69,7 @@ const tabScreenConfig = {
     }
 }
 
-const ItemsTabNavigator = Platform.OS !== 'android' ?
+const InventoryTabNavigator = Platform.OS !== 'android' ?
     createMaterialBottomTabNavigator(
         tabScreenConfig,
         {
@@ -86,6 +86,7 @@ const ItemsTabNavigator = Platform.OS !== 'android' ?
                 activeTintColor: Colors.accentColor
             }
         });
+
 const SettingsNavigator = createStackNavigator({
     Settings: SettingsScreen
 },
@@ -97,7 +98,7 @@ const SettingsNavigator = createStackNavigator({
 
 const MainNavigator = createDrawerNavigator({
 
-    TabsNav: ItemsTabNavigator,
+    inventory: InventoryTabNavigator,
     Settings: SettingsNavigator
 },
     {
