@@ -1,18 +1,20 @@
-import React from 'react';
-import Platform from 'react-native';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
-import { createDrawerNavigator } from 'react-navigation-drawer';
 import CategoriesScreen from '../screens/CategoriesScreen';
 import ItemListScreen from '../screens/ItemListScreen';
 import ItemDetailScreen from '../screens/ItemDetailScreen';
-import EditItemScreen from '../screens/EditItemScreen';
-import ManageItemScreen from '../screens/ManageItemScreen';
-import AuthScreen from '../screens/AuthScreen';
-import SettingsSreen from '../screens/SettingsScreen';
-
+import SettingsScreen from '../screens/SettingsScreen';
+import React from 'react';
+import Platform from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import Colors from '../constants/Colors';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
+import { createDrawerNavigator } from 'react-navigation-drawer';
+import AuthScreen from '../screens/AuthScreen';
+import EditItemScreen from '../screens/EditItemScreen';
 
+import ManageItemScreen from '../screens/ManageItemScreen';
 
 const defaultData = {
     headerStyle: {
@@ -21,12 +23,12 @@ const defaultData = {
     headerTintColor: Platform.OS === "android" ? Colors.primaryColor : 'white'
 }
 
-const InventoryNavigator = createStackNavigator({
+const ItemsNavigator = createStackNavigator({
     Categories: CategoriesScreen,
     CategoryItems: ItemListScreen, //same as others, long form
     ItemDetail: ItemDetailScreen,
-    EditItem: EditItemScreen,
-    ManageItem: ManageItemScreen
+    AddItem: EditItemScreen,
+    ManageInventory: ManageItemScreen
 }, {
     mode: 'card',
     defaultNavigationOptions: defaultData
@@ -34,8 +36,54 @@ const InventoryNavigator = createStackNavigator({
 },
 
 );
+
+const ShowAllNavigator = createStackNavigator({
+    ItemDetail: ItemDetailScreen,
+}, {
+    mode: 'card',
+    defaultNavigationOptions: defaultData
+
+})
+
+const tabScreenConfig = {
+    Items: {
+        screen: ItemsNavigator, navigationOptions: {
+            tabBarLabel: 'Inventory',
+            tabBarIcon: (tabInfo) => {
+                return <Ionicons name='ios-basket' size={25} color={tabInfo.tintColor} />
+            },
+            tabBarColor: Colors.primaryColor
+        }
+    },
+    ItemDetails: {
+        screen: ShowAllNavigator, navigationOptions: {
+            tabBarIcon: (tabInfo) => {
+                return <Ionicons name='ios-star' size={25} color={tabInfo.tintColor} />
+            },
+            tabBarColor: Colors.accentColor
+        }
+    }
+}
+
+const ItemsTabNavigator = Platform.OS !== 'android' ?
+    createMaterialBottomTabNavigator(
+        tabScreenConfig,
+        {
+            activeColor: 'white',
+            shifting: true,
+            barStyle: {
+                backgroundColor: Colors.primaryColor
+            }
+        }) :
+    createBottomTabNavigator(
+        tabScreenConfig,
+        {
+            tabBarOptions: {
+                activeTintColor: Colors.accentColor
+            }
+        });
 const SettingsNavigator = createStackNavigator({
-    Settings: SettingsSreen
+    Settings: SettingsScreen
 },
     {
         defaultNavigationOptions: defaultData
@@ -43,10 +91,9 @@ const SettingsNavigator = createStackNavigator({
     }
 )
 
-
 const MainNavigator = createDrawerNavigator({
 
-    Categories: InventoryNavigator,
+    TabsNav: ItemsTabNavigator,
     Settings: SettingsNavigator
 },
     {
@@ -66,5 +113,4 @@ const loginNavigator = createSwitchNavigator({
     defaultNavigationOptions: defaultData
 }
 )
-
 export default createAppContainer(loginNavigator);
