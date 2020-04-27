@@ -17,14 +17,13 @@ const CategoriesScreen = props => {
                 iconValue={itemData.item.icon}
                 color={itemData.item.color}
                 onSelect={() => {
-                }
-                } />
+
+                }} />
 
         )
     }
 
     return (
-
         <FlatList
             keyExtractor={(item, index) => {
                 return item.id
@@ -47,8 +46,9 @@ CategoriesScreen.navigationOptions = navData => {
         },
         headerLeft: () => (
             <HeaderButtons HeaderButtonComponent={HeaderButton} >
-                <Item title="Menu" iconName="ios-menu" onPress={() => { }
-                } />
+                <Item title="Menu" iconName="ios-menu" onPress={() => {
+                    navData.navigation.toggleDrawer()
+                }} />
             </HeaderButtons>
         )
     }
