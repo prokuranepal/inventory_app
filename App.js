@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, Platform } from 'react-native';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
-import ItemsNavigator from './src/navigation/InventoryNavigator';
+import InventoryNavigator from './src/navigation/InventoryNavigator';
 import { enableScreens } from 'react-native-screens';
 import { createStore, combineReducers } from 'redux';
 import itemsReducer from './src/store/reducers/items';

@@ -11,12 +11,13 @@ const initialState = {
 };
 
 const itemsReducer = (state = initialState, action) => {
-    switch (action.type) {
+    // switch (action.type) {
 
-        default:
-            return state;
+    //     default:
+    //         return state;
 
-    }
+    // }
+    return state;
 }
 
 export default itemsReducer;
