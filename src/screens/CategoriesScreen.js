@@ -3,6 +3,8 @@ import { View, Text, StyleSheet, FlatList, Button, Platform } from 'react-native
 import { CATEGORIES } from '../data/dummy-data';
 import Colors from '../constants/Colors';
 import CategoryGridTile from '../components/UI/CategroyGridTile';
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import HeaderButton from '../components/Component/HeaderButton';
 
 
 const CategoriesScreen = props => {
@@ -15,8 +17,8 @@ const CategoriesScreen = props => {
                 iconValue={itemData.item.icon}
                 color={itemData.item.color}
                 onSelect={() => {
-
-                }} />
+                }
+                } />
 
         )
     }
@@ -43,7 +45,12 @@ CategoriesScreen.navigationOptions = navData => {
         headerTitleStyle: {
             fontFamily: 'open-sans'
         },
-
+        headerLeft: () => (
+            <HeaderButtons HeaderButtonComponent={HeaderButton} >
+                <Item title="Menu" iconName="ios-menu" onPress={() => { }
+                } />
+            </HeaderButtons>
+        )
     }
 }
 
