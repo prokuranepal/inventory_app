@@ -59,7 +59,7 @@ const tabScreenConfig = {
             tabBarColor: Colors.primaryColor
         }
     },
-    ItemDetails: {
+    ShowAll: {
         screen: ShowAllNavigator, navigationOptions: {
             tabBarIcon: (tabInfo) => {
                 return <Ionicons name='ios-star' size={25} color={tabInfo.tintColor} />
