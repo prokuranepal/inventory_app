@@ -2,11 +2,18 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, Platform } from 'react-native';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
-import InventoryNavigator from './src/navigation/InventoryNavigator';
+import ItemsNavigator from './src/navigation/InventoryNavigator';
 import { enableScreens } from 'react-native-screens';
+import { createStore, combineReducers } from 'redux';
+import itemsReducer from './src/store/reducers/items';
+import { Provider } from 'react-redux';
 enableScreens();
 
+const rootReducer = combineReducers({
+  items: itemsReducer
+})
 
+const store = createStore(rootReducer);
 
 const fetchFonts = () => {
   Font.loadAsync({
@@ -26,6 +33,6 @@ export default function App() {
       />)
   }
   return (
-    <InventoryNavigator />
+    <Provider store={store}><InventoryNavigator /></Provider>
   );
 }
