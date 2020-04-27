@@ -27,6 +27,7 @@ const ItemList = props => {
     };
     return (
         <View style={styles.list}>
+            {props.attentionMessage}
             <FlatList
                 data={props.listData}
                 keyExtractor={(item, index) => item.id}

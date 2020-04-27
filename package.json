@@ -27,7 +27,8 @@
     "react-navigation-stack": "^2.3.11",
     "react-navigation-tabs": "^2.8.11",
     "react-redux": "^7.2.0",
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "mem": ">=4.0.0"
   },
   "devDependencies": {
     "babel-preset-expo": "~8.1.0",
