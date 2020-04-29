@@ -9,7 +9,7 @@ const ItemList = props => {
         return (
             <InventoryItem
                 title={itemData.item.title}
-                image={itemData.item.imageUrl}
+                image={itemData.item.image}
                 quantity={itemData.item.quantity}
                 company={itemData.item.company}
                 price={itemData.item.price}
@@ -17,7 +17,7 @@ const ItemList = props => {
                     props.navigation.navigate({
                         routeName: 'ItemDetail',
                         params: {
-                            itemId: itemData.item.id,
+                            itemId: itemData.item._id,
                             itemTitle: itemData.item.title,
                         }
                     });
@@ -30,7 +30,7 @@ const ItemList = props => {
             {props.attentionMessage}
             <FlatList
                 data={props.listData}
-                keyExtractor={(item, index) => item.id}
+                keyExtractor={(item, index) => item._id}
                 renderItem={renderItemItem}
                 style={{ width: '100%' }}
             />

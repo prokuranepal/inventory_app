@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, FlatList, Button, Platform } from 'react-native';
 import { CATEGORIES } from '../data/dummy-data';
 import Colors from '../constants/Colors';
 import CategoryGridTile from '../components/UI/CategroyGridTile';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import HeaderButton from '../components/Component/HeaderButton';
+import { useDispatch } from 'react-redux';
+import * as itemsActions from '../store/actions/items';
 
 
 const CategoriesScreen = props => {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(itemsActions.setItems())
+    }, [])
 
     const renderGridItem = (itemData) => {
-        console.log("category", itemData.item.icon)
         return (
 
             <CategoryGridTile title={itemData.item.title}

@@ -19,12 +19,12 @@ const ListItem = props => {
 const ItemDetailScreen = props => {
     const itemId = props.navigation.getParam('itemId');
     const availableItems = useSelector(state => state.items.items)
-    const selectedItem = availableItems.find(item => item.id === itemId);
+    const selectedItem = availableItems.find(item => item._id === itemId);
     const dispatch = useDispatch();
 
     return (
         <ScrollView>
-            <Image source={{ uri: selectedItem.imageUrl }} style={styles.image} />
+            <Image source={{ uri: selectedItem.image }} style={styles.image} />
             <View style={styles.details}>
                 <DefaultText>{selectedItem.quantity}pcs</DefaultText>
                 <DefaultText>{selectedItem.company.toUpperCase()}</DefaultText>

@@ -1,19 +1,31 @@
 import { ITEMS } from "../../data/dummy-data";
-import { ADD_ITEMS, UPDATE_ITEMS } from '../actions/items';
+import { ADD_ITEMS, UPDATE_ITEMS, SET_ITEMS } from '../actions/items';
 import Item from "../../models/item";
 
 const initialState = {
-    items: ITEMS,
-    attentionItems: ITEMS.filter(item => {
-        if ((item.quantity / 1) >= 30) {
-            return false;
-        }
-        return true;
-    }),
+    items: [],
+    attentionItems: []
+    // attentionItems: ITEMS.filter(item => {
+    //     if ((item.quantity / 1) >= 30) {
+    //         return false;
+    //     }
+    //     return true;
+    // }),
 };
 
 const itemsReducer = (state = initialState, action) => {
     switch (action.type) {
+        case SET_ITEMS:
+            return {
+                ...state,
+                items: action.items,
+                attentionItems: action.items.filter(item => {
+                    if ((item.quantity / 1) >= 30) {
+                        return false;
+                    }
+                    return true;
+                }),
+            }
         case ADD_ITEMS:
             const newProduct = new Item(
                 "i" + (state.items.length + 1),

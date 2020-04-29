@@ -4,16 +4,17 @@ import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
 import InventoryNavigator from './src/navigation/InventoryNavigator';
 import { enableScreens } from 'react-native-screens';
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import itemsReducer from './src/store/reducers/items';
 import { Provider } from 'react-redux';
+import ReduxThunk from 'redux-thunk';
 enableScreens();
 
 const rootReducer = combineReducers({
   items: itemsReducer
 })
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 
 const fetchFonts = () => {
   Font.loadAsync({
@@ -23,7 +24,6 @@ const fetchFonts = () => {
 }
 
 export default function App() {
-  console.log(Platform.OS === 'android')
   const [fontLoaded, setFontLoaded] = useState(false);
   if (!fontLoaded) {
     return (

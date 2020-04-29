@@ -51,7 +51,6 @@ const EditItemScreen = props => {
 
   const submitHandler = useCallback(() => {
 
-    console.log("EditProductScreen", formState)
     if (editedItem) {
       dispatch(
         itemsActions.updateItem(

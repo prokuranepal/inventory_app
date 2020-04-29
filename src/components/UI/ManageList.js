@@ -4,15 +4,14 @@ import ManageItem from '../Component/ManageItem';
 
 const ManageList = props => {
 
-    const renderItemItem = itemData => {
-
+    const renderInventoryItem = (itemData, index) => {
         return (
             <ManageItem
                 title={itemData.item.title}
                 quantity={itemData.item.quantity}
                 company={itemData.item.company}
                 price={itemData.item.price}
-                serialNo={itemData.item.id}
+                serialNo={itemData.index}
                 onSelectItem={() => {
                     props.navigation.navigate({
                         routeName: 'AddItem',
@@ -37,8 +36,8 @@ const ManageList = props => {
             </View>
             <FlatList
                 data={props.listData}
-                keyExtractor={(item, index) => item.id}
-                renderItem={renderItemItem}
+                keyExtractor={(item, index) => item._id}
+                renderItem={renderInventoryItem}
                 style={{ width: '100%' }}
             />
         </View>

@@ -6,7 +6,6 @@ import Colors from '../../constants/Colors';
 
 const CategoryGridTile = props => {
     let TouchableCmp = TouchableOpacity;
-    console.log("icon name", props.iconValue)
     if (Platform.OS === "android" && Platform.Version >= 21) {
         TouchableCmp = TouchableNativeFeedback;
     }

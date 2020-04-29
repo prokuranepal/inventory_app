@@ -4,7 +4,6 @@ import { Ionicons } from "@expo/vector-icons";
 import { TextInput, StyleSheet, View } from 'react-native';
 import Colors from '../../constants/Colors';
 const TestInput = (props) => {
-    console.log("testinput", props)
     let textInput = <TextInput
         style={styles.input}
         {...props}
