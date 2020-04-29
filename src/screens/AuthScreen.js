@@ -78,16 +78,13 @@ class Authentication extends Component {
         // });
         this.props.switchMode();
     };
-    onButtonPress = () => {
+    onButtonPress = async () => {
         if (this.props.loginMode) {
             this.props.authLogin(this.state.controls.email.value, this.state.controls.password.value)
-            if (this.props.token) {
-                this.props.navigation.navigate({
-                    routeName: 'Tabs'
-                })
-            }
+
         }
         else {
+
             this.props.authSignUp(this.state.controls.email.value, this.state.controls.password.value)
         }
     }
@@ -143,9 +140,23 @@ class Authentication extends Component {
             };
         });
     };
+    componentDidMount() {
+        this.isAuthenticated = this.props.token;
+    }
+    componentDidUpdate(prevState) {
+        if (this.isAuthenticated !== this.props.token && this.props.token) {
+
+            this.props.navigation.navigate({
+                routeName: 'Tabs'
+            }
+            )
+        }
+    }
+
+
 
     render() {
-        console.log("render", this.props.loginMode);
+
         let headingText = null;
         let confirmPasswordControl = null;
 
