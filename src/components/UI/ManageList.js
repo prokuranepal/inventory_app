@@ -5,8 +5,10 @@ import ManageItem from '../Component/ManageItem';
 const ManageList = props => {
 
     const renderInventoryItem = (itemData, index) => {
+        console.log("manage list ", itemData)
         return (
             <ManageItem
+                key={itemData.item._id}
                 title={itemData.item.title}
                 quantity={itemData.item.quantity}
                 company={itemData.item.company}
@@ -16,7 +18,7 @@ const ManageList = props => {
                     props.navigation.navigate({
                         routeName: 'AddItem',
                         params: {
-                            itemId: itemData.item.id,
+                            itemId: itemData.item._id,
                             itemTitle: itemData.item.title,
                         }
                     }

@@ -4,7 +4,7 @@ import InventoryItem from '../Component/InventoryItem';
 
 const ItemList = props => {
 
-    const renderItemItem = itemData => {
+    const renderInventoryItem = itemData => {
 
         return (
             <InventoryItem
@@ -31,7 +31,7 @@ const ItemList = props => {
             <FlatList
                 data={props.listData}
                 keyExtractor={(item, index) => item._id}
-                renderItem={renderItemItem}
+                renderItem={renderInventoryItem}
                 style={{ width: '100%' }}
             />
             {props.j}

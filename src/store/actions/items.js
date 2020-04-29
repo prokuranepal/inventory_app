@@ -2,6 +2,7 @@ export const ADD_ITEMS = 'ADD_ITEMS';
 export const UPDATE_ITEMS = 'UPDATE_ITEMS';
 export const SET_ITEMS = 'SET_ITEMS';
 import { ip } from '../../server/iplocation'
+import Item from '../../models/item'
 
 
 export const addItems = (title, company, quantity, description, price) => {
@@ -42,11 +43,13 @@ export const addItems = (title, company, quantity, description, price) => {
             //     , {
             //         method: 'GET',
             //     })
-            // let resdata = await response.json();
-            // console.log("response from backend", resdata)
+            let resdata = await response.json();
+            console.log("response from backend", resdata)
+            const itemId = resdata._id;
             dispatch({
                 type: ADD_ITEMS,
-                productData: {
+                iid: itemId,
+                itemData: {
                     title,
                     company,
                     quantity,
@@ -62,16 +65,44 @@ export const addItems = (title, company, quantity, description, price) => {
     }
 
 }
-export const updateItem = (id, title, company, quantity, description, price) => {
-    return {
-        type: UPDATE_ITEMS,
-        iid: id,
-        productData: {
-            title,
-            company,
-            quantity,
-            description,
-            price
+
+export const updateItem = (id, title, company, quantity, description, price, image) => {
+    console.log("id of data", id);
+    return async dispatch => {
+        const data2 = {
+            "title": title,
+            "quantity": quantity,
+            "company": company,
+            "man_date": "2019/12/20",
+            "exp_date": "2019/12/16",
+            "image": image,
+            "price": price,
+            "description": description
+        }
+        try {
+            const response = await fetch(`${ip}/medicines/${id}`
+                , {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data2)
+                })
+            dispatch({
+                type: UPDATE_ITEMS,
+                iid: id,
+                itemData: {
+                    title,
+                    company,
+                    quantity,
+                    description,
+                    image,
+                    price
+                }
+            })
+        }
+        catch (err) {
+            console.log(err)
         }
     }
 }
@@ -90,9 +121,21 @@ export const setItems = () => {
                 })
             let resdata = await response.json();
             console.log("response from backend", resdata)
+            const loadedItems = [];
+            for (const key in resdata) {
+                loadedItems.push(new Item(
+                    resdata[key]._id,
+                    resdata[key].title,
+                    resdata[key].price,
+                    resdata[key].company,
+                    resdata[key].image,
+                    resdata[key].quantity,
+                    resdata[key].description
+                ))
+            }
             dispatch({
                 type: SET_ITEMS,
-                items: resdata
+                items: loadedItems
             })
         }
         catch (err) {

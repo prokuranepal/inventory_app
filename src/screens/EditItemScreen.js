@@ -34,10 +34,19 @@ const formReducer = (state, action) => {
 const EditItemScreen = props => {
   const dispatch = useDispatch();
   const itemId = props.navigation.getParam('itemId');
-  const editedItem = useSelector(state =>
-    state.items.items.find(item => item.id === itemId)
-  );
-
+  console.log("Editscreen ", itemId)
+  let editedItem = null;
+  if (itemId) {
+    editedItem = useSelector(state =>
+      state.items.items.find(item => {
+        console.log("in edit screen", item._id, itemId)
+        if (item._id === itemId) {
+          return item;
+        }
+      }
+      )
+    )
+  }
 
   const [formState, dispatchFormState] = useReducer(formReducer, {
     inputValues: {
@@ -52,6 +61,7 @@ const EditItemScreen = props => {
   const submitHandler = useCallback(() => {
 
     if (editedItem) {
+      console.log("image", editedItem.image)
       dispatch(
         itemsActions.updateItem(
           itemId,
@@ -59,7 +69,8 @@ const EditItemScreen = props => {
           formState.inputValues.company,
           +formState.inputValues.quantity,
           formState.inputValues.description,
-          +formState.inputValues.price
+          +formState.inputValues.price,
+          editedItem.image
         )
       );
     } else {

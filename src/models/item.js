@@ -1,11 +1,11 @@
 class Item {
-    constructor(id, title, price, company, imageUrl, quantity, description
+    constructor(_id, title, price, company, image, quantity, description
     ) {
-        this.id = id;
+        this._id = _id;
         this.title = title;
         this.price = price;
         this.company = company;
-        this.imageUrl = imageUrl;
+        this.image = image;
         this.quantity = quantity;
         this.description = description;
 
