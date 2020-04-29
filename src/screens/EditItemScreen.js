@@ -13,7 +13,8 @@ import HeaderButton from '../components/Component/HeaderButton';
 import { useDispatch } from 'react-redux';
 import * as itemsActions from '../store/actions/items';
 import Input from '../components/UI/Input';
-
+import { Button } from 'react-native-paper';
+import IconButton from '../components/Component/IconButton';
 const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE';
 
 const formReducer = (state, action) => {
@@ -36,6 +37,7 @@ const EditItemScreen = props => {
   const itemId = props.navigation.getParam('itemId');
   console.log("Editscreen ", itemId)
   let editedItem = null;
+  let deleteComponent = null;
   if (itemId) {
     editedItem = useSelector(state =>
       state.items.items.find(item => {
@@ -46,6 +48,49 @@ const EditItemScreen = props => {
       }
       )
     )
+
+    const deleteHandler = useCallback(() => {
+      let action =
+        itemsActions.deleteItem(
+          itemId
+        )
+
+      Alert.alert(
+        "DELETE ITEM",
+        "Are you sure?",
+        [
+          {
+            text: "Cancel",
+            style: "cancel"
+          },
+          {
+            text: "OK", onPress: async () => {
+              try {
+                await dispatch(action);
+                props.navigation.navigate('ManageInventory')
+              } catch (err) {
+                Alert.alert("ERROR", "Something went wrong cannot delete")
+              }
+            }
+          }
+        ],
+        { cancelable: false }
+      )
+
+
+
+    }, [dispatch]);
+
+    deleteComponent = <IconButton
+      iconValue="ios-trash"
+      iconColor="#dd0000"
+      onPressHandler={deleteHandler}
+    // icon="delete"
+    // color="red"
+    // size={60}
+    // onPress={deleteHandler}
+    // style={{ flex: 1, width: "100%" }}
+    />
   }
 
   const [formState, dispatchFormState] = useReducer(formReducer, {
@@ -172,6 +217,7 @@ const EditItemScreen = props => {
             required
             minLength={5}
           />
+          {deleteComponent}
         </View>
       </ScrollView>
     </KeyboardAvoidingView>

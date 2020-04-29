@@ -1,5 +1,5 @@
 import { ITEMS } from "../../data/dummy-data";
-import { ADD_ITEMS, UPDATE_ITEMS, SET_ITEMS } from '../actions/items';
+import { ADD_ITEMS, UPDATE_ITEMS, SET_ITEMS, DELETE_ITEM } from '../actions/items';
 import Item from "../../models/item";
 
 const initialState = {
@@ -84,7 +84,16 @@ const itemsReducer = (state = initialState, action) => {
                 items: updatedItems,
                 attentionItems: updatedAttention,
             };
-            return state;
+        case DELETE_ITEM:
+            return {
+                ...state,
+                items: state.items.filter(
+                    item => item._id !== action.iid
+                ),
+                attentionItems: state.items.filter(
+                    item => item._id !== action.iid
+                )
+            };
         default:
             return state;
 

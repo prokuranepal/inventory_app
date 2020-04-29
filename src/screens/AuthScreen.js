@@ -24,7 +24,7 @@ class Authentication extends Component {
         viewMode: Dimensions.get("window").height > 500 ? "portrait" : "landscape",
         controls: {
             email: {
-                value: "",
+                value: "sa@gmail.com",
                 valid: false,
                 validationRules: {
                     isEmail: true
@@ -32,7 +32,7 @@ class Authentication extends Component {
                 touched: false
             },
             password: {
-                value: "",
+                value: "shrestha",
                 valid: false,
                 validationRules: {
                     minLength: 6
@@ -239,12 +239,12 @@ class Authentication extends Component {
                 <ButtonWithBackground
                     color="#29aaf4"
                     onPress={this.onButtonPress}
-                    disabled={
-                        (!this.state.controls.confirmPassword.valid &&
-                            !this.props.loginMode) ||
-                        !this.state.controls.email.valid ||
-                        !this.state.controls.password.valid
-                    }
+                // disabled={
+                //     (!this.state.controls.confirmPassword.valid &&
+                //         !this.props.loginMode) ||
+                //     !this.state.controls.email.valid ||
+                //     !this.state.controls.password.valid
+                // }
                 >
                     {this.props.loginMode ? "Login" : "Sign Up"}
                 </ButtonWithBackground>

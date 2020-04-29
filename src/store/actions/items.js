@@ -1,6 +1,8 @@
 export const ADD_ITEMS = 'ADD_ITEMS';
 export const UPDATE_ITEMS = 'UPDATE_ITEMS';
 export const SET_ITEMS = 'SET_ITEMS';
+export const DELETE_ITEM = 'DELETE_ITEM';
+
 import { ip } from '../../server/iplocation'
 import Item from '../../models/item'
 
@@ -144,4 +146,24 @@ export const setItems = () => {
 
     }
 
+}
+
+
+
+export const deleteItem = itemId => {
+    return async dispatch => {
+        try {
+            const response = await fetch(`${ip}/medicines/${id}`
+                ,
+                { method: 'DELETE' });
+            let resdata = await response.json();
+            console.log("response from backend", resdata)
+
+
+            dispatch({ type: DELETE_ITEM, iid: itemId })
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
 }
