@@ -6,12 +6,15 @@ import InventoryNavigator from './src/navigation/InventoryNavigator';
 import { enableScreens } from 'react-native-screens';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import itemsReducer from './src/store/reducers/items';
+import authReducer from './src/store/reducers/auth';
+
 import { Provider } from 'react-redux';
 import ReduxThunk from 'redux-thunk';
 enableScreens();
 
 const rootReducer = combineReducers({
-  items: itemsReducer
+  items: itemsReducer,
+  auth: authReducer
 })
 
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
