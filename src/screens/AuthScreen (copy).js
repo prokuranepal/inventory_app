@@ -1,8 +1,6 @@
 
 
 import React, { Component } from "react";
-// import { ip } from '../server/iplocation'
-
 import {
     View,
     Text,
@@ -20,11 +18,9 @@ import MainText from "../components/Component/MainText";
 import validate from "../utility/validation";
 import ButtonWithBackground from "../components/Component/ButtonWIthBackground";
 import * as authActions from '../store/actions/auth';
-import * as ipActions from '../store/actions/ip';
 
 class Authentication extends Component {
     state = {
-        newIPAddress: '',
         viewMode: Dimensions.get("window").height > 500 ? "portrait" : "landscape",
         controls: {
             email: {
@@ -85,6 +81,7 @@ class Authentication extends Component {
     onButtonPress = async () => {
         if (this.props.loginMode) {
             this.props.authLogin(this.state.controls.email.value, this.state.controls.password.value)
+
         }
         else {
 
@@ -143,14 +140,8 @@ class Authentication extends Component {
             };
         });
     };
-    async componentDidMount() {
+    componentDidMount() {
         this.isAuthenticated = this.props.token;
-        try {
-            await AsyncStorage.setItem('mode', "static");
-
-        } catch (error) {
-        }
-
     }
     componentDidUpdate(prevState) {
         if (this.isAuthenticated !== this.props.token && this.props.token) {
@@ -161,20 +152,9 @@ class Authentication extends Component {
             )
         }
     }
-    changeIPHandler = () => {
-        this.props.changeMode();
-    }
-    submitIP = () => {
 
-        if (this.state.newIPAddress) {
-            this.props.changeMode();
-            this.props.updateIP(this.state.newIPAddress)
 
-        }
-    }
-    updateIpState = val => {
-        this.setState({ ...this.state, newIPAddress: val })
-    }
+
     render() {
 
         let headingText = null;
@@ -186,34 +166,6 @@ class Authentication extends Component {
                     <HeadingText>Please Login </HeadingText>
                 </MainText>
             );
-        }
-        let newIPAddress = null;
-        let changeIPAddress = null;
-        if (this.props.mode === "changable") {
-            console.log("change mode created", this.props.newIP)
-            changeIPAddress = (<ButtonWithBackground
-                color="#29aaf4"
-                style={styles.changIPAddressButton}
-                onPress={this.changeIPHandler}
-            >
-                Change IP
-            </ButtonWithBackground>)
-        }
-        if (this.props.newIP) {
-            changeIPAddress = null;
-            newIPAddress = (<View style={styles.changeIP}><DefaultInput
-                placeholder="IP Address"
-                style={styles.changeIPInput}
-                value={this.state.newIPAddress}
-                onChangeText={val => this.updateIpState(val)}
-                keyboardType="numeric"
-            /><ButtonWithBackground
-                color="#29aaf4"
-                onPress={this.submitIP}
-                style={styles.changeIPButton}
-                disabled={this.state.newIPAddress === this.props.ip} >
-                    SUBMIT
-            </ButtonWithBackground></View>)
         }
         let confirmPaswordControl = null;
         if (!this.props.loginMode) {
@@ -239,8 +191,6 @@ class Authentication extends Component {
         }
         return (
             <View style={styles.container}>
-                {changeIPAddress}
-                {newIPAddress}
                 {headingText}
                 <ButtonWithBackground
                     color="#29aaf4"
@@ -309,27 +259,6 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center"
     },
-
-    changeIP: {
-        flexDirection: 'row',
-        justifyContent: "center",
-        alignItems: "flex-start"
-    },
-    changeIPInput: {
-        backgroundColor: "#eee",
-        borderColor: "#bbb",
-        width: "55%",
-        margin: 10
-    },
-    changeIPButton: {
-        width: "40%",
-        margin: 10
-    },
-    changeIPAddressButton: {
-        flex: 1,
-        position: 'absolute',
-        alignItems: "flex-start"
-    },
     backgroundImage: {
         width: "100%",
         flex: 1
@@ -365,19 +294,15 @@ const mapDispatchToProps = (dispatch) => {
     return {
         authSignUp: (email, password) => dispatch(authActions.signUp(email, password)),
         authLogin: (email, password) => dispatch(authActions.login(email, password)),
-        switchMode: () => dispatch(authActions.switchMode()),
-        updateIP: (ip) => dispatch(ipActions.updateIP(ip)),
-        changeMode: () => dispatch(ipActions.changeMode())
+        switchMode: () => dispatch(authActions.switchMode())
+
     };
 }
 
 const mapStateToProps = (state) => {
     return {
         loginMode: state.auth.loginMode,
-        token: state.auth.token,
-        mode: state.ip.changeMode,
-        ip: state.ip.ip,
-        newIP: state.ip.newIP
+        token: state.auth.token
     };
 }
 

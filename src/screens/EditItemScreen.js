@@ -35,13 +35,13 @@ const formReducer = (state, action) => {
 const EditItemScreen = props => {
   const dispatch = useDispatch();
   const itemId = props.navigation.getParam('itemId');
-  console.log("Editscreen ", itemId)
+  // console.log("Editscreen ", itemId)
   let editedItem = null;
   let deleteComponent = null;
   if (itemId) {
     editedItem = useSelector(state =>
       state.items.items.find(item => {
-        console.log("in edit screen", item._id, itemId)
+        // console.log("in edit screen", item._id, itemId)
         if (item._id === itemId) {
           return item;
         }

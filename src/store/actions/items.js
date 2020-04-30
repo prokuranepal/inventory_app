@@ -2,10 +2,8 @@ export const ADD_ITEMS = 'ADD_ITEMS';
 export const UPDATE_ITEMS = 'UPDATE_ITEMS';
 export const SET_ITEMS = 'SET_ITEMS';
 export const DELETE_ITEM = 'DELETE_ITEM';
-
-import { ip } from '../../server/iplocation'
+// import { ip } from '../../server/iplocation'
 import Item from '../../models/item'
-
 
 export const addItems = (title, company, quantity, description, price) => {
     const data = {
@@ -29,8 +27,9 @@ export const addItems = (title, company, quantity, description, price) => {
     //     price: 35,
     //     description: 'Paracetamol (acetaminophen) is a pain reliever and a fever reducer. The exact mechanism of action of is not known. Paracetamol is used to treat many conditions such as headache, muscle aches, arthritis, backache, toothaches, colds, and fevers.',
     // }
-    return async dispatch => {
+    return async (dispatch, getState) => {
         try {
+            const ip = getState().ip.ip;
             const response = await fetch(ip + "/medicines"
                 , {
                     method: 'POST',
@@ -46,7 +45,7 @@ export const addItems = (title, company, quantity, description, price) => {
             //         method: 'GET',
             //     })
             let resdata = await response.json();
-            console.log("response from backend", resdata)
+            // console.log("response from backend", resdata)
             const itemId = resdata._id;
             dispatch({
                 type: ADD_ITEMS,
@@ -69,8 +68,8 @@ export const addItems = (title, company, quantity, description, price) => {
 }
 
 export const updateItem = (id, title, company, quantity, description, price, image) => {
-    console.log("id of data", id);
-    return async dispatch => {
+    // console.log("id of data", id);
+    return async (dispatch, getState) => {
         const data2 = {
             "title": title,
             "quantity": quantity,
@@ -82,6 +81,7 @@ export const updateItem = (id, title, company, quantity, description, price, ima
             "description": description
         }
         try {
+            const ip = getState().ip.ip;
             const response = await fetch(`${ip}/medicines/${id}`
                 , {
                     method: 'PUT',
@@ -113,16 +113,17 @@ export const updateItem = (id, title, company, quantity, description, price, ima
 export const setItems = () => {
     let data = []
 
-    return async dispatch => {
+    return async (dispatch, getState) => {
         try {
 
-            console.log("response from backend")
+            // console.log("response from backend")
+            const ip = getState().ip.ip;
             const response = await fetch(ip + "/medicines"
                 , {
                     method: 'GET',
                 })
             let resdata = await response.json();
-            console.log("response from backend", resdata)
+            // console.log("response from backend", resdata)
             const loadedItems = [];
             for (const key in resdata) {
                 loadedItems.push(new Item(
@@ -151,13 +152,14 @@ export const setItems = () => {
 
 
 export const deleteItem = itemId => {
-    return async dispatch => {
+    return async (dispatch, getState) => {
         try {
-            const response = await fetch(`${ip}/medicines/${id}`
+            const ip = getState().ip.ip;
+            const response = await fetch(`${ip}/medicines/${itemId}`
                 ,
                 { method: 'DELETE' });
             let resdata = await response.json();
-            console.log("response from backend", resdata)
+            // console.log("response from backend", resdata)
 
 
             dispatch({ type: DELETE_ITEM, iid: itemId })

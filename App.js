@@ -10,11 +10,13 @@ import authReducer from './src/store/reducers/auth';
 
 import { Provider } from 'react-redux';
 import ReduxThunk from 'redux-thunk';
+import ipReducer from './src/store/reducers/ip';
 enableScreens();
 
 const rootReducer = combineReducers({
   items: itemsReducer,
-  auth: authReducer
+  auth: authReducer,
+  ip: ipReducer
 })
 
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));

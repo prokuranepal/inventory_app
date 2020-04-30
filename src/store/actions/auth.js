@@ -4,7 +4,7 @@ export const SWITCH_MODE = 'SWITCH_MODE';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 
 
-import { ip } from '../../server/iplocation'
+// import { ip } from '../../server/iplocation'
 import { Alert } from 'react-native';
 
 export const authenticate = (userId, token, expiryTime) => {
@@ -14,7 +14,7 @@ export const authenticate = (userId, token, expiryTime) => {
 }
 
 export const signUp = (email, password) => {
-    console.log("authentication", email, password)
+    // console.log("authentication", email, password)
     return async dispatch => {
         const data = {
 
@@ -23,6 +23,7 @@ export const signUp = (email, password) => {
 
         }
         try {
+            const ip = getState().ip.ip;
             const response = await fetch(
                 ip + '/users/signup',
                 {
@@ -57,7 +58,7 @@ export const signUp = (email, password) => {
 
 
 export const login = (email, password) => {
-    return async dispatch => {
+    return async (dispatch, getState) => {
         const data = {
 
             username: email,
@@ -65,6 +66,8 @@ export const login = (email, password) => {
 
         }
         try {
+            // console.log("login action", getState().ip.ip)
+            const ip = getState().ip.ip;
             const response = await fetch(
                 ip + '/users/login',
                 {
@@ -74,7 +77,7 @@ export const login = (email, password) => {
                 }
             )
             let respData = await response.json();
-            console.log("login response", respData)
+            // console.log("login response", respData)
             if (!respData.success) {
                 Alert.alert(respData["err"].name, respData["err"].message)
                 return;
