@@ -1,11 +1,12 @@
-import React, { useEffect, useCallback, useReducer } from 'react';
+import React, { useEffect, useCallback, useReducer, useState } from 'react';
 import {
   View,
   ScrollView,
   StyleSheet,
   Platform,
   Alert,
-  KeyboardAvoidingView
+  KeyboardAvoidingView,
+  ActivityIndicator
 } from 'react-native';
 import { useSelector } from 'react-redux'
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
@@ -15,6 +16,7 @@ import * as itemsActions from '../store/actions/items';
 import Input from '../components/UI/Input';
 import { Button } from 'react-native-paper';
 import IconButton from '../components/Component/IconButton';
+import Colors from '../constants/Colors';
 const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE';
 
 const formReducer = (state, action) => {
@@ -35,6 +37,7 @@ const formReducer = (state, action) => {
 const EditItemScreen = props => {
   const dispatch = useDispatch();
   const itemId = props.navigation.getParam('itemId');
+  const [isLoading, setIsLoading] = useState(false);
   // console.log("Editscreen ", itemId)
   let editedItem = null;
   let deleteComponent = null;
@@ -66,7 +69,9 @@ const EditItemScreen = props => {
           {
             text: "OK", onPress: async () => {
               try {
+                setIsLoading(true);
                 await dispatch(action);
+                setIsLoading(false);
                 props.navigation.navigate('ManageInventory')
               } catch (err) {
                 Alert.alert("ERROR", "Something went wrong cannot delete")
@@ -79,7 +84,7 @@ const EditItemScreen = props => {
 
 
 
-    }, [dispatch]);
+    }, [dispatch, setIsLoading]);
 
     deleteComponent = <IconButton
       iconValue="ios-trash"
@@ -103,11 +108,13 @@ const EditItemScreen = props => {
     }
   });
 
-  const submitHandler = useCallback(() => {
+  const submitHandler = useCallback(async () => {
 
     if (editedItem) {
       console.log("image", editedItem.image)
-      dispatch(
+      setIsLoading(true);
+
+      await dispatch(
         itemsActions.updateItem(
           itemId,
           formState.inputValues.title,
@@ -120,7 +127,7 @@ const EditItemScreen = props => {
       );
     } else {
 
-      dispatch(
+      await dispatch(
         itemsActions.addItems(
           formState.inputValues.title,
           formState.inputValues.company,
@@ -130,8 +137,11 @@ const EditItemScreen = props => {
         )
       );
     }
+    setIsLoading(false);
     props.navigation.goBack();
-  }, [dispatch, formState]);
+
+
+  }, [dispatch, formState, setIsLoading]);
 
   useEffect(() => {
     props.navigation.setParams({ submit: submitHandler });
@@ -147,7 +157,13 @@ const EditItemScreen = props => {
     },
     [dispatchFormState]
   );
-
+  if (isLoading) {
+    return (
+      <View style={styles.centered}>
+        <ActivityIndicator size="large" color={Colors.primaryColor} />
+      </View>
+    )
+  }
 
   return (
     <KeyboardAvoidingView
@@ -245,6 +261,11 @@ EditItemScreen.navigationOptions = navData => {
 const styles = StyleSheet.create({
   form: {
     margin: 20
+  },
+  centered: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
 export default EditItemScreen;
