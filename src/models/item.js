@@ -1,5 +1,5 @@
 class Item {
-    constructor(_id, title, price, company, image, quantity, description
+    constructor(_id, title, price, company, image, quantity, description, type
     ) {
         this._id = _id;
         this.title = title;
@@ -8,7 +8,7 @@ class Item {
         this.image = image;
         this.quantity = quantity;
         this.description = description;
-
+        this.type = type
     }
 }
 export default Item;

@@ -5,7 +5,7 @@ export const DELETE_ITEM = 'DELETE_ITEM';
 // import { ip } from '../../server/iplocation'
 import Item from '../../models/item'
 
-export const addItems = (title, company, quantity, description, price) => {
+export const addItems = (title, company, quantity, description, price, type) => {
     const data = {
         "title": title,
         "quantity": quantity,
@@ -14,7 +14,8 @@ export const addItems = (title, company, quantity, description, price) => {
         "exp_date": "2019/12/16",
         "image": "https://cdn2.iconfinder.com/data/icons/medicine-84/1000/Medicine-color-04-512.png",
         "price": price,
-        "description": description
+        "description": description,
+        "type": type,
     }
 
     // const data1 = {
@@ -55,7 +56,8 @@ export const addItems = (title, company, quantity, description, price) => {
                     company,
                     quantity,
                     description,
-                    price
+                    price,
+                    type
                 }
             });
         }
@@ -67,7 +69,7 @@ export const addItems = (title, company, quantity, description, price) => {
 
 }
 
-export const updateItem = (id, title, company, quantity, description, price, image) => {
+export const updateItem = (id, title, company, quantity, description, price, image, type) => {
     // console.log("id of data", id);
     return async (dispatch, getState) => {
         const data2 = {
@@ -78,7 +80,8 @@ export const updateItem = (id, title, company, quantity, description, price, ima
             "exp_date": "2019/12/16",
             "image": image,
             "price": price,
-            "description": description
+            "description": description,
+            "type": type
         }
         try {
             const ip = getState().ip.ip;
@@ -90,6 +93,7 @@ export const updateItem = (id, title, company, quantity, description, price, ima
                     },
                     body: JSON.stringify(data2)
                 })
+            console.log("axios to backend", data2)
             dispatch({
                 type: UPDATE_ITEMS,
                 iid: id,
@@ -99,7 +103,8 @@ export const updateItem = (id, title, company, quantity, description, price, ima
                     quantity,
                     description,
                     image,
-                    price
+                    price,
+                    type
                 }
             })
         }
@@ -133,7 +138,9 @@ export const setItems = () => {
                     resdata[key].company,
                     resdata[key].image,
                     resdata[key].quantity,
-                    resdata[key].description
+                    resdata[key].description,
+                    resdata[key].type,
+
                 ))
             }
             dispatch({

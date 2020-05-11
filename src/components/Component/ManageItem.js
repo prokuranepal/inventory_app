@@ -6,6 +6,7 @@ const ManageItem = props => {
     let sn = props.serialNo
     // let sn = props.serialNo.replace('i', '');
     let styler = sn % 2 === 0 ? styles.mealItem : styles.mealItem2;
+
     return (
         <View style={styler}>
             <TouchableOpacity onPress={props.onSelectItem} >

@@ -23,6 +23,7 @@ const ItemListScreen = props => {
 
     }
 
+    console.log("type", availableItems)
     return (
 
         <ItemList

@@ -6,6 +6,7 @@ const ManageList = props => {
 
     const renderInventoryItem = (itemData, index) => {
         // console.log("manage list ", itemData)
+
         return (
             <ManageItem
                 key={itemData.item._id}

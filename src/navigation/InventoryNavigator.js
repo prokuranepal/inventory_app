@@ -99,7 +99,10 @@ const SettingsNavigator = createStackNavigator({
 const MainNavigator = createDrawerNavigator({
 
     inventory: InventoryTabNavigator,
-    Settings: SettingsNavigator
+    Settings: SettingsNavigator,
+    MyInventory: LogsScreen,
+    Cart: LogsScreen,
+    Order_Lists: LogsScreen
 },
     {
         contentOptions: {

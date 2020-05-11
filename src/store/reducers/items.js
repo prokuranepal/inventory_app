@@ -35,6 +35,7 @@ const itemsReducer = (state = initialState, action) => {
                 'https://cdn2.iconfinder.com/data/icons/medicine-84/1000/Medicine-color-04-512.png',
                 action.itemData.quantity,
                 action.itemData.description,
+                action.itemData.type
             );
             const updatedAttention1 = [...state.attentionItems];
             const itemIndexAttention1 = state.attentionItems.findIndex(
@@ -63,6 +64,7 @@ const itemsReducer = (state = initialState, action) => {
                 action.itemData.image,
                 action.itemData.quantity,
                 action.itemData.description,
+                action.itemData.type
 
             );
             const updatedItems = [...state.items];
