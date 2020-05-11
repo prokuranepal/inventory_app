@@ -36,6 +36,8 @@ const CategoriesScreen = props => {
                             break;
                         case "Logs":
                             route = "Logs"
+                        case "Attention":
+                            route = "ItemList"
                             break;
 
                         default:
