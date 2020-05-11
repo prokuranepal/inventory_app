@@ -1,16 +1,16 @@
+import React from 'react';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import CategoriesScreen from '../screens/CategoriesScreen';
 import ItemListScreen from '../screens/ItemListScreen';
 import ItemDetailScreen from '../screens/ItemDetailScreen';
 import SettingsScreen from '../screens/SettingsScreen';
-import React from 'react';
-import Platform from 'react-native';
+import Platform, { SafeAreaView, Text, Image, View, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import Colors from '../constants/Colors';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
-import { createDrawerNavigator } from 'react-navigation-drawer';
+import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
 import AuthScreen from '../screens/AuthScreen';
 import EditItemScreen from '../screens/EditItemScreen';
 import ItemCategoryScreen from '../screens/ItemCategoryScreen';
@@ -74,24 +74,56 @@ const tabScreenConfig = {
 
 const InventoryTabNavigator = Platform.OS !== 'android' ?
     createMaterialBottomTabNavigator(
-        tabScreenConfig,
-        {
-            activeColor: 'white',
-            shifting: true,
-            barStyle: {
-                backgroundColor: Colors.primaryColor
-            }
-        }) :
+        tabScreenConfig, {
+        navigationOptions: {
+            drawerIcon: drawerConfig => (
+                <Ionicons
+                    name={Platform.OS === 'android' ? 'md-create' : 'ios-create'}
+                    size={23}
+                    color={drawerConfig.tintColor}
+                />
+            )
+        },
+        activeColor: 'white',
+        shifting: true,
+        barStyle: {
+            backgroundColor: Colors.primaryColor
+        },
+
+    }) :
     createBottomTabNavigator(
         tabScreenConfig,
         {
+            navigationOptions: {
+                drawerIcon: drawerConfig => (
+                    <Ionicons
+                        name={Platform.OS === 'android' ? 'md-create' : 'ios-create'}
+                        size={23}
+                        color={drawerConfig.tintColor}
+                    />
+                )
+            },
             tabBarOptions: {
                 activeTintColor: Colors.accentColor
-            }
-        });
+            },
+
+        }, {
+        defaultNavigationOptions: defaultData
+
+    });
 
 const SettingsNavigator = createStackNavigator({
     Settings: SettingsScreen
+}, {
+    navigationOptions: {
+        drawerIcon: drawerConfig => (
+            <Ionicons
+                name={Platform.OS === 'android' ? 'md-create' : 'ios-create'}
+                size={23}
+                color={drawerConfig.tintColor}
+            />
+        )
+    }
 },
     {
         defaultNavigationOptions: defaultData
@@ -99,14 +131,50 @@ const SettingsNavigator = createStackNavigator({
     }
 )
 
+
+const LogsScreenNavigator = createStackNavigator({
+    Logs: LogsScreen
+}, {
+    navigationOptions: {
+        drawerIcon: drawerConfig => (
+            <Ionicons
+                name={Platform.OS === 'android' ? 'md-create' : 'ios-create'}
+                size={23}
+                color={drawerConfig.tintColor}
+            />
+        )
+    }
+},
+    {
+        defaultNavigationOptions: defaultData
+
+    }
+)
+
+
+
 const MainNavigator = createDrawerNavigator({
 
     inventory: InventoryTabNavigator,
     Settings: SettingsNavigator,
-    MyInventory: LogsScreen,
-    Cart: LogsScreen,
-    Order_Lists: LogsScreen
+    MyInventory: LogsScreenNavigator,
+    Cart: LogsScreenNavigator,
+    Order: LogsScreenNavigator
 },
+    {
+        contentComponent: (props) => (
+            <SafeAreaView style={{ flex: 1 }} >
+                <View style={{ height: 200, alignItems: 'center', justifyContent: 'center' }}>
+
+                    <Image source={require('../../assets/user.png')} style={{ width: 150, height: 150, opacity: 0.7 }} />
+                </View>
+                <ScrollView>
+                    <DrawerItems {...props} />
+                </ScrollView>
+            </SafeAreaView >
+        )
+
+    },
     {
         contentOptions: {
             activeTintColor: Colors.accentColor,
