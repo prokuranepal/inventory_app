@@ -130,7 +130,7 @@ const EditItemScreen = props => {
   const submitHandler = useCallback(async () => {
 
     if (editedItem) {
-      console.log("type", editedItem.type)
+      // console.log("type", editedItem.type)
       setIsLoading(true);
 
       await dispatch(

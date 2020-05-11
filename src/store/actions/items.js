@@ -93,7 +93,7 @@ export const updateItem = (id, title, company, quantity, description, price, ima
                     },
                     body: JSON.stringify(data2)
                 })
-            console.log("axios to backend", data2)
+            // console.log("axios to backend", data2)
             dispatch({
                 type: UPDATE_ITEMS,
                 iid: id,

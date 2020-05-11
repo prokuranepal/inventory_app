@@ -13,6 +13,8 @@ import { createMaterialBottomTabNavigator } from 'react-navigation-material-bott
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import AuthScreen from '../screens/AuthScreen';
 import EditItemScreen from '../screens/EditItemScreen';
+import ItemCategoryScreen from '../screens/ItemCategoryScreen';
+
 
 import ManageItemScreen from '../screens/ManageItemScreen';
 import LogsScreen from '../screens/LogsScreen';
@@ -27,7 +29,8 @@ const defaultData = {
 
 const ItemsNavigator = createStackNavigator({
     Categories: CategoriesScreen,
-    CategoryItems: ItemListScreen,
+    CategoryItems: ItemCategoryScreen,
+    ItemList: ItemListScreen,
     ItemDetail: ItemDetailScreen,
     AddItem: EditItemScreen,
     ManageInventory: ManageItemScreen,

@@ -1,13 +1,21 @@
 
 import React from 'react';
 import { TouchableOpacity, TouchableNativeFeedback, View, Text, StyleSheet, Platform } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, Fontisto } from '@expo/vector-icons';
 import Colors from '../../constants/Colors';
-
 const CategoryGridTile = props => {
     let TouchableCmp = TouchableOpacity;
     if (Platform.OS === "android" && Platform.Version >= 21) {
         TouchableCmp = TouchableNativeFeedback;
+    }
+    let icon = null;
+    if (props.iconValue == "drug-pack") {
+        icon = <Fontisto name={props.iconValue} size={100} color={Colors.primary} />
+
+    }
+    else {
+        icon = <Ionicons name={props.iconValue} size={100} color={Colors.primary} />;
+
     }
     return (
         <View style={styles.gridItem} >
@@ -16,7 +24,7 @@ const CategoryGridTile = props => {
 
                 <View style={{ ...styles.container, ...{ backgroundColor: props.color } }}>
                     <View style={styles.iconContainer}>
-                        <Ionicons name={props.iconValue} size={100} color={Colors.primary} />
+                        {icon}
                     </View>
                     <Text style={styles.title} numberOfLines={2}> {props.title} </Text>
                 </View>

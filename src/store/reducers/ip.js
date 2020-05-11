@@ -1,7 +1,7 @@
 import { UPDATE_IP, CHANGE_MODE } from '../actions/ip';
 const initialState = {
     ip: "http://192.168.10.17:3000",
-    changeMode: 'strict',
+    changeMode: 'changable',
     newIP: false,
 
 };

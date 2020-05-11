@@ -1,5 +1,6 @@
 import Category from "../models/category";
 import Item from "../models/item";
+import Type from "../models/type";
 
 
 export const CATEGORIES = [
@@ -18,6 +19,16 @@ export const CATEGORIES = [
 
 
 ];
+
+
+
+export const type = [
+  new Type("t1", "Pain killer", "#b8ced6", "drug-pack"),
+  new Type("t1", "Vitamin", "#b8ced6", "drug-pack"),
+  new Type("t1", "Antibiotic", "#b8ced6", "drug-pack"),
+  new Type("t1", "General", "#b8ced6", "drug-pack")
+];
+
 
 
 
