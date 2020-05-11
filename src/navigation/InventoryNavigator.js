@@ -164,15 +164,16 @@ const MainNavigator = createDrawerNavigator({
     {
         contentComponent: (props) => (
             <SafeAreaView style={{ flex: 1 }} >
-                <View style={{ height: 200, alignItems: 'center', justifyContent: 'center' }}>
-
+                <View style={{ height: 200, marginBottom: 30, marginTop: 50, alignItems: 'center', justifyContent: 'center' }}>
                     <Image source={require('../../assets/user.png')} style={{ width: 150, height: 150, opacity: 0.7 }} />
+                    <Text style={{ marginTop: 10 }}>{props.navigation.getParam("userId")}</Text>
                 </View>
                 <ScrollView>
                     <DrawerItems {...props} />
                 </ScrollView>
             </SafeAreaView >
         )
+
 
     },
     {

@@ -156,7 +156,10 @@ class Authentication extends Component {
         if (this.isAuthenticated !== this.props.token && this.props.token) {
 
             this.props.navigation.navigate({
-                routeName: 'Tabs'
+                routeName: 'Tabs',
+                params: {
+                    userId: this.props.userId
+                }
             }
             )
         }
@@ -377,7 +380,8 @@ const mapStateToProps = (state) => {
         token: state.auth.token,
         mode: state.ip.changeMode,
         ip: state.ip.ip,
-        newIP: state.ip.newIP
+        newIP: state.ip.newIP,
+        userId: state.auth.userId
     };
 }
 
