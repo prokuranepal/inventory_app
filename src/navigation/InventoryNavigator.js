@@ -45,12 +45,16 @@ const ItemsNavigator = createStackNavigator({
 );
 
 const ShowAllNavigator = createStackNavigator({
-    ItemDetail: ItemListScreen,
+    ItemList: {
+        screen: ItemListScreen,
+        params: { title: "all" }
+    },
 }, {
     mode: 'card',
-    defaultNavigationOptions: defaultData
+    defaultNavigationOptions: defaultData,
 
-})
+}
+)
 
 const tabScreenConfig = {
     Items: {
@@ -67,7 +71,8 @@ const tabScreenConfig = {
             tabBarIcon: (tabInfo) => {
                 return <Ionicons name='ios-star' size={25} color={tabInfo.tintColor} />
             },
-            tabBarColor: Colors.accentColor
+            tabBarColor: Colors.accentColor,
+            params: { title: "all" }
         }
     }
 }
@@ -187,7 +192,7 @@ const MainNavigator = createDrawerNavigator({
 )
 
 const loginNavigator = createSwitchNavigator({
-    Login: AuthScreen,
+    // Login: AuthScreen, //uncomment for authentication
     Tabs: MainNavigator
 }, {
     defaultNavigationOptions: defaultData

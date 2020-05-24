@@ -3,14 +3,15 @@ import { ADD_ITEMS, UPDATE_ITEMS, SET_ITEMS, DELETE_ITEM } from '../actions/item
 import Item from "../../models/item";
 
 const initialState = {
-    items: [],
-    attentionItems: []
-    // attentionItems: ITEMS.filter(item => {
-    //     if ((item.quantity / 1) >= 30) {
-    //         return false;
-    //     }
-    //     return true;
-    // }),
+    // items: [],
+    // attentionItems: []
+    items: ITEMS,
+    attentionItems: ITEMS.filter(item => {
+        if ((item.quantity / 1) >= 30) {
+            return false;
+        }
+        return true;
+    }),
 };
 
 const itemsReducer = (state = initialState, action) => {
@@ -28,7 +29,7 @@ const itemsReducer = (state = initialState, action) => {
             }
         case ADD_ITEMS:
             const newProduct = new Item(
-                action.iid,
+                "i" + (state.items.length + 1),
                 action.itemData.title,
                 action.itemData.price,
                 action.itemData.company,
@@ -77,10 +78,9 @@ const itemsReducer = (state = initialState, action) => {
             else if (action.itemData.quantity < 30) {
                 updatedAttention.push(updatedItem)
             }
-            else if (action.itemData.quantity >= 30 && itemIndexAttention >= 0 && action.itemData.title === updatedAttention[itemIndexAttention].title) {
+            else if (action.itemData.quantity >= 30 && itemIndexAttention >= 0 && action.iid === updatedAttention[itemIndexAttention]._id) {
                 updatedAttention.splice(itemIndexAttention, 1)
             }
-
             return {
                 ...state,
                 items: updatedItems,

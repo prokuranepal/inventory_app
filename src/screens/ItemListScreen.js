@@ -14,11 +14,13 @@ const ItemListScreen = props => {
     const catTitle = props.navigation.getParam('title');
 
     let availableItems = null;
+    console.log("catTitle", catTitle)
     let attentionMsg = null;
     switch (catTitle) {
         case "Attention":
             availableItems = useSelector(state => state.items.attentionItems)
             attentionMsg = <DefaultText style={{ color: 'red', marginBottom: 10, fontSize: 16, fontFamily: 'open-sans-bold' }}>Items with quantity below 30 are:</DefaultText>
+
             break;
         case "Type":
             const title = props.navigation.getParam('value');
@@ -29,15 +31,16 @@ const ItemListScreen = props => {
                 }
                 return false;
             });
-            console.log("available items", availableItems)
+
+            break;
+        case "all":
+            availableItems = useSelector(state => state.items.items)
             break;
         default:
-            availableItems = useSelector(state => state.items.items)
-
+            break;
     }
 
 
-    console.log("type", availableItems)
     return (
 
         <ItemList

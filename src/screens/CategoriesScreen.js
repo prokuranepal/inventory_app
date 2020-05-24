@@ -11,9 +11,9 @@ import * as itemsActions from '../store/actions/items';
 
 const CategoriesScreen = props => {
     const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(itemsActions.setItems())
-    }, [])
+    // useEffect(() => {
+    //     dispatch(itemsActions.setItems())
+    // }, [])
 
     const renderGridItem = (itemData) => {
         return (
@@ -36,6 +36,7 @@ const CategoriesScreen = props => {
                             break;
                         case "Logs":
                             route = "Logs"
+                            break;
                         case "Attention":
                             route = "ItemList"
                             break;

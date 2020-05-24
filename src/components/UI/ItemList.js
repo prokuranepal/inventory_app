@@ -14,6 +14,7 @@ const ItemList = props => {
                 company={itemData.item.company}
                 price={itemData.item.price}
                 onSelectItem={() => {
+                    // console.log("item clicked", itemData.item._id)
                     props.navigation.navigate({
                         routeName: 'ItemDetail',
                         params: {

@@ -11,12 +11,11 @@ import * as itemsActions from '../store/actions/items';
 
 const ItemCategoryScreen = props => {
     const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(itemsActions.setItems())
-    }, [])
+    // useEffect(() => {
+    //     dispatch(itemsActions.setItems())
+    // }, [])
 
     const renderGridItem = (itemData) => {
-        console.log("itemList", itemData);
         return (
 
             <CategoryGridTile title={itemData.item.title}
@@ -60,7 +59,6 @@ const ItemCategoryScreen = props => {
     return (
         <FlatList
             keyExtractor={(item, index) => {
-                console.log("index", item)
                 return index
             }}
             data={type} renderItem={renderGridItem} numColumns={2} />

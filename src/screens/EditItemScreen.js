@@ -123,12 +123,13 @@ const EditItemScreen = props => {
       description: editedItem ? editedItem.description : '',
       quantity: editedItem ? editedItem.quantity : '',
       price: editedItem ? editedItem.price : '',
-      type: 1,
+      type: editedItem ? editedItem.type : 'Pain killer',
     }
   });
 
   const submitHandler = useCallback(async () => {
 
+    // console.log("type error", formState.inputValues.type)
     if (editedItem) {
       // console.log("type", editedItem.type)
       setIsLoading(true);
@@ -174,7 +175,7 @@ const EditItemScreen = props => {
     (inputIdentifier, inputValue) => {
       let input = inputValue;
       let identifier = inputIdentifier
-      console.log("input", input, inputIdentifier)
+      // console.log("input", input, inputIdentifier)
 
       if (['General', 'Antibiotic', "Vitamin", "Pain killer"].indexOf(inputIdentifier) >= 0) {
         input = inputIdentifier;
