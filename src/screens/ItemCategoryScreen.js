@@ -24,23 +24,6 @@ const ItemCategoryScreen = props => {
                 onSelect={() => {
 
                     let route = 'ItemList';
-                    // switch (itemData.item.title) {
-                    //     case "Manage":
-                    //         route = "ManageInventory"
-                    //         break;
-                    //     case "Add Item":
-                    //         route = "AddItem"
-                    //         break;
-                    //     case "Send/Req":
-                    //         route = "Transport"
-                    //         break;
-                    //     case "Logs":
-                    //         route = "Logs"
-                    //         break;
-
-                    //     default:
-                    //         break;
-                    // }
                     props.navigation.navigate
                         ({
                             routeName: route,

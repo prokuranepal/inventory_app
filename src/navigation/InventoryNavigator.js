@@ -5,7 +5,7 @@ import CategoriesScreen from '../screens/CategoriesScreen';
 import ItemListScreen from '../screens/ItemListScreen';
 import ItemDetailScreen from '../screens/ItemDetailScreen';
 import SettingsScreen from '../screens/SettingsScreen';
-import Platform, { SafeAreaView, Text, Image, View, ScrollView } from 'react-native';
+import { Platform, SafeAreaView, Text, Image, View, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import Colors from '../constants/Colors';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
@@ -14,7 +14,7 @@ import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
 import AuthScreen from '../screens/AuthScreen';
 import EditItemScreen from '../screens/EditItemScreen';
 import ItemCategoryScreen from '../screens/ItemCategoryScreen';
-
+import SplashScreen from '../screens/Splashscreen';
 
 import ManageItemScreen from '../screens/ManageItemScreen';
 import LogsScreen from '../screens/LogsScreen';
@@ -77,7 +77,7 @@ const tabScreenConfig = {
     }
 }
 
-const InventoryTabNavigator = Platform.OS !== 'android' ?
+const InventoryTabNavigator = Platform.OS === 'android' ?
     createMaterialBottomTabNavigator(
         tabScreenConfig, {
         navigationOptions: {
@@ -92,7 +92,7 @@ const InventoryTabNavigator = Platform.OS !== 'android' ?
         activeColor: 'white',
         shifting: true,
         barStyle: {
-            backgroundColor: Colors.primaryColor
+            backgroundColor: Colors.accentColor
         },
 
     }) :
@@ -165,6 +165,7 @@ const MainNavigator = createDrawerNavigator({
     MyInventory: LogsScreenNavigator,
     Cart: LogsScreenNavigator,
     Order: LogsScreenNavigator
+
 },
     {
         contentComponent: (props) => (
@@ -192,6 +193,8 @@ const MainNavigator = createDrawerNavigator({
 )
 
 const loginNavigator = createSwitchNavigator({
+
+    Splash: SplashScreen,
     // Login: AuthScreen, //uncomment for authentication
     Tabs: MainNavigator
 }, {
