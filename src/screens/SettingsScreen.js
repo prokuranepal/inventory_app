@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Platform } from 'react-native';
 import HeaderButton from '../components/Component/HeaderButton';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import Colors from '../constants/Colors'
@@ -9,7 +9,7 @@ const SettingsScreen = props => {
     return (
         <View>
             <Text>
-                SettingsScreen
+                Settings Screen
             </Text>
         </View>
     );
