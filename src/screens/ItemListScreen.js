@@ -5,16 +5,13 @@ import { CATEGORIES } from '../data/dummy-data';
 import ItemList from '../components/UI/ItemList';
 import { useSelector, Usedispatch, useEffect } from 'react-redux';
 import DefaultText from '../components/Component/DefaultText';
-
-
+import Colors from '../constants/Colors';
 const ItemListScreen = props => {
-
-
 
     const catTitle = props.navigation.getParam('title');
 
     let availableItems = null;
-    console.log("catTitle", catTitle)
+    // console.log("catTitle", catTitle)
     let attentionMsg = null;
     switch (catTitle) {
         case "Attention":
@@ -46,13 +43,21 @@ const ItemListScreen = props => {
         <ItemList
             attentionMessage={attentionMsg}
             listData={availableItems}
-            navigation={props.navigation} />
+            navigation={props.navigation}
+            catTitle={catTitle} />
+
+
     );
 };
 
 ItemListScreen.navigationOptions = navigationData => {
+    const value = navigationData.navigation.getParam('value');
     return {
-        headerTitle: "Inventory"
+        headerTitle: value,
+        headerStyle: {
+            backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
+        }
+
     }
 };
 

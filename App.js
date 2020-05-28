@@ -7,20 +7,26 @@ import { enableScreens } from 'react-native-screens';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import itemsReducer from './src/store/reducers/items';
 import authReducer from './src/store/reducers/auth';
-
+import cartReducer from './src/store/reducers/cart';
 import { Provider } from 'react-redux';
 import ReduxThunk from 'redux-thunk';
 import ipReducer from './src/store/reducers/ip';
+
+// import { composeWithDevTools } from 'redux-devtools-extension';
+
+// const store = createStore(reducer, composeWithDevTools());
 enableScreens();
 
 const rootReducer = combineReducers({
   items: itemsReducer,
   auth: authReducer,
-  ip: ipReducer
+  ip: ipReducer,
+  cart: cartReducer,
+
 })
 
+// const store = createStore(rootReducer, composeWithDevTools());
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
-
 const fetchFonts = () => {
   return Font.loadAsync({
     'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),

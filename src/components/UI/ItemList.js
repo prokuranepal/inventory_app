@@ -13,6 +13,8 @@ const ItemList = props => {
                 quantity={itemData.item.quantity}
                 company={itemData.item.company}
                 price={itemData.item.price}
+                titles={props.catTitle}
+                id={itemData.item._id}
                 onSelectItem={() => {
                     // console.log("item clicked", itemData.item._id)
                     props.navigation.navigate({
@@ -20,6 +22,7 @@ const ItemList = props => {
                         params: {
                             itemId: itemData.item._id,
                             itemTitle: itemData.item.title,
+
                         }
                     });
                 }}
@@ -35,7 +38,6 @@ const ItemList = props => {
                 renderItem={renderInventoryItem}
                 style={{ width: '100%' }}
             />
-            {props.j}
         </View>
     );
 };
@@ -49,3 +51,4 @@ const styles = StyleSheet.create({
     }
 });
 export default ItemList;
+

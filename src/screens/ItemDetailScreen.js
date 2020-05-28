@@ -9,6 +9,8 @@ import {
 } from 'react-native';
 import DefaultText from '../components/Component/DefaultText';
 import { useSelector, useDispatch } from 'react-redux';
+import Colors from '../constants/Colors';
+
 const ListItem = props => {
     return (
         <View style={styles.listItem}>
@@ -41,7 +43,12 @@ ItemDetailScreen.navigationOptions = navigationData => {
 
     return {
         headerTitle: itemTitle,
-
+        headerStyle: {
+            backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
+        },
+        headerTitleStyle: {
+            fontFamily: 'open-sans'
+        }
 
     };
 };
