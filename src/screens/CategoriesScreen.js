@@ -22,7 +22,6 @@ const CategoriesScreen = props => {
                 iconValue={itemData.item.icon}
                 color={itemData.item.color}
                 onSelect={() => {
-
                     let route = 'CategoryItems';
                     switch (itemData.item.title) {
                         case "Manage":
@@ -31,7 +30,7 @@ const CategoriesScreen = props => {
                         case "Add Item":
                             route = "AddItem"
                             break;
-                        case "Send/Req":
+                        case "Request/Send":
                             route = "Transport"
                             break;
                         case "Logs":
@@ -40,7 +39,6 @@ const CategoriesScreen = props => {
                         case "Attention":
                             route = "ItemList"
                             break;
-
                         default:
                             break;
                     }

@@ -1,30 +1,74 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ImageBackground } from 'react-native';
-
-
+import { View, Text, StyleSheet, TouchableOpacity, ImageBackground, Button } from 'react-native';
+import Card from '../Component/Card';
+import { AntDesign } from '@expo/vector-icons';
+import * as cardActions from '../../store/actions/cart';
+import { useSelector, useDispatch } from 'react-redux';
 const InventoryItem = props => {
+    const selectedItem = useSelector(state =>
+        state.items.items
+    );
 
+    const dispatch = useDispatch();
+    const sendCardHandlrer = (id) => {
+        const selected = selectedItem.find(item => item._id === id)
+        dispatch(cardActions.addToCart(selected));
+    };
     return (
-        <View style={styles.mealItem}>
-            <TouchableOpacity onPress={props.onSelectItem} >
-                <View>
-                    <View style={{ ...styles.mealRow, ...styles.mealHeader }}>
-                        <ImageBackground source={{ uri: props.image }} style={styles.bgImage} >
-                            <View style={styles.titleContainer}>
-                                <Text style={styles.title} numberOfLines={1}>
-                                    {props.title}
-                                </Text>
+        <>
+            {props.titles !== 'Type' ?
+                <View style={styles.Item}>
+                    <TouchableOpacity onPress={props.onSelectItem} >
+                        <View>
+                            <View style={{ ...styles.Row, ...styles.Header }}>
+                                <ImageBackground source={{ uri: props.image }} style={styles.bgImage} >
+                                    <View style={styles.titleContainer}>
+                                        <Text style={styles.title} numberOfLines={1}>
+                                            {props.title}
+                                        </Text>
+                                    </View>
+                                </ImageBackground>
                             </View>
-                        </ImageBackground>
-                    </View>
-                    <View style={{ ...styles.mealRow, ...styles.mealDetails }}>
-                        <Text> {props.quantity}pcs</Text>
-                        <Text> {props.company.toUpperCase()}</Text>
-                        <Text> Rs. {props.price}/PC</Text>
-                    </View>
-                </View>
-            </TouchableOpacity>
-        </View >
+                            <View style={{ ...styles.Row, ...styles.Details }}>
+                                <Text> {props.quantity}pcs</Text>
+                                <Text> {props.company.toUpperCase()}</Text>
+                                <Text> Rs. {props.price}/PC</Text>
+
+                            </View>
+                        </View>
+                    </TouchableOpacity>
+                </View > :
+                <View style={styles.Items}>
+                    <TouchableOpacity onPress={props.onSelectItem} >
+                        <View>
+                            <Card style={styles.summary}>
+                                <ImageBackground source={{ uri: props.image }} style={{ width: '40%', height: '100%' }} />
+                                <View >
+                                    <Text style={styles.test} numberOfLines={1}>
+                                        {props.title}</Text>
+                                </View>
+                                <View>
+                                    <Text> {props.quantity}pcs</Text>
+                                    <Text> Rs. {props.price}/PC</Text>
+                                    <Text> {props.company.toUpperCase()}</Text>
+                                </View>
+                                <View >
+                                    <TouchableOpacity
+                                        onPress={() => { props.sendCardHandlrer(props.id) }}
+                                        style={styles.deleteButton}
+                                    >
+                                        <AntDesign name="pluscircleo" size={24} color='blue' onPress={() => {
+                                            sendCardHandlrer(props.id)
+                                        }}
+                                        />
+                                    </TouchableOpacity>
+
+                                </View>
+                            </Card>
+                        </View>
+                    </TouchableOpacity>
+                </View >}
+        </>
     )
 }
 
@@ -40,7 +84,7 @@ const styles = StyleSheet.create({
         color: 'white',
         textAlign: 'center'
     },
-    mealItem: {
+    Item: {
         width: '100%',
         height: 200,
         backgroundColor: '#f5f5f5',
@@ -48,15 +92,27 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
 
     },
-    mealRow: {
+    test: {
+        fontWeight: 'bold',
+        fontSize: 18
+    },
+    Items: {
+        width: '100%',
+        height: 100,
+        backgroundColor: '#f5f5f5',
+        borderRadius: 10,
+        overflow: 'hidden',
+
+    },
+    Row: {
         flexDirection: 'row',
         alignItems: 'center'
     }
     ,
-    mealHeader: {
+    Header: {
         height: '85%'
     },
-    mealDetails: {
+    Details: {
         height: '15%',
         paddingHorizontal: 10,
         justifyContent: 'space-between',
@@ -66,6 +122,20 @@ const styles = StyleSheet.create({
         width: "100%",
         height: "100%",
         justifyContent: 'flex-end'
+    },
+    summary: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        marginBottom: 20,
+        padding: 10
+    },
+    summaryText: {
+        fontFamily: 'open-sans-bold',
+        fontSize: 10
+    },
+    deleteButton: {
+        marginLeft: 20
     }
 
 })

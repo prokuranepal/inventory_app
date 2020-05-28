@@ -15,17 +15,24 @@ import AuthScreen from '../screens/AuthScreen';
 import EditItemScreen from '../screens/EditItemScreen';
 import ItemCategoryScreen from '../screens/ItemCategoryScreen';
 import SplashScreen from '../screens/Splashscreen';
-
+import OrderScreen from '../screens/OrderScreen';
+import CartScreen from '../screens/CartScreen';
 import ManageItemScreen from '../screens/ManageItemScreen';
 import LogsScreen from '../screens/LogsScreen';
 import TransportScreen from '../screens/TransportScreen';
 
 const defaultData = {
     headerStyle: {
-        backgroundColor: Platform.OS === "android" ? '' : Colors.primaryColor
+        backgroundColor: Platform.OS === 'android' ? Colors.primary : ''
     },
-    headerTintColor: Platform.OS === "android" ? Colors.primaryColor : 'white'
-}
+    headerTitleStyle: {
+        fontFamily: 'open-sans-bold'
+    },
+    headerBackTitleStyle: {
+        fontFamily: 'open-sans'
+    },
+    headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primary
+};
 
 const ItemsNavigator = createStackNavigator({
     Categories: CategoriesScreen,
@@ -68,6 +75,7 @@ const tabScreenConfig = {
     },
     ShowAll: {
         screen: ShowAllNavigator, navigationOptions: {
+            tabBarLabel: 'Show All',
             tabBarIcon: (tabInfo) => {
                 return <Ionicons name='ios-star' size={25} color={tabInfo.tintColor} />
             },
@@ -156,15 +164,54 @@ const LogsScreenNavigator = createStackNavigator({
     }
 )
 
+const CartScreenNavigator = createStackNavigator({
+    Cart: CartScreen
+}, {
+    navigationOptions: {
+        drawerIcon: drawerConfig => (
+            <Ionicons
+                name={Platform.OS === 'android' ? 'md-cart' : 'ios-cart'}
+                size={23}
+                color={drawerConfig.tintColor}
+            />
+        )
+    }
+},
+    {
+        defaultNavigationOptions: defaultData
+
+    }
+)
+
+const OrderScreenNavigator = createStackNavigator({
+    Order: OrderScreen
+}, {
+    navigationOptions: {
+        drawerIcon: drawerConfig => (
+            <Ionicons
+                name={Platform.OS === 'android' ? 'md-list' : 'ios-list'}
+                size={23}
+                color={drawerConfig.tintColor}
+            />
+        )
+    }
+},
+    {
+        defaultNavigationOptions: defaultData
+
+    }
+)
+
 
 
 const MainNavigator = createDrawerNavigator({
 
-    inventory: InventoryTabNavigator,
+    Inventory: InventoryTabNavigator,
+    Cart: CartScreenNavigator,
+    Order: OrderScreenNavigator,
+    SupplierContact: LogsScreenNavigator,
     Settings: SettingsNavigator,
-    MyInventory: LogsScreenNavigator,
-    Cart: LogsScreenNavigator,
-    Order: LogsScreenNavigator
+
 
 },
     {
