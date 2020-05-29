@@ -5,14 +5,13 @@ import {
     FlatList,
     Button,
     StyleSheet,
-    ActivityIndicator
+    Platform
 } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import HeaderButton from '../components/Component/HeaderButton';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import Colors from '../constants/Colors'
 import CartItem from '../components/UI/CartItem';
-import Card from '../components/Component/Card';
 import * as cartActions from '../store/actions/cart';
 
 
@@ -35,41 +34,44 @@ const CartScreen = props => {
     });
 
     const dispatch = useDispatch();
+
     const sendOrderHandler = () => {
         console.log("order")
     };
-
+    const sendAddHandler = () => {
+        props.navigation.navigate('Add')
+    };
     return (
         <View style={styles.screen}>
-            <Text style={styles.title}>ALL LIST OF ITEMS</Text>
-            <View>
-                <FlatList
-                    data={cartItems}
-                    keyExtractor={item => item.itemId}
-                    renderItem={itemData => (
-                        <CartItem
-                            quantity={itemData.item.quantity}
-                            title={itemData.item.itemTitle}
-                            deletable
-                            onRemove={() => {
-                                dispatch(cartActions.removeFromCart(itemData.item.itemId));
-                            }}
-                        />
-                    )}
-                />
-            </View>
+
+            {cartItems.length !== 0 ?
+                <>
+                    <Text style={styles.title}> LIST OF MEDICINES</Text>
+                    <FlatList
+                        data={cartItems}
+                        keyExtractor={item => item.itemId}
+                        renderItem={itemData => (
+                            <CartItem
+                                quantity={itemData.item.quantity}
+                                title={itemData.item.itemTitle}
+                                deletable
+                                onRemove={() => {
+                                    dispatch(cartActions.removeFromCart(itemData.item.itemId));
+                                }}
+                            />
+                        )}
+                    /></> : <Text style={styles.title}>No Medicine in cart</Text>}
 
             <View style={styles.buttonContainer}>
                 <Button
                     color={Colors.accent}
                     title="Order Now"
                     disabled={cartItems.length === 0}
-                    onPress={sendOrderHandler}
-
-                />
-
+                    onPress={sendOrderHandler} />
             </View>
-
+            <View style={styles.buttonContainer}>
+                <Button title="ADD ITEM" onPress={sendAddHandler} />
+            </View>
 
         </View>
     );
@@ -97,33 +99,16 @@ CartScreen.navigationOptions = navData => {
 const styles = StyleSheet.create({
     screen: {
         margin: 20,
-
-    },
-    summary: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        marginBottom: 20,
-        padding: 10
-    },
-    summaryText: {
-        fontFamily: 'open-sans-bold',
-        fontSize: 18
-    },
-    amount: {
-        color: Colors.primary
+        flex: 1
     },
     title: {
         fontSize: 20,
 
     },
     buttonContainer: {
-        width: '100%',
-        height: '30%',
         justifyContent: 'center',
         alignItems: 'center',
-
-
+        marginBottom: 20
     }
 });
 

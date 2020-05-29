@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-
+import Colors from '../constants/Colors'
 
 
 const TransportScreen = props => {
@@ -14,7 +14,17 @@ const TransportScreen = props => {
     );
 };
 
-
+TransportScreen.navigationOptions = navData => {
+    return {
+        headerTitle: 'Inventory',
+        headerStyle: {
+            backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
+        },
+        headerTitleStyle: {
+            fontFamily: 'open-sans'
+        },
+    }
+};
 
 
 export default TransportScreen;

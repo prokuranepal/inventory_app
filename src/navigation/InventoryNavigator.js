@@ -20,6 +20,7 @@ import CartScreen from '../screens/CartScreen';
 import ManageItemScreen from '../screens/ManageItemScreen';
 import LogsScreen from '../screens/LogsScreen';
 import TransportScreen from '../screens/TransportScreen';
+import AddItemScreen from '../screens/AddScreen';
 
 const defaultData = {
     headerStyle: {
@@ -42,6 +43,7 @@ const ItemsNavigator = createStackNavigator({
     AddItem: EditItemScreen,
     ManageInventory: ManageItemScreen,
     Transport: TransportScreen,
+    Add: AddItemScreen,
     Logs: LogsScreen
 }, {
 

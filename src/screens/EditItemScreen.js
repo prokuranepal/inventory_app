@@ -16,9 +16,7 @@ import HeaderButton from '../components/Component/HeaderButton';
 import { useDispatch } from 'react-redux';
 import * as itemsActions from '../store/actions/items';
 import { Ionicons } from '@expo/vector-icons';
-
 import Input from '../components/UI/Input';
-import { Button } from 'react-native-paper';
 import IconButton from '../components/Component/IconButton';
 import Colors from '../constants/Colors';
 const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE';
@@ -304,6 +302,12 @@ EditItemScreen.navigationOptions = navData => {
   const submitFn = navData.navigation.getParam('submit');
   return {
     headerTitle: 'Add Product',
+    headerStyle: {
+      backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
+    },
+    headerTitleStyle: {
+      fontFamily: 'open-sans'
+    },
     headerRight: () => (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
