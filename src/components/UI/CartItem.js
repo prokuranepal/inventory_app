@@ -4,17 +4,18 @@ import {
     Text,
     StyleSheet,
     TouchableOpacity,
-    Platform
 } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
 import Card from '../Component/Card'
+import { Entypo, FontAwesome5 } from '@expo/vector-icons';
 const CartItem = props => {
     return (
 
         <View>
             <Card style={styles.cartItem}>
                 <View style={styles.itemData}>
-
+                    <FontAwesome5 name="capsules" size={24} color="black" />
+                </View>
+                <View>
                     <Text style={styles.mainText}>{props.title}</Text>
                     <Text style={styles.quantity}>Qty:{props.quantity} </Text>
                 </View>
@@ -25,11 +26,8 @@ const CartItem = props => {
                             onPress={props.onRemove}
                             style={styles.deleteButton}
                         >
-                            <Ionicons
-                                name={Platform.OS === 'android' ? 'md-trash' : 'ios-trash'}
-                                size={23}
-                                color="red"
-                            />
+                            <Entypo name="cross" size={24} color="black" size={23}
+                                color="red" />
                         </TouchableOpacity>
                     )}
                 </View>
@@ -56,7 +54,7 @@ const styles = StyleSheet.create({
         fontFamily: 'open-sans',
         color: '#888',
         fontSize: 16,
-        paddingLeft: 40
+        paddingLeft: 10
     },
     mainText: {
         fontFamily: 'open-sans-bold',

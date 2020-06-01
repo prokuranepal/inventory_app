@@ -12,7 +12,8 @@ const InventoryItem = props => {
     const dispatch = useDispatch();
     const sendCardHandlrer = (id) => {
         const selected = selectedItem.find(item => item._id === id)
-        dispatch(cardActions.addToCart(selected));
+        dispatch(cardActions.addToCart(selected, 1));
+        // console.log(selected)
     };
     return (
         <>

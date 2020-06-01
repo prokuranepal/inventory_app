@@ -16,9 +16,7 @@ import HeaderButton from '../components/Component/HeaderButton';
 import { useDispatch } from 'react-redux';
 import * as itemsActions from '../store/actions/items';
 import { Ionicons } from '@expo/vector-icons';
-
 import Input from '../components/UI/Input';
-import { Button } from 'react-native-paper';
 import IconButton from '../components/Component/IconButton';
 import Colors from '../constants/Colors';
 const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE';
@@ -29,19 +27,33 @@ const formReducer = (state, action) => {
       ...state.inputValues,
       [action.input]: action.value
     };
-
+    const updatedValidities = {
+      ...state.inputValidities,
+      [action.input]: action.isValid
+    };
+    let updatedFormIsValid = true;
+    for (const key in updatedValidities) {
+      updatedFormIsValid = updatedFormIsValid && updatedValidities[key];
+      // console.log(updatedFormIsValid, updatedValidities[key], action.isValid)
+    }
     return {
+      formIsValid: updatedFormIsValid,
+      inputValidities: updatedValidities,
       inputValues: updatedValues
     };
+
   }
   return state;
 };
+
+
 
 
 const EditItemScreen = props => {
   const dispatch = useDispatch();
   const itemId = props.navigation.getParam('itemId');
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState();
   // console.log("Editscreen ", itemId)
   let editedItem = null;
   let deleteComponent = null;
@@ -99,9 +111,6 @@ const EditItemScreen = props => {
         ],
         { cancelable: false }
       )
-
-
-
     }, [dispatch, setIsLoading]);
 
     deleteComponent = <IconButton
@@ -124,47 +133,77 @@ const EditItemScreen = props => {
       quantity: editedItem ? editedItem.quantity : '',
       price: editedItem ? editedItem.price : '',
       type: editedItem ? editedItem.type : 'Pain killer',
-    }
+    },
+    inputValidities: {
+      title: editedItem ? true : false,
+      company: editedItem ? true : false,
+      description: editedItem ? true : false,
+      quantity: editedItem ? true : false,
+      price: editedItem ? true : false,
+      type: editedItem ? true : false,
+    },
+    formIsValid: editedItem ? true : false
   });
 
+
+
+
+  useEffect(() => {
+    if (error) {
+      Alert.alert('An error occurred!', error, [{ text: 'Okay' }]);
+    }
+  }, [error]);
+
   const submitHandler = useCallback(async () => {
+    // console.log(formState.formIsValid, editedItem, !!editedItem)
+    if (!formState.formIsValid) {
+      Alert.alert('Wrong input!', 'Please check the errors in the form.', [
+        { text: 'Okay' }
+      ]);
+      return;
+    }
 
+    setError(null);
+    setIsLoading(true);
     // console.log("type error", formState.inputValues.type)
-    if (editedItem) {
-      // console.log("type", editedItem.type)
-      setIsLoading(true);
+    try {
+      if (editedItem) {
+        // console.log("type", editedItem.type)
+        // setIsLoading(true);
 
-      await dispatch(
-        itemsActions.updateItem(
-          itemId,
-          formState.inputValues.title,
-          formState.inputValues.company,
-          +formState.inputValues.quantity,
-          formState.inputValues.description,
-          +formState.inputValues.price,
-          editedItem.image,
-          formState.inputValues.type
-        )
-      );
-    } else {
+        await dispatch(
+          itemsActions.updateItem(
+            itemId,
+            formState.inputValues.title,
+            formState.inputValues.company,
+            +formState.inputValues.quantity,
+            formState.inputValues.description,
+            +formState.inputValues.price,
+            editedItem.image,
+            formState.inputValues.type
+          )
+        );
+      } else {
 
-      await dispatch(
-        itemsActions.addItems(
-          formState.inputValues.title,
-          formState.inputValues.company,
-          +formState.inputValues.quantity,
-          formState.inputValues.description,
-          +formState.inputValues.price,
-          formState.inputValues.type
+        await dispatch(
+          itemsActions.addItems(
+            formState.inputValues.title,
+            formState.inputValues.company,
+            +formState.inputValues.quantity,
+            formState.inputValues.description,
+            +formState.inputValues.price,
+            formState.inputValues.type
 
-        )
-      );
+          )
+        );
+      }
+      props.navigation.goBack();
+    } catch (err) {
+      setError(err.message);
     }
     setIsLoading(false);
-    props.navigation.goBack();
 
-
-  }, [dispatch, formState, setIsLoading]);
+  }, [dispatch, formState, itemId]);
 
   useEffect(() => {
     props.navigation.setParams({ submit: submitHandler });
@@ -172,23 +211,30 @@ const EditItemScreen = props => {
 
   const inputChangeHandler = useCallback(
 
-    (inputIdentifier, inputValue) => {
+    (inputIdentifier, inputValue, inputValidity) => {
       let input = inputValue;
       let identifier = inputIdentifier
-      // console.log("input", input, inputIdentifier)
 
       if (['General', 'Antibiotic', "Vitamin", "Pain killer"].indexOf(inputIdentifier) >= 0) {
         input = inputIdentifier;
         identifier = "type";
+        inputValidity = 'true'
       }
+      // console.log("input", !!editedItem)
+
       dispatchFormState({
         type: FORM_INPUT_UPDATE,
         value: input,
+        isValid: inputValidity,
         input: identifier
       });
     },
     [dispatchFormState]
   );
+
+
+
+
   if (isLoading) {
     return (
       <View style={styles.centered}>
@@ -199,6 +245,7 @@ const EditItemScreen = props => {
 
   return (
     <KeyboardAvoidingView
+      style={{ flex: 1 }}
       behavior="padding"
       keyboardVerticalOffset={20}
     >
@@ -214,6 +261,7 @@ const EditItemScreen = props => {
             onInputChange={inputChangeHandler}
             returnKeyType="next"
             initialValue={editedItem ? editedItem.title : ''}
+            initiallyValid={!!editedItem}
             required
           />
           <Input
@@ -226,9 +274,11 @@ const EditItemScreen = props => {
             autoCorrect
             initialValue={editedItem ? editedItem.company : ''}
             returnKeyType="next"
+            initiallyValid={!!editedItem}
             required
           />
           <Text style={styles.label}>{"Category"}</Text>
+
 
           <RNPickerSelect
             onValueChange={inputChangeHandler}
@@ -253,18 +303,19 @@ const EditItemScreen = props => {
               },
             }}
 
-            items={
-              categories}
+            items={categories}
           />
+
           <Input
             id="quantity"
             label="Quantity in pcs"
-            errorText="Please enter a valid image url!"
+            errorText="Please enter a valid quantity"
             keyboardType="numeric"
             onInputChange={inputChangeHandler}
             returnKeyType="next"
             initialValue={editedItem ? `${editedItem.quantity}` : ''}//to convert into string
             required
+            initiallyValid={!!editedItem}
           />
 
           <Input
@@ -277,6 +328,7 @@ const EditItemScreen = props => {
             required
             initialValue={editedItem ? `${editedItem.price}` : ''}//to convert into string
             min={0.1}
+            initiallyValid={!!editedItem}
           />
 
           <Input
@@ -292,6 +344,7 @@ const EditItemScreen = props => {
             numberOfLines={3}
             required
             minLength={5}
+            initiallyValid={!!editedItem}
           />
           {deleteComponent}
         </View>
@@ -304,6 +357,12 @@ EditItemScreen.navigationOptions = navData => {
   const submitFn = navData.navigation.getParam('submit');
   return {
     headerTitle: 'Add Product',
+    headerStyle: {
+      backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
+    },
+    headerTitleStyle: {
+      fontFamily: 'open-sans'
+    },
     headerRight: () => (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
@@ -361,3 +420,10 @@ const pickerSelectStyles = StyleSheet.create({
 });
 
 export default EditItemScreen;
+
+
+
+
+
+
+
