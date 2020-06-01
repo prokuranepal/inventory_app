@@ -1,4 +1,4 @@
-import React, { useCallback, useReducer, useEffect } from 'react';
+import React, { useCallback, useReducer, useEffect, useState } from 'react';
 import {
     View,
     ScrollView,
@@ -6,6 +6,7 @@ import {
     Platform,
     Text,
     Button,
+    Alert,
     KeyboardAvoidingView,
     TouchableOpacity
 } from 'react-native';
@@ -23,10 +24,19 @@ const formReducer = (state, action) => {
         const updatedValues = {
             ...state.inputValues,
             [action.input]: action.value
+        }
+        const updatedValidities = {
+            ...state.inputValidities,
+            [action.input]: action.isValid
         };
-
+        let updatedFormIsValid = true;
+        for (const key in updatedValidities) {
+            updatedFormIsValid = updatedFormIsValid && updatedValidities[key];
+        }
         return {
-            inputValues: updatedValues
+            formIsValid: updatedFormIsValid,
+            inputValidities: updatedValidities,
+            inputValues: updatedValues,
         };
     }
     return state;
@@ -35,21 +45,11 @@ const formReducer = (state, action) => {
 
 const AddScreen = props => {
 
+    const selectedItem = useSelector(state =>
+        state.items.items
+    );
+
     const dispatch = useDispatch();
-    // const categories = [{
-    //     label: "Pain killer",
-    //     value: "Pain killer",
-    // }, {
-    //     label: "Vitamin",
-    //     value: 'Vitamin',
-    // }, {
-    //     label: "Antibiotic",
-    //     value: 'Antibiotic',
-    // },
-    // {
-    //     label: "General",
-    //     value: 'General',
-    // }];
     const categories = [{
         label: "Sinex",
         value: "Sinex",
@@ -80,37 +80,65 @@ const AddScreen = props => {
         label: 'Neurobion',
         value: 'Neurobion',
     }];
+
     const [formState, dispatchFormState] = useReducer(formReducer, {
         inputValues: {
             title: '',
             quantity: '',
-        }
+        },
+        inputValidities: {
+            title: '' ? false : true,
+            quantity: '' ? false : true,
+        },
+        formIsValid: !'' ? true : false
+
     });
-    const selectedItem = useSelector(state =>
-        state.items.items
-    );
+
+
+
 
     const submitHandler = () => {
+        // console.log(formState.formIsValid)
+        if (!formState.formIsValid) {
+            Alert.alert('Wrong input!', 'Please check the errors in the form.', [
+                { text: 'Okay' }
+            ]);
+            return;
+        }
 
-        const selected = selectedItem.find(item => item.title === formState.inputValues.title)
-        dispatch(cardActions.addToCart(selected, +formState.inputValues.quantity));
-        props.navigation.pop();
+        // const selected = selectedItem.find(item => item.title === formState.inputValues.title)
+        // console.log(formState.inputValues.title, formState.inputValues.quantity)
+        if (formState.inputValues.title === '' || undefined) {
+            alert(`Please enter the medicine type`);
+        }
+        else {
+            let selected = selectedItem.find(item => item.title === formState.inputValues.title)
+            // console.log(selected)
+            dispatch(cardActions.addToCart(selected, +formState.inputValues.quantity));
+            props.navigation.pop();
+            // console.log("hello")
+        }
     }
 
     const inputChangeHandler = useCallback(
-        (inputIdentifier, inputValue) => {
+        (inputIdentifier, inputValue, inputValidity) => {
             let input = inputValue;
             let identifier = inputIdentifier
             if (['Sinex', 'Antacids', 'Antibiotics', 'Electrobion', 'Paracetamol',
                 'Digene', 'Neurobion', 'Masks'].indexOf(inputIdentifier) >= 0) {
                 input = inputIdentifier;
                 identifier = "title";
+                inputValidity = 'true'
             }
+
             dispatchFormState({
                 type: FORM_INPUT_UPDATE,
                 value: input,
+                isValid: inputValidity,
                 input: identifier
+
             });
+
         }, [dispatchFormState]);
 
     return (
@@ -120,23 +148,12 @@ const AddScreen = props => {
         >
             <ScrollView>
                 <View style={styles.form}>
-                    {/* <Input
-                        id="title"
-                        label="Medicine Name"
-                        errorText="Please enter a valid medicine name"
-                        keyboardType="default"
-                        autoCapitalize="sentences"
-                        autoCorrect
-                        onInputChange={inputChangeHandler}
-                        returnKeyType="next"
-                        initialValue=''
-                        required
-                    /> */}
 
                     <Text style={styles.label}>{"Medicine Type"}</Text>
                     <RNPickerSelect
                         onValueChange={inputChangeHandler}
                         useNativeAndroidPickerStyle={false}
+                        // errorText="Please enter type"
                         placeholder={{
                             label: 'Select a Medicine Type',
                             value: '',
@@ -158,22 +175,25 @@ const AddScreen = props => {
                         }}
                         items={categories}
                     />
-
                     <Input
                         id="quantity"
                         label="Quantity in pcs"
-                        errorText="Please enter correct quantity"
+                        errorText="Please enter  quantity"
                         keyboardType="numeric"
                         onInputChange={inputChangeHandler}
                         returnKeyType="next"
                         initialValue=''
+                        initiallyValid={false}
                         required
+
                     />
                 </View>
 
                 <View style={styles.buttonContainer}>
                     <TouchableOpacity >
-                        <Button title="Add" color={Colors.accent} onPress={submitHandler} />
+                        <Button title="Add" color={Colors.accent}
+                            // disabled={cartItems.length === 0}
+                            onPress={submitHandler} />
                     </TouchableOpacity>
                 </View>
             </ScrollView>

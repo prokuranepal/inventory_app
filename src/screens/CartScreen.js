@@ -5,7 +5,8 @@ import {
     FlatList,
     Button,
     StyleSheet,
-    Platform
+    Platform,
+    ActivityIndicator
 } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import HeaderButton from '../components/Component/HeaderButton';
@@ -13,10 +14,11 @@ import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import Colors from '../constants/Colors'
 import CartItem from '../components/UI/CartItem';
 import * as cartActions from '../store/actions/cart';
+import * as ordersActions from '../store/actions/orders';
 
 
 const CartScreen = props => {
-
+    const [isLoading, setIsLoading] = useState(false);
     const cartItems = useSelector(state => {
         const transformedCartItems = [];
         for (const key in state.cart.items) {
@@ -35,9 +37,15 @@ const CartScreen = props => {
 
     const dispatch = useDispatch();
 
+
     const sendOrderHandler = () => {
-        console.log("order")
+        // setIsLoading(true);
+        dispatch(ordersActions.addOrder(cartItems));
+        // setIsLoading(false);
+        props.navigation.navigate('Order')
     };
+
+
     const sendAddHandler = () => {
         props.navigation.navigate('Add')
     };
@@ -63,11 +71,15 @@ const CartScreen = props => {
                     /></> : <Text style={styles.title}>No Medicine in cart</Text>}
 
             <View style={styles.buttonContainer}>
+                {/* {isLoading ? (
+                    <ActivityIndicator size="small" color={Colors.primary} />
+                ) : ( */}
                 <Button
                     color={Colors.accent}
                     title="Order Now"
                     disabled={cartItems.length === 0}
                     onPress={sendOrderHandler} />
+                {/* )} */}
             </View>
             <View style={styles.buttonContainer}>
                 <Button title="ADD ITEM" onPress={sendAddHandler} />

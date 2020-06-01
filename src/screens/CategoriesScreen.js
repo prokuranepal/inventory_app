@@ -7,7 +7,7 @@ import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import HeaderButton from '../components/Component/HeaderButton';
 import { useDispatch } from 'react-redux';
 import * as itemsActions from '../store/actions/items';
-
+import { AntDesign } from '@expo/vector-icons';
 
 const CategoriesScreen = props => {
     const dispatch = useDispatch();
@@ -82,6 +82,12 @@ CategoriesScreen.navigationOptions = navData => {
                     navData.navigation.toggleDrawer()
                 }} />
             </HeaderButtons>
+        ),
+        headerRight: () => (
+            <AntDesign name="qrcode" size={24} color="white" onPress={() => {
+                // <AntDesign name="qrcode" size={24} color="black" />
+                navData.navigation.navigate('Scanner')
+            }} />
         )
     }
 }
@@ -92,7 +98,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     }
-    ,
+
 
 })
 

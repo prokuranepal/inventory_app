@@ -21,6 +21,8 @@ import ManageItemScreen from '../screens/ManageItemScreen';
 import LogsScreen from '../screens/LogsScreen';
 import TransportScreen from '../screens/TransportScreen';
 import AddItemScreen from '../screens/AddScreen';
+import ScannerScreen from '../screens/ScannerScreen';
+import OrderListScreen from '../screens/OrderListScreen';
 
 const defaultData = {
     headerStyle: {
@@ -44,7 +46,11 @@ const ItemsNavigator = createStackNavigator({
     ManageInventory: ManageItemScreen,
     Transport: TransportScreen,
     Add: AddItemScreen,
-    Logs: LogsScreen
+    Logs: LogsScreen,
+    Order: OrderScreen,
+    Scanner: ScannerScreen,
+    OrderList: OrderListScreen,
+
 }, {
 
     defaultNavigationOptions: defaultData
@@ -185,8 +191,8 @@ const CartScreenNavigator = createStackNavigator({
     }
 )
 
-const OrderScreenNavigator = createStackNavigator({
-    Order: OrderScreen
+const OrderScreenListNavigator = createStackNavigator({
+    OrderList: OrderListScreen
 }, {
     navigationOptions: {
         drawerIcon: drawerConfig => (
@@ -210,7 +216,7 @@ const MainNavigator = createDrawerNavigator({
 
     Inventory: InventoryTabNavigator,
     Cart: CartScreenNavigator,
-    Order: OrderScreenNavigator,
+    OrderList: OrderScreenListNavigator,
     SupplierContact: LogsScreenNavigator,
     Settings: SettingsNavigator,
 

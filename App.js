@@ -11,7 +11,7 @@ import cartReducer from './src/store/reducers/cart';
 import { Provider } from 'react-redux';
 import ReduxThunk from 'redux-thunk';
 import ipReducer from './src/store/reducers/ip';
-
+import orderReducer from './src/store/reducers/orders';
 // import { composeWithDevTools } from 'redux-devtools-extension';
 
 // const store = createStore(reducer, composeWithDevTools());
@@ -22,7 +22,7 @@ const rootReducer = combineReducers({
   auth: authReducer,
   ip: ipReducer,
   cart: cartReducer,
-
+  orders: orderReducer
 })
 
 // const store = createStore(rootReducer, composeWithDevTools());
