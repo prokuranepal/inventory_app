@@ -1,7 +1,7 @@
 import Category from "../models/category";
 import Item from "../models/item";
 import Type from "../models/type";
-
+import Contact from '../models/contact';
 
 export const CATEGORIES = [
 
@@ -146,4 +146,12 @@ export const ITEMS = [
     'Paracetamol (acetaminophen) is a pain reliever and a fever reducer. The exact mechanism of action of is not known. Paracetamol is used to treat many conditions such as headache, muscle aches, arthritis, backache, toothaches, colds, and fevers.',
     'General'
   )
+];
+
+
+export const CONTACTS = [
+  new Contact("t1", "Supplier1", 333333, "Kathmandu"),
+  new Contact("t2", "Supplier2", 55555, "kupondole"),
+  new Contact("t3", "Supplier3", 66666, "jhapa"),
+  new Contact("t4", "Supplier4", 7777, "dharan")
 ];

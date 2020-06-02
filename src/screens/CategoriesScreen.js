@@ -83,12 +83,12 @@ CategoriesScreen.navigationOptions = navData => {
                 }} />
             </HeaderButtons>
         ),
-        headerRight: () => (
-            <AntDesign name="qrcode" size={24} color="white" onPress={() => {
-                // <AntDesign name="qrcode" size={24} color="black" />
-                navData.navigation.navigate('Scanner')
-            }} />
-        )
+        // headerRight: () => (
+        //     <AntDesign name="qrcode" size={24} color="white" onPress={() => {
+        //         // <AntDesign name="qrcode" size={24} color="black" />
+        //         navData.navigation.navigate('Scanner')
+        //     }} />
+        // )
     }
 }
 
