@@ -23,7 +23,7 @@ import TransportScreen from '../screens/TransportScreen';
 import AddItemScreen from '../screens/AddScreen';
 import ScannerScreen from '../screens/ScannerScreen';
 import OrderListScreen from '../screens/OrderListScreen';
-
+import SupplierContactScreen from '../screens/SupplierContactScreen';
 const defaultData = {
     headerStyle: {
         backgroundColor: Platform.OS === 'android' ? Colors.primary : ''
@@ -50,6 +50,8 @@ const ItemsNavigator = createStackNavigator({
     Order: OrderScreen,
     Scanner: ScannerScreen,
     OrderList: OrderListScreen,
+    SupplierContact: SupplierContactScreen
+
 
 }, {
 
@@ -153,13 +155,15 @@ const SettingsNavigator = createStackNavigator({
 )
 
 
-const LogsScreenNavigator = createStackNavigator({
-    Logs: LogsScreen
+
+
+const SupplierContactScreenNavigator = createStackNavigator({
+    SupplierContact: SupplierContactScreen
 }, {
     navigationOptions: {
         drawerIcon: drawerConfig => (
             <Ionicons
-                name={Platform.OS === 'android' ? 'md-create' : 'ios-create'}
+                name={Platform.OS === 'android' ? 'md-contact' : 'ios-contact'}
                 size={23}
                 color={drawerConfig.tintColor}
             />
@@ -217,7 +221,7 @@ const MainNavigator = createDrawerNavigator({
     Inventory: InventoryTabNavigator,
     Cart: CartScreenNavigator,
     OrderList: OrderScreenListNavigator,
-    SupplierContact: LogsScreenNavigator,
+    SupplierContact: SupplierContactScreenNavigator,
     Settings: SettingsNavigator,
 
 
