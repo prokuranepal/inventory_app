@@ -19,11 +19,11 @@ import OrderScreen from '../screens/OrderScreen';
 import CartScreen from '../screens/CartScreen';
 import ManageItemScreen from '../screens/ManageItemScreen';
 import LogsScreen from '../screens/LogsScreen';
-import TransportScreen from '../screens/TransportScreen';
 import AddItemScreen from '../screens/AddScreen';
 import ScannerScreen from '../screens/ScannerScreen';
 import OrderListScreen from '../screens/OrderListScreen';
 import SupplierContactScreen from '../screens/SupplierContactScreen';
+import ReceivedItemScreen from '../screens/ReceivedItemScreen';
 const defaultData = {
     headerStyle: {
         backgroundColor: Platform.OS === 'android' ? Colors.primary : ''
@@ -44,14 +44,13 @@ const ItemsNavigator = createStackNavigator({
     ItemDetail: ItemDetailScreen,
     AddItem: EditItemScreen,
     ManageInventory: ManageItemScreen,
-    Transport: TransportScreen,
     Add: AddItemScreen,
     Logs: LogsScreen,
     Order: OrderScreen,
     Scanner: ScannerScreen,
     OrderList: OrderListScreen,
-    SupplierContact: SupplierContactScreen
-
+    SupplierContact: SupplierContactScreen,
+    ReceivedItemList: ReceivedItemScreen
 
 }, {
 

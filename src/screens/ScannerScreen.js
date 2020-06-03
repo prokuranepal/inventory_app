@@ -4,7 +4,7 @@ import { BarCodeScanner } from 'expo-barcode-scanner';
 import HeaderButton from '../components/Component/HeaderButton';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import Colors from '../constants/Colors'
-import * as itemsActions from '../store/actions/items';
+// import * as itemsActions from '../store/actions/items';
 import { useDispatch } from 'react-redux';
 
 const ScannerScreen = props => {
@@ -29,19 +29,25 @@ const ScannerScreen = props => {
 
         setitems(data);
         // console.log("item", data)
-        dispatch(
-            itemsActions.addItems(
-                data,
-                'BGuys',
-                5,
-                'Paracetamol (acetaminophen) is a pain reliever and a fever reducer',
-                30,
-                'General'
+        // dispatch(
+        //     itemsActions.addItems(
+        //         data,
+        //         'BGuys',
+        //         5,
+        //         'Paracetamol (acetaminophen) is a pain reliever and a fever reducer',
+        //         30,
+        //         'General'
 
-            )
-        );
-        alert(`Items has been added to inventory`);
-        props.navigation.goBack()
+        //     )
+        // );
+        // alert(`Items has been added to inventory`);
+        props.navigation.navigate
+            ({
+                routeName: 'ReceivedItemList',
+                params: {
+                    data: data
+                }
+            })
 
     };
 

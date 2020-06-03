@@ -6,7 +6,7 @@ import Colors from '../../constants/Colors';
 import Card from '../Component/Card';
 
 const OrderItem = props => {
-    const [showDetails, setShowDetails] = useState(false);
+    // const [showDetails, setShowDetails] = useState(false);
 
     return (
         <Card style={styles.orderItem}>
@@ -14,24 +14,24 @@ const OrderItem = props => {
                 {/* <Text style={styles.totalAmount}>${props.amount.toFixed(2)}</Text> */}
                 <Text style={styles.date}>{props.date}</Text>
             </View>
-            <Button
+            {/* <Button
                 color={Colors.primary}
                 title={showDetails ? 'Hide Details' : 'Show Details'}
                 onPress={() => {
                     setShowDetails(prevState => !prevState);
                 }}
-            />
-            {showDetails && (
-                <View style={styles.detailItems}>
-                    {props.items.map(cartItem => (
-                        <CartItem
-                            key={cartItem.itemId}
-                            quantity={cartItem.quantity}
-                            title={cartItem.itemTitle}
-                        />
-                    ))}
-                </View>
-            )}
+            /> */}
+            {/* {showDetails && ( */}
+            <View style={styles.detailItems}>
+                {props.items.map(cartItem => (
+                    <CartItem
+                        key={cartItem.itemId}
+                        quantity={cartItem.quantity}
+                        title={cartItem.itemTitle}
+                    />
+                ))}
+            </View>
+            {/* )} */}
         </Card>
     );
 };
