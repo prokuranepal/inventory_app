@@ -35,7 +35,7 @@ const Input = props => {
     // console.log(inputState.isValid)
     const textChangeHandler = text => {
         let isValid = true;
-        if (props.required && text.trim().length === 0) {
+        if (props.required && text.length === 0) {
             isValid = false;
         }
 
