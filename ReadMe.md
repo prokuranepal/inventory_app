@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.com/Swainstha/inventory_app.svg?branch=inventory)](https://travis-ci.com/Swainstha/inventory_app)
+[![Build Status](https://travis-ci.org/prokuranepal/inventory_app.svg?branch=inventory)](https://travis-ci.org/prokuranepal/inventory_app)
 
-[![Coverage Status](https://coveralls.io/repos/github/Swainstha/inventory_app/badge.svg?branch=inventory)](https://coveralls.io/github/Swainstha/inventory_app?branch=inventory)
+[![Coverage Status](https://coveralls.io/repos/github/prokuranepal/inventory_app/badge.svg?branch=inventory)](https://coveralls.io/github/prokuranepal/inventory_app?branch=inventory)
 
 ### Inventory Management System (Mobile App)
 
