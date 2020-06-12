@@ -1,4 +1,4 @@
-import { AsyncStorage } from 'react-native';
+// import { AsyncStorage } from 'react-native';
 export const AUTHENTICATION = 'AUTHENTICATION';
 export const SWITCH_MODE = 'SWITCH_MODE';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
