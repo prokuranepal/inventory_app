@@ -14,4 +14,4 @@ after_script: # Upload coverage reports
 
 branches:
   only:
-  - master
+  - inventory
