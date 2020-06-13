@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button view/> renders correctly 1`] = `
+<Text
+  style={
+    Object {
+      "backgroundColor": "transparent",
+      "color": "#29aaf4",
+    }
+  }
+/>
+`;

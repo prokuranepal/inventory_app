@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<card view/> renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "white",
+      "borderRadius": 10,
+      "elevation": 5,
+      "shadowColor": "black",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.26,
+      "shadowRadius": 8,
+    }
+  }
+/>
+`;

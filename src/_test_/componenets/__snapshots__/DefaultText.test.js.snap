@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<text render/> renders correctly 1`] = `
+<Text
+  style={
+    Object {
+      "fontFamily": "open-sans",
+      "textAlign": "justify",
+    }
+  }
+>
+   
+</Text>
+`;
