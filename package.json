@@ -16,6 +16,7 @@
     "expo": "~37.0.3",
     "expo-barcode-scanner": "^8.1.0",
     "expo-font": "~8.1.0",
+    "jest-enzyme": "^7.1.2",
     "mem": ">=4.0.0",
     "moment": "^2.26.0",
     "react": "~16.9.0",
@@ -35,6 +36,7 @@
     "react-native-safe-area-context": "0.7.3",
     "react-native-screens": "^2.2.0",
     "react-native-sms": "^1.11.0",
+    "react-native-testing-library": "^2.0.1",
     "react-native-web": "~0.11.7",
     "react-navigation": "^4.3.7",
     "react-navigation-drawer": "^2.4.11",
@@ -50,6 +52,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",
+    "babel-jest": "^26.0.1",
     "babel-preset-expo": "~8.1.0",
     "coveralls": "^3.1.0",
     "enzyme": "^3.11.0",
@@ -61,6 +64,7 @@
   "private": true,
   "jest": {
     "preset": "react-native",
-    "testEnvironment": "jsdom"
+    "testEnvironment": "jsdom",
+    "verbose": true
   }
 }
