@@ -1,77 +1,111 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ImageBackground, Button } from 'react-native';
+import React, { useState } from 'react';
+import {
+    View, Text, StyleSheet, TouchableOpacity, ImageBackground, ToastAndroid,
+    Platform,
+    AlertIOS,
+    Button
+} from 'react-native';
+import { BackHandler } from 'react-native';
 import Card from '../Component/Card';
 import { AntDesign } from '@expo/vector-icons';
 import * as cardActions from '../../store/actions/cart';
 import { useSelector, useDispatch } from 'react-redux';
+import ModalComponent from '../Component/ModalComponent';
 const InventoryItem = props => {
     const selectedItem = useSelector(state =>
         state.items.items
     );
 
     const dispatch = useDispatch();
+    const [isModalVisible, setModalVisibility] = useState(false);
+    const [selectedItemCart, setSelectedItemCart] = useState('');
+
+
     const sendCardHandlrer = (id) => {
         const selected = selectedItem.find(item => item._id === id)
-        dispatch(cardActions.addToCart(selected, 1));
+        if (Platform.OS === 'android') {
+            ToastAndroid.show(selected.title + " has been added to cart", ToastAndroid.SHORT)
+        } else {
+            AlertIOS.alert(selected.title + " has been added to cart");
+        }
+        // dispatch(cardActions.addToCart(selected, 1));
+        setModalVisibility(true);
+        setSelectedItemCart(selected.title);
+
         // console.log(selected)
     };
+    const buttonPressHandler = () => {
+        setModalVisibility(false);
+    }
+
     return (
-        <>
-            {props.titles !== 'Type' ?
-                <View style={styles.Item}>
-                    <TouchableOpacity onPress={props.onSelectItem} >
-                        <View>
-                            <View style={{ ...styles.Row, ...styles.Header }}>
-                                <ImageBackground source={{ uri: props.image }} style={styles.bgImage} >
-                                    <View style={styles.titleContainer}>
-                                        <Text style={styles.title} numberOfLines={1}>
-                                            {props.title}
-                                        </Text>
-                                    </View>
-                                </ImageBackground>
-                            </View>
-                            <View style={{ ...styles.Row, ...styles.Details }}>
-                                <Text> {props.quantity}pcs</Text>
-                                <Text> {props.company.toUpperCase()}</Text>
-                                <Text> Rs. {props.price}/PC</Text>
+        /*    <>
+               {{props.titles !== 'Type' ?
+                   <View style={styles.Item}>
+                       <TouchableOpacity onPress={props.onSelectItem} >
+                           <View>
+                               <View style={{ ...styles.Row, ...styles.Header }}>
+                                   <ImageBackground source={{ uri: props.image }} style={styles.bgImage} >
+                                       <View style={styles.titleContainer}>
+                                           <Text style={styles.title} numberOfLines={1}>
+                                               {props.title}
+                                           </Text>
+                                       </View>
+                                   </ImageBackground>
+                               </View>
+                               <View style={{ ...styles.Row, ...styles.Details }}>
+                                   <Text> {props.quantity}pcs</Text>
+                                   <Text> {props.company.toUpperCase()}</Text>
+                                   <Text> Rs. {props.price}/PC</Text>
+   
+                               </View>
+                           </View>
+                       </TouchableOpacity>
+                   </View > : }*/
 
-                            </View>
+        <View style={styles.Items}>
+            <ModalComponent isModalVisible={isModalVisible} >
+                <View>
+                    <Text>{"Medicine: "}</Text>
+                    <Text>{selectedItemCart}</Text>
+                    <Button title="save" onPress={buttonPressHandler}></Button>
+                </View>
+            </ModalComponent>
+            <TouchableOpacity onPress={props.onSelectItem} >
+                <View>
+                    <Card style={styles.summary}>
+                        <ImageBackground source={{ uri: props.image }} style={{ width: '40%', height: '100%' }} />
+                        <View >
+                            <Text style={styles.test} numberOfLines={1}>
+                                {props.title}</Text>
                         </View>
-                    </TouchableOpacity>
-                </View > :
-                <View style={styles.Items}>
-                    <TouchableOpacity onPress={props.onSelectItem} >
                         <View>
-                            <Card style={styles.summary}>
-                                <ImageBackground source={{ uri: props.image }} style={{ width: '40%', height: '100%' }} />
-                                <View >
-                                    <Text style={styles.test} numberOfLines={1}>
-                                        {props.title}</Text>
-                                </View>
-                                <View>
-                                    <Text> {props.quantity}pcs</Text>
-                                    <Text> Rs. {props.price}/PC</Text>
-                                    <Text> {props.company.toUpperCase()}</Text>
-                                </View>
-                                <View >
-                                    <TouchableOpacity
-                                        onPress={() => { props.sendCardHandlrer(props.id) }}
-                                        style={styles.deleteButton}
-                                    >
-                                        <AntDesign name="pluscircleo" size={24} color='blue' onPress={() => {
-                                            sendCardHandlrer(props.id)
-                                        }}
-                                        />
-                                    </TouchableOpacity>
-
-                                </View>
-                            </Card>
+                            <Text> {props.quantity}pcs</Text>
+                            <Text> Rs. {props.price}/PC</Text>
+                            <Text> {props.company.toUpperCase()}</Text>
                         </View>
-                    </TouchableOpacity>
-                </View >}
-        </>
+                        <View >
+                            <TouchableOpacity
+                                onPress={() => { props.sendCardHandlrer(props.id) }}
+                                style={styles.deleteButton}
+                            >
+                                <AntDesign name="pluscircleo" size={24} color='blue' onPress={() => {
+                                    sendCardHandlrer(props.id)
+                                }}
+                                />
+                            </TouchableOpacity>
+
+                        </View>
+                    </Card>
+                </View>
+            </TouchableOpacity>
+        </View >
+        // }
+        //     </>
     )
+
 }
+
 
 const styles = StyleSheet.create({
     titleContainer: {
