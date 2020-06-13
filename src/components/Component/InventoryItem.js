@@ -99,8 +99,8 @@ const InventoryItem = props => {
                                 height: 280
                             }}>
                                 <Text style={{ ...styles.label, marginTop: 0 }}>Medicine Name : {selectedItemCart.title}</Text>
-                                <Text style={styles.label}>Rate : {selectedItemCart.price}/pc</Text>
-                                <Text style={styles.label}>Price : 100/pc</Text>
+                                <Text style={styles.label}>Rate : Rs. {selectedItemCart.price}/pc</Text>
+                                <Text style={styles.label}>Price : Rs. {selectedItemCart.price * quantityInput} </Text>
                                 <Text style={styles.label}>Available Quantity : {selectedItemCart.quantity} </Text>
 
                                 <View style={{ flexDirection: "row", alignItems: 'center' }} >
