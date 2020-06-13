@@ -1,16 +1,23 @@
 import React, { useState } from 'react';
 import {
-    View, Text, StyleSheet, TouchableOpacity, ImageBackground, ToastAndroid,
+    View, Text,
+    TextInput,
+    StyleSheet, TouchableOpacity,
+    ImageBackground, ToastAndroid,
     Platform,
     AlertIOS,
-    Button
+    Button,
+    KeyboardAvoidingView
 } from 'react-native';
 import { BackHandler } from 'react-native';
 import Card from '../Component/Card';
 import { AntDesign } from '@expo/vector-icons';
 import * as cardActions from '../../store/actions/cart';
 import { useSelector, useDispatch } from 'react-redux';
+import Input from '../UI/Input';
+
 import ModalComponent from '../Component/ModalComponent';
+import { ScrollView } from 'react-native-gesture-handler';
 const InventoryItem = props => {
     const selectedItem = useSelector(state =>
         state.items.items
@@ -19,25 +26,35 @@ const InventoryItem = props => {
     const dispatch = useDispatch();
     const [isModalVisible, setModalVisibility] = useState(false);
     const [selectedItemCart, setSelectedItemCart] = useState('');
+    const [quantityInput, setQuantityInput] = useState('1');
 
 
     const sendCardHandlrer = (id) => {
         const selected = selectedItem.find(item => item._id === id)
-        if (Platform.OS === 'android') {
-            ToastAndroid.show(selected.title + " has been added to cart", ToastAndroid.SHORT)
-        } else {
-            AlertIOS.alert(selected.title + " has been added to cart");
-        }
-        // dispatch(cardActions.addToCart(selected, 1));
         setModalVisibility(true);
-        setSelectedItemCart(selected.title);
+        setSelectedItemCart(selected);
 
         // console.log(selected)
     };
-    const buttonPressHandler = () => {
+    const cancelPressHandler = () => {
         setModalVisibility(false);
     }
+    const confirmPressHandler = () => {
+        // const selected = selectedItem.find(item => item._id === id)
+        setModalVisibility(false);
+        dispatch(cardActions.addToCart(selectedItemCart, quantityInput));
 
+        if (Platform.OS === 'android') {
+
+            ToastAndroid.show(quantityInput + ' ' + selectedItemCart.title + " has been added to cart", ToastAndroid.SHORT)
+        } else {
+            AlertIOS.alert(quantityInput + " " + selectedItemCart.title + " has been added to cart");
+        }
+    }
+    const quantityInputChange = (value) => {
+        setQuantityInput(value)
+    }
+    const inputChangeHandler = () => { }
     return (
         /*    <>
                {{props.titles !== 'Type' ?
@@ -64,13 +81,55 @@ const InventoryItem = props => {
                    </View > : }*/
 
         <View style={styles.Items}>
-            <ModalComponent isModalVisible={isModalVisible} >
-                <View>
-                    <Text>{"Medicine: "}</Text>
-                    <Text>{selectedItemCart}</Text>
-                    <Button title="save" onPress={buttonPressHandler}></Button>
-                </View>
-            </ModalComponent>
+            <ModalComponent isModalVisible={isModalVisible}  >
+                <KeyboardAvoidingView
+                    style={{ flex: 1 }}
+                    behavior="height"
+                    keyboardVerticalOffset={10}>
+                    <ScrollView>
+                        <View style={{
+                            marginTop: 50,
+                            flex: 1,
+                            flexDirection: 'column',
+                            justifyContent: 'center',
+                            alignItems: 'center'
+                        }}>
+                            <View style={{
+                                width: 300,
+                                height: 280
+                            }}>
+                                <Text style={{ ...styles.label, marginTop: 0 }}>Medicine Name : {selectedItemCart.title}</Text>
+                                <Text style={styles.label}>Rate : {selectedItemCart.price}/pc</Text>
+                                <Text style={styles.label}>Price : 100/pc</Text>
+                                <Text style={styles.label}>Available Quantity : {selectedItemCart.quantity} </Text>
+
+                                <View style={{ flexDirection: "row", alignItems: 'center' }} >
+                                    <Text style={styles.label}>Quantity : </Text>
+                                    <TextInput style={{
+                                        paddingHorizontal: 2,
+                                        paddingVertical: 5,
+                                        borderBottomColor: '#ccc',
+                                        borderBottomWidth: 1,
+
+                                        width: 105,
+
+                                    }}
+                                        keyboardType="numeric"
+                                        returnKeyType="next"
+                                        required
+                                        value={quantityInput}
+                                        onChangeText={(text) => quantityInputChange(text)}
+                                    ></TextInput>
+                                </View>
+                                <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', flex: 1 }}>
+                                    <Button title="CONFIRM " onPress={confirmPressHandler} style={styles.confirmButton}></Button>
+                                    <Button title="CANCEL " onPress={cancelPressHandler} style={styles.cancelButton}></Button>
+                                </View>
+                            </View>
+                        </View>
+                    </ScrollView>
+                </KeyboardAvoidingView>
+            </ModalComponent >
             <TouchableOpacity onPress={props.onSelectItem} >
                 <View>
                     <Card style={styles.summary}>
@@ -128,6 +187,7 @@ const styles = StyleSheet.create({
 
     },
     test: {
+        justifyContent: 'flex-start',
         fontWeight: 'bold',
         fontSize: 18
     },
@@ -161,17 +221,23 @@ const styles = StyleSheet.create({
     summary: {
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
         marginBottom: 20,
         padding: 10
     },
     summaryText: {
         fontFamily: 'open-sans-bold',
-        fontSize: 10
+        fontSize: 10,
     },
     deleteButton: {
         marginLeft: 20
-    }
+    },
+    label: {
+        fontFamily: 'open-sans-bold',
+        marginTop: 20,
+        marginLeft: 35,
+        fontSize: 16
+    },
 
 })
 
