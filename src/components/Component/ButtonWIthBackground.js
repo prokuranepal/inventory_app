@@ -27,12 +27,12 @@ const buttonWithBackground = props => {
   }
   if (Platform.OS === "android") {
     return (
-      <TouchableNativeFeedback onPress={props.onPress}>
+      <TouchableNativeFeedback onPress={props.onPress} testID="message">
         {content}
       </TouchableNativeFeedback>
     );
   }
-  return <TouchableOpacity onPress={props.onPress}>{content}</TouchableOpacity>;
+  return <TouchableOpacity onPress={props.onPress} testID="messageText">{content}</TouchableOpacity>;
 };
 
 const styles = StyleSheet.create({
