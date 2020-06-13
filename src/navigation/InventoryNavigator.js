@@ -11,7 +11,7 @@ import Colors from '../constants/Colors';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
-import AuthScreen from '../screens/AuthScreen';
+// import AuthScreen from '../screens/AuthScreen';
 import EditItemScreen from '../screens/EditItemScreen';
 import ItemCategoryScreen from '../screens/ItemCategoryScreen';
 import SplashScreen from '../screens/Splashscreen';
