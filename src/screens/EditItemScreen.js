@@ -311,8 +311,8 @@ const EditItemScreen = props => {
             label="Quantity in pcs"
             errorText="Please enter a valid quantity"
             keyboardType="numeric"
-            onInputChange={inputChangeHandler}
             returnKeyType="next"
+            onInputChange={inputChangeHandler}
             initialValue={editedItem ? `${editedItem.quantity}` : ''}//to convert into string
             required
             initiallyValid={!!editedItem}

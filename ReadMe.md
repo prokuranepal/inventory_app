@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/prokuranepal/inventory_app.svg?branch=inventory)](https://travis-ci.org/prokuranepal/inventory_app)
-
-[![Coverage Status](https://coveralls.io/repos/github/prokuranepal/inventory_app/badge.svg?branch=inventory)](https://coveralls.io/github/prokuranepal/inventory_app?branch=inventory)
+<a href="https://codeclimate.com/github/prokuranepal/inventory_app/maintainability"><img src="https://api.codeclimate.com/v1/badges/ad49e8b0db169560dfd9/maintainability" /></a>
+<a href="https://codeclimate.com/github/prokuranepal/inventory_app/test_coverage"><img src="https://api.codeclimate.com/v1/badges/ad49e8b0db169560dfd9/test_coverage" /></a>
 
 ### Inventory Management System (Mobile App)
 
