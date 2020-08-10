@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Button view/> renders correctly 1`] = `
+exports[`<Button View/> renders correctly 1`] = `
 <Text
   style={
     Object {

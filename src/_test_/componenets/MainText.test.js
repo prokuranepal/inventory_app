@@ -1,22 +1,11 @@
 import React from 'react';
 import MainText from '../../components/Component/MainText';
-import { View, Text, TouchableOpacity } from 'react-native';
-import { configure, mount, shallow } from 'enzyme';
+import { Text } from 'react-native';
+import { configure  } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import renderer from 'react-test-renderer';
+import test_function from './test_function';
+
 
 configure({ adapter: new Adapter() });
 
-
-describe("<Button view/>", () => {
-    test('renders correctly', () => {
-        const tree = renderer.create(<MainText />).toJSON();
-        expect(tree).toMatchSnapshot();
-    });
-    it('renders the length of view', () => {
-        const wrapper = shallow(<MainText />);
-
-        expect(wrapper.find(Text).length).toEqual(1);
-    })
-
-});
+test_function("<Button View/>",'renders correctly','renders the length of view',<MainText />,Text,1)

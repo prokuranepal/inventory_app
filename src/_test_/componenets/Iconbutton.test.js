@@ -4,44 +4,17 @@ import React from 'react';
 
 import IconButton from '../../components/Component/IconButton';
 
-import { View, Text, TouchableOpacity } from 'react-native';
+import { Text} from 'react-native';
 
-import { configure, mount, shallow } from 'enzyme';
+import { configure } from 'enzyme';
 
 import Adapter from 'enzyme-adapter-react-16';
 
-import renderer from 'react-test-renderer';
+import test_function from './test_function';
 
 
 
 configure({ adapter: new Adapter() });
 
 
-
-
-
-describe("<Button view/>", () => {
-
-    test('renders correctly', () => {
-
-        const tree = renderer.create(<IconButton />).toJSON();
-
-        expect(tree).toMatchSnapshot();
-
-    });
-
-    it('renders the length of view', () => {
-
-        const wrapper = shallow(<IconButton />);
-
-
-
-        expect(wrapper.find(Text).length).toEqual(0);
-
-    })
-
-
-
-});
-
-
+test_function("<Button view/>",'renders correctly','renders the length of view',<IconButton />,Text,0)
