@@ -7,4 +7,4 @@ import test_function from './test_function';
 
 configure({ adapter: new Adapter() });
 
-test_function("<Text render/>",'renders correctly','renders the length of view',<HeadingText />,Text,1)
+test_function(["<Text render/>",1],['renders correctly','renders the length of view'],[<HeadingText />,Text],null)

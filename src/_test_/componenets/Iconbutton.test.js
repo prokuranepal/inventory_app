@@ -17,4 +17,4 @@ import test_function from './test_function';
 configure({ adapter: new Adapter() });
 
 
-test_function("<Button view/>",'renders correctly','renders the length of view',<IconButton />,Text,0)
+test_function(["<Button view/>",0],['renders correctly','renders the length of view'],[<IconButton />,Text],null)

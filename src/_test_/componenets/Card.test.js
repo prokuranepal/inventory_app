@@ -30,7 +30,7 @@ import { View} from 'react-native';
 import test_function from './test_function';
 
 configure({ adapter: new Adapter() });
-test_function("<card view/>",'renders correctly','renders the length of view',<Card />,View,1)
+test_function(["<card view/>",1],['renders correctly','renders the length of view'],[<Card />,View],null)
 
 
 
