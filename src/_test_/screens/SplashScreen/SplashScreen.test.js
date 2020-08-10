@@ -26,10 +26,10 @@ describe("<Splash scrren/>", () => {
 
 
 
-        test('renders correctly', () => {
-            const tree = renderer.create(<SplashScreen />).toJSON();
-            expect(tree).toMatchSnapshot();
-        });
+        // test('renders correctly', () => {
+        //     const tree = renderer.create(<SplashScreen />).toJSON();
+        //     expect(tree).toMatchSnapshot();
+        // });
 
         it('renders the length of view text', () => {
             const wrapper = shallow(<SplashScreen />);

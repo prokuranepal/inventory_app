@@ -23,7 +23,7 @@ const CategoryGridTile = props => {
                 onPress={props.onSelect} >
 
                 <View style={{ ...styles.container, ...{ backgroundColor: props.color } }}>
-                    <View style={styles.iconContainer}>
+                    <View style={styles.iconContainer}  >
                         {icon}
                     </View>
                     <Text style={styles.title} numberOfLines={2}> {props.title} </Text>
@@ -40,7 +40,6 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         overflow: Platform.OS == "android" && Platform.Version >= 21 ? 'hidden' : 'visible',
         elevation: 3,
-
     },
     container: {
         flex: 1,
@@ -51,7 +50,8 @@ const styles = StyleSheet.create({
         shadowRadius: 10,
         padding: 10,
         justifyContent: 'flex-end',
-        alignItems: 'flex-start'
+        alignItems: 'flex-start',
+        backgroundColor: '#000080'
     },
     title: {
         fontFamily: 'open-sans-bold',
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
         height: "100%",
         justifyContent: 'center',
         alignItems: 'center',
-        opacity: 0.35
+        opacity: 0.35,
 
 
     },
