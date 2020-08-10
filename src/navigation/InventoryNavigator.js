@@ -48,16 +48,12 @@ const ItemsNavigator = createStackNavigator({
     Logs: LogsScreen,
     Order: OrderScreen,
     Scanner: ScannerScreen,
-    OrderList: OrderListScreen,
-    SupplierContact: SupplierContactScreen,
     ReceivedItemList: ReceivedItemScreen
-
 }, {
 
     defaultNavigationOptions: defaultData
 
 },
-
 );
 
 const ShowAllNavigator = createStackNavigator({
@@ -96,23 +92,24 @@ const tabScreenConfig = {
 
 const InventoryTabNavigator = Platform.OS === 'android' ?
     createMaterialBottomTabNavigator(
-        tabScreenConfig, {
-        navigationOptions: {
-            drawerIcon: drawerConfig => (
-                <Ionicons
-                    name={Platform.OS === 'android' ? 'md-create' : 'ios-create'}
-                    size={23}
-                    color={drawerConfig.tintColor}
-                />
-            )
-        },
-        activeColor: 'white',
-        shifting: true,
-        barStyle: {
-            backgroundColor: Colors.accentColor
-        },
+        tabScreenConfig,
+        {
+            navigationOptions: {
+                drawerIcon: drawerConfig => (
+                    <Ionicons
+                        name={Platform.OS === 'android' ? 'md-create' : 'ios-create'}
+                        size={23}
+                        color={drawerConfig.tintColor}
+                    />
+                )
+            },
+            activeColor: 'white',
+            shifting: true,
+            barStyle: {
+                backgroundColor: Colors.accentColor
+            },
 
-    }) :
+        }) :
     createBottomTabNavigator(
         tabScreenConfig,
         {
@@ -227,12 +224,12 @@ const MainNavigator = createDrawerNavigator({
 },
     {
         contentComponent: (props) => (
-            <SafeAreaView style={{ flex: 1 }} >
+            <SafeAreaView style={{ flex: 1,backgroundColor:'#66B2FF' }} >
                 <View style={{ height: 200, marginBottom: 30, marginTop: 50, alignItems: 'center', justifyContent: 'center' }}>
-                    <Image source={require('../../assets/user.png')} style={{ width: 150, height: 150, opacity: 0.7 }} />
+                    <Image source={require('../../assets/user.png')} style={{ width: 150, height: 150, opacity: 0.7 ,Color:'#FFFFFF'}} />
                     <Text style={{ marginTop: 10 }}>{props.navigation.getParam("userId")}</Text>
                 </View>
-                <ScrollView>
+                <ScrollView style={{backgroundColor:'#FFFFFF'}}>
                     <DrawerItems {...props} />
                 </ScrollView>
             </SafeAreaView >

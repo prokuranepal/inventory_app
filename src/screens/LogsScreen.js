@@ -26,14 +26,7 @@ LogsScreen.navigationOptions = navData => {
         },
         headerTitleStyle: {
             fontFamily: 'open-sans'
-        },
-        headerLeft: () => (
-            <HeaderButtons HeaderButtonComponent={HeaderButton} >
-                <Item title="Menu" iconName="ios-menu" onPress={() => {
-                    navData.navigation.toggleDrawer()
-                }} />
-            </HeaderButtons>
-        )
+        }
     }
 }
 
