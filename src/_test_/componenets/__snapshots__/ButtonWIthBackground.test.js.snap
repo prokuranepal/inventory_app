@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`< button/> renders correctly 1`] = `
+exports[`<text render/> renders correctly 1`] = `
 <View
   accessible={true}
   focusable={false}

@@ -6,12 +6,15 @@ import { View, Text, TouchableNativeFeedback, Platform } from 'react-native';
 import { configure, mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { render, cleanup, fireEvent } from 'react-native-testing-library';
+import test_function from '../componenets/test_function';
+
 configure({ adapter: new Adapter() });
 
 const onPress = jest.fn();
 const baseProps = {
     onPress
 }
+test_function(["<text render/>",1],['renders correctly','renders the length of view'],[<ButtonWIthBackground />, View])
 
 describe("< button/>", () => {
     beforeEach(() => {
@@ -19,15 +22,7 @@ describe("< button/>", () => {
             Platform: "android"
         }
     });
-    it('renders the view', () => {
-        const wrapper = shallow(<ButtonWIthBackground Platform='android' />);
-        expect(wrapper.find(View).length).toEqual(1);
-
-    })
-    test('renders correctly', () => {
-        const tree = renderer.create(<ButtonWIthBackground />).toJSON();
-        expect(tree).toMatchSnapshot();
-    });
+   
     it('check  view text', () => {
         const wrapper = shallow(<ButtonWIthBackground />);
         wrapper.setProps({ disabled: true });
