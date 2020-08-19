@@ -10,6 +10,7 @@ import {
 import DefaultText from '../components/Component/DefaultText';
 import { useSelector, useDispatch } from 'react-redux';
 import Colors from '../constants/Colors';
+import navigationOptions from '../utility/navigationOptions';
 
 const ListItem = props => {
     return (
@@ -40,17 +41,7 @@ const ItemDetailScreen = props => {
 };
 ItemDetailScreen.navigationOptions = navigationData => {
     const itemTitle = navigationData.navigation.getParam('itemTitle');
-
-    return {
-        headerTitle: itemTitle,
-        headerStyle: {
-            backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
-        },
-        headerTitleStyle: {
-            fontFamily: 'open-sans'
-        }
-
-    };
+    return navigationOptions(itemTitle)
 };
 const styles = StyleSheet.create({
     image: {
