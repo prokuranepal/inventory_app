@@ -191,7 +191,7 @@ const AddScreen = props => {
 
                 <View style={styles.buttonContainer}>
                     <TouchableOpacity >
-                        <Button title="Add" color={Colors.accent}
+                        <Button title="Add" color="#3aae6d"
                             // disabled={cartItems.length === 0}
                             onPress={submitHandler} />
                     </TouchableOpacity>

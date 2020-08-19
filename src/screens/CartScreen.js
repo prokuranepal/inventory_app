@@ -75,14 +75,14 @@ const CartScreen = props => {
                     <ActivityIndicator size="small" color={Colors.primary} />
                 ) : ( */}
                 <Button
-                    color={Colors.accent}
+                    color="#3aae6d"
                     title="Order Now"
                     disabled={cartItems.length === 0}
                     onPress={sendOrderHandler} />
                 {/* )} */}
             </View>
             <View style={styles.buttonContainer}>
-                <Button title="ADD ITEM" onPress={sendAddHandler} />
+                <Button title="ADD ITEM"  color="#3aae6d" onPress={sendAddHandler} />
             </View>
 
         </View>
@@ -120,7 +120,8 @@ const styles = StyleSheet.create({
     buttonContainer: {
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: 20
+        marginBottom: 20,
+        
     }
 });
 

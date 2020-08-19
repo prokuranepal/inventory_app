@@ -26,14 +26,14 @@ const OrderScreen = props => {
         <View style={styles.screen}>
             <Text style={styles.title}>Send Via</Text>
             <View style={styles.buttonContainer}>
-                <Button title="Call" onPress={dialCall} />
+                <Button title="Call" color="#3aae6d" onPress={dialCall} />
             </View>
             <View style={styles.buttonContainer}>
-                <Button title="SMS" onPress={() => Communications.text('', '')} />
+                <Button title="SMS" color="#3aae6d" onPress={() => Communications.text('', '')} />
             </View>
 
             <View style={styles.buttonContainer}>
-                <Button title="Internet" />
+                <Button title="Internet" color="#3aae6d" />
             </View>
         </View>
     );

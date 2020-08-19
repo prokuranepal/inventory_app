@@ -24,6 +24,7 @@ import ScannerScreen from '../screens/ScannerScreen';
 import OrderListScreen from '../screens/OrderListScreen';
 import SupplierContactScreen from '../screens/SupplierContactScreen';
 import ReceivedItemScreen from '../screens/ReceivedItemScreen';
+import { color } from 'react-native-reanimated';
 const defaultData = {
     headerStyle: {
         backgroundColor: Platform.OS === 'android' ? Colors.primary : ''
@@ -99,7 +100,7 @@ const InventoryTabNavigator = Platform.OS === 'android' ?
                     <Ionicons
                         name={Platform.OS === 'android' ? 'md-create' : 'ios-create'}
                         size={23}
-                        color={drawerConfig.tintColor}
+                         color={Colors.primaryColor}
                     />
                 )
             },
@@ -118,7 +119,7 @@ const InventoryTabNavigator = Platform.OS === 'android' ?
                     <Ionicons
                         name={Platform.OS === 'android' ? 'md-create' : 'ios-create'}
                         size={23}
-                        color={drawerConfig.tintColor}
+                      color={Colors.primaryColor}
                     />
                 )
             },
@@ -139,7 +140,8 @@ const SettingsNavigator = createStackNavigator({
             <Ionicons
                 name={Platform.OS === 'android' ? 'md-create' : 'ios-create'}
                 size={23}
-                color={drawerConfig.tintColor}
+                // color={drawerConfig.tintColor}
+                 color={Colors.primaryColor}
             />
         )
     }
@@ -161,7 +163,7 @@ const SupplierContactScreenNavigator = createStackNavigator({
             <Ionicons
                 name={Platform.OS === 'android' ? 'md-contact' : 'ios-contact'}
                 size={23}
-                color={drawerConfig.tintColor}
+                color={Colors.primaryColor}
             />
         )
     }
@@ -180,7 +182,7 @@ const CartScreenNavigator = createStackNavigator({
             <Ionicons
                 name={Platform.OS === 'android' ? 'md-cart' : 'ios-cart'}
                 size={23}
-                color={drawerConfig.tintColor}
+                color={Colors.primaryColor}
             />
         )
     }
@@ -199,7 +201,8 @@ const OrderScreenListNavigator = createStackNavigator({
             <Ionicons
                 name={Platform.OS === 'android' ? 'md-list' : 'ios-list'}
                 size={23}
-                color={drawerConfig.tintColor}
+                // color={drawerConfig.tintColor}
+                 color={Colors.primaryColor}
             />
         )
     }
@@ -224,9 +227,9 @@ const MainNavigator = createDrawerNavigator({
 },
     {
         contentComponent: (props) => (
-            <SafeAreaView style={{ flex: 1,backgroundColor:'#66B2FF' }} >
+            <SafeAreaView style={{ flex: 1,backgroundColor:'#2E8B57' }} >
                 <View style={{ height: 200, marginBottom: 30, marginTop: 50, alignItems: 'center', justifyContent: 'center' }}>
-                    <Image source={require('../../assets/user.png')} style={{ width: 150, height: 150, opacity: 0.7 ,Color:'#FFFFFF'}} />
+                    <Image source={require('../../assets/user.png')} style={{ width: 150, height: 150, opacity: 0.7 }} />
                     <Text style={{ marginTop: 10 }}>{props.navigation.getParam("userId")}</Text>
                 </View>
                 <ScrollView style={{backgroundColor:'#FFFFFF'}}>

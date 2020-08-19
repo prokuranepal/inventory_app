@@ -1,8 +1,9 @@
 
 import React from 'react';
-import { TouchableOpacity, TouchableNativeFeedback, View, Text, StyleSheet, Platform } from 'react-native';
+import { TouchableOpacity, TouchableNativeFeedback, View, Text, Image,StyleSheet, Platform } from 'react-native';
 import { Ionicons, Fontisto } from '@expo/vector-icons';
 import Colors from '../../constants/Colors';
+
 const CategoryGridTile = props => {
     let TouchableCmp = TouchableOpacity;
     if (Platform.OS === "android" && Platform.Version >= 21) {
@@ -10,11 +11,12 @@ const CategoryGridTile = props => {
     }
     let icon = null;
     if (props.iconValue == "drug-pack") {
-        icon = <Fontisto name={props.iconValue} size={100} color={Colors.primary} />
+        // icon = <Fontisto name={props.iconValue} size={100} color={Colors.iconColor} />
+        icon= <Image source={require('../../../assets/medicine.png')}  style={{ width: 150, height: 120, opacity: 0.7 }} />
 
     }
     else {
-        icon = <Ionicons name={props.iconValue} size={100} color={Colors.primary} />;
+        icon = <Ionicons name={props.iconValue} size={100} color={Colors.primaryColor} />;
 
     }
     return (
