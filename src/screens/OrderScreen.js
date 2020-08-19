@@ -1,20 +1,13 @@
 import React from 'react';
 import { View, Text, Platform, Button, StyleSheet, TouchableOpacity } from 'react-native';
-import HeaderButton from '../components/Component/HeaderButton';
-import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import Colors from '../constants/Colors'
 import { Linking } from 'react-native'
 import Communications from 'react-native-communications';
 import CustomButton from '../components/Component/CustomButton';
 const OrderScreen = props => {
     const dialCall = () => {
-        let phoneNumber = '';
-        if (Platform.OS === 'android') {
-            phoneNumber = 'tel:${}';
-        }
-        else {
-            phoneNumber = 'telprompt:${}';
-        }
+        let phoneNumber = '';    
+        phoneNumber = Platform.OS==="android"?'tel:${}':'telprompt:${}';
         Linking.openURL(phoneNumber);
     };
     return (
@@ -46,13 +39,7 @@ OrderScreen.navigationOptions = navData => {
         headerTitleStyle: {
             fontFamily: 'open-sans'
         },
-        // headerLeft: () => (
-        //     <HeaderButtons HeaderButtonComponent={HeaderButton} >
-        //         <Item title="Menu" iconName="ios-menu" onPress={() => {
-        //             navData.navigation.toggleDrawer()
-        //         }} />
-        //     </HeaderButtons>
-        // )
+    
     }
 }
 
