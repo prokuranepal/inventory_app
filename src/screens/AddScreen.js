@@ -16,8 +16,6 @@ import * as cardActions from '../store/actions/cart';
 import { Ionicons } from '@expo/vector-icons';
 import Input from '../components/UI/Input';
 import Colors from '../constants/Colors';
-import navigationOptions from '../utility/navigationOptions';
-
 
 const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE';
 
@@ -193,7 +191,7 @@ const AddScreen = props => {
 
                 <View style={styles.buttonContainer}>
                     <TouchableOpacity >
-                        <Button title="Add" color="#3aae6d"
+                        <Button title="Add" color={Colors.accent}
                             // disabled={cartItems.length === 0}
                             onPress={submitHandler} />
                     </TouchableOpacity>
@@ -205,7 +203,16 @@ const AddScreen = props => {
 };
 
 AddScreen.navigationOptions = navData => {
-    return navigationOptions("Add Item in Cart");
+
+    return {
+        headerTitle: 'Add Item in Cart',
+        headerStyle: {
+            backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
+        },
+        headerTitleStyle: {
+            fontFamily: 'open-sans'
+        }
+    };
 };
 
 const styles = StyleSheet.create({

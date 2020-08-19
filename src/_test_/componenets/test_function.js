@@ -2,13 +2,6 @@ import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 import { View } from 'react-native';
 
-/*
-    name_length =[component name("<CustomButton>")"), 
-        number of times the compnent is expected to render 
-        component to corresponding index in elements( here 1 for View),2 for Text, 1 for Button]
-    description= ["renders correctly", "renders the length of component ", ]-->description for each test here 2
-    elements = [ component being tested (<CustomButton>), type of component expected(View),Text, Button]
-*/
 export default function test_function(name_length, descriptions,elements, extra_test){
     describe(name_length[0], () => {
         test(descriptions[0], () => {
@@ -25,10 +18,6 @@ export default function test_function(name_length, descriptions,elements, extra_
                 }
             })
         })
-        }
-        if(extra_test)
-        {
-            extra_test;
         }
     });
     }

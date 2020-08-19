@@ -15,7 +15,6 @@ import Colors from '../constants/Colors'
 import CartItem from '../components/UI/CartItem';
 import * as cartActions from '../store/actions/cart';
 import * as ordersActions from '../store/actions/orders';
-import CustomButtom from '../components/Component/CustomButton';
 
 
 const CartScreen = props => {
@@ -76,16 +75,16 @@ const CartScreen = props => {
                     <ActivityIndicator size="small" color={Colors.primary} />
                 ) : ( */}
                 <Button
-                    color="#3aae6d"
+                    color={Colors.accent}
                     title="Order Now"
                     disabled={cartItems.length === 0}
                     onPress={sendOrderHandler} />
                 {/* )} */}
             </View>
-            <CustomButtom style= {styles.buttonContainer} 
-                          title="ADD ITEM"
-                          color="#3aae6d"
-                          pressHandler={sendAddHandler} />
+            <View style={styles.buttonContainer}>
+                <Button title="ADD ITEM" onPress={sendAddHandler} />
+            </View>
+
         </View>
     );
 };
@@ -121,8 +120,7 @@ const styles = StyleSheet.create({
     buttonContainer: {
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: 20,
-        
+        marginBottom: 20
     }
 });
 

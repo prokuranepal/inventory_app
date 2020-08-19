@@ -289,7 +289,7 @@ const EditItemScreen = props => {
               color: '#9EA0A4',
             }}
             Icon={() => {
-              return <Ionicons name="md-arrow-down" size={24} color="green" />;
+              return <Ionicons name="md-arrow-down" size={24} color="gray" />;
             }}
             style={{
               ...pickerSelectStyles,

@@ -23,10 +23,10 @@ export const CATEGORIES = [
 
 
 export const type = [
-  new Type("t1", "Pain killer", "#FFFFFF", "drug-pack"),
-  new Type("t1", "Vitamin", "#FFFFFF", "drug-pack"),
-  new Type("t1", "Antibiotic", "#FFFFFF", "drug-pack"),
-  new Type("t1", "General", "#FFFFFF", "drug-pack")
+  new Type("t1", "Pain killer", "#b8ced6", "drug-pack"),
+  new Type("t1", "Vitamin", "#b8ced6", "drug-pack"),
+  new Type("t1", "Antibiotic", "#b8ced6", "drug-pack"),
+  new Type("t1", "General", "#b8ced6", "drug-pack")
 ];
 
 

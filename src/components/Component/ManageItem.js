@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     mealItem: {
         width: '100%',
         height: 50,
-        backgroundColor: '#9cd6b6',
+        backgroundColor: '#e5e5e5',
         borderRadius: 10,
         overflow: 'hidden',
         justifyContent: 'center'
