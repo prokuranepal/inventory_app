@@ -8,4 +8,4 @@ import test_function from './test_function';
 
 configure({ adapter: new Adapter() });
 
-test_function("<Button View/>",'renders correctly','renders the length of view',<MainText />,Text,1)
+test_function(["<Button View/>",1],['renders correctly','renders the length of view'],[<MainText />,Text],null)
