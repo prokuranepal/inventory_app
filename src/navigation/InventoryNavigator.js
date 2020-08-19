@@ -132,25 +132,28 @@ const InventoryTabNavigator = Platform.OS === 'android' ?
 
     });
 
-const SettingsNavigator = createStackNavigator({
-    Settings: SettingsScreen
-}, {
-    navigationOptions: {
-        drawerIcon: drawerConfig => (
-            <Ionicons
-                name={Platform.OS === 'android' ? 'md-create' : 'ios-create'}
-                size={23}
-                // color={drawerConfig.tintColor}
-                 color={Colors.primaryColor}
-            />
-        )
-    }
-},
-    {
-        defaultNavigationOptions: defaultData
-
-    }
-)
+const createStackNav = (ScreenName, ScreenComponent)=>{
+    return (createStackNavigator({
+        [ScreenName]: ScreenComponent
+    }, {
+        navigationOptions: {
+            drawerIcon: drawerConfig => (
+                <Ionicons
+                    name={Platform.OS === 'android' ? 'md-create' : 'ios-create'}
+                    size={23}
+                    // color={drawerConfig.tintColor}
+                     color={Colors.primaryColor}
+                />
+            )
+        }
+    },
+        {
+            defaultNavigationOptions: defaultData
+    
+        }
+    ))
+}
+const SettingsNavigator = createStackNav("Settings", SettingsScreen)
 
 
 
@@ -193,27 +196,7 @@ const CartScreenNavigator = createStackNavigator({
     }
 )
 
-const OrderScreenListNavigator = createStackNavigator({
-    OrderList: OrderListScreen
-}, {
-    navigationOptions: {
-        drawerIcon: drawerConfig => (
-            <Ionicons
-                name={Platform.OS === 'android' ? 'md-list' : 'ios-list'}
-                size={23}
-                // color={drawerConfig.tintColor}
-                 color={Colors.primaryColor}
-            />
-        )
-    }
-},
-    {
-        defaultNavigationOptions: defaultData
-
-    }
-)
-
-
+const OrderScreenListNavigator = createStackNav("OrderList", OrderListScreen)
 
 const MainNavigator = createDrawerNavigator({
 

@@ -5,6 +5,7 @@ import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import Colors from '../constants/Colors'
 import { Linking } from 'react-native'
 import Communications from 'react-native-communications';
+import CustomButton from '../components/Component/CustomButton';
 const OrderScreen = props => {
     const dialCall = () => {
 
@@ -25,16 +26,19 @@ const OrderScreen = props => {
     return (
         <View style={styles.screen}>
             <Text style={styles.title}>Send Via</Text>
-            <View style={styles.buttonContainer}>
-                <Button title="Call" color="#3aae6d" onPress={dialCall} />
-            </View>
-            <View style={styles.buttonContainer}>
-                <Button title="SMS" color="#3aae6d" onPress={() => Communications.text('', '')} />
-            </View>
-
-            <View style={styles.buttonContainer}>
-                <Button title="Internet" color="#3aae6d" />
-            </View>
+            <CustomButton container_style ={styles.buttonContainer} 
+                        title="Call" 
+                        color="#3aae6d" 
+                        pressHandler={dialCall} />
+            <CustomButton container_style ={styles.buttonContainer} 
+                        title="SMS" 
+                        color="#3aae6d" 
+                        pressHandler={() => Communications.text('', '')} />
+             <CustomButton container_style ={styles.buttonContainer} 
+                        title="Internet" 
+                        color="#3aae6d"
+                        pressHandler={()=>{}} 
+                         />
         </View>
     );
 };

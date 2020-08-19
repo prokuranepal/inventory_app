@@ -15,6 +15,7 @@ import Colors from '../constants/Colors'
 import CartItem from '../components/UI/CartItem';
 import * as cartActions from '../store/actions/cart';
 import * as ordersActions from '../store/actions/orders';
+import CustomButtom from '../components/Component/CustomButton';
 
 
 const CartScreen = props => {
@@ -81,10 +82,10 @@ const CartScreen = props => {
                     onPress={sendOrderHandler} />
                 {/* )} */}
             </View>
-            <View style={styles.buttonContainer}>
-                <Button title="ADD ITEM"  color="#3aae6d" onPress={sendAddHandler} />
-            </View>
-
+            <CustomButtom style= {styles.buttonContainer} 
+                          title="ADD ITEM"
+                          color="#3aae6d"
+                          pressHandler={sendAddHandler} />
         </View>
     );
 };
