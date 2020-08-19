@@ -122,8 +122,8 @@ const InventoryItem = props => {
                                     ></TextInput>
                                 </View>
                                 <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', flex: 1 }}>
-                                    <Button title="CONFIRM " onPress={confirmPressHandler} style={styles.confirmButton}></Button>
-                                    <Button title="CANCEL " onPress={cancelPressHandler} style={styles.cancelButton}></Button>
+                                    <Button title="CONFIRM "  color="#3aae6d" onPress={confirmPressHandler} style={styles.confirmButton}></Button>
+                                    <Button title="CANCEL " color="#3aae6d" onPress={cancelPressHandler} style={styles.cancelButton}></Button>
                                 </View>
                             </View>
                         </View>
@@ -148,7 +148,7 @@ const InventoryItem = props => {
                                 onPress={() => { props.sendCardHandlrer(props.id) }}
                                 style={styles.deleteButton}
                             >
-                                <AntDesign name="pluscircleo" size={24} color='blue' onPress={() => {
+                                <AntDesign name="pluscircle" size={24} color='green' onPress={() => {
                                     sendCardHandlrer(props.id)
                                 }}
                                 />
@@ -238,6 +238,7 @@ const styles = StyleSheet.create({
         marginLeft: 35,
         fontSize: 16
     },
+   
 
 })
 
