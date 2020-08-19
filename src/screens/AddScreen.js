@@ -16,6 +16,8 @@ import * as cardActions from '../store/actions/cart';
 import { Ionicons } from '@expo/vector-icons';
 import Input from '../components/UI/Input';
 import Colors from '../constants/Colors';
+import navigationOptions from '../utility/navigationOptions';
+
 
 const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE';
 
@@ -203,16 +205,7 @@ const AddScreen = props => {
 };
 
 AddScreen.navigationOptions = navData => {
-
-    return {
-        headerTitle: 'Add Item in Cart',
-        headerStyle: {
-            backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
-        },
-        headerTitleStyle: {
-            fontFamily: 'open-sans'
-        }
-    };
+    return navigationOptions("Add Item in Cart");
 };
 
 const styles = StyleSheet.create({

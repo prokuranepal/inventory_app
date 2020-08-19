@@ -4,6 +4,7 @@ import Colors from '../constants/Colors'
 import { Linking } from 'react-native'
 import Communications from 'react-native-communications';
 import CustomButton from '../components/Component/CustomButton';
+import navigationOptions from '../utility/navigationOptions';
 const OrderScreen = props => {
     const dialCall = () => {
         let phoneNumber = '';    
@@ -31,16 +32,7 @@ const OrderScreen = props => {
 };
 
 OrderScreen.navigationOptions = navData => {
-    return {
-        headerTitle: "Order",
-        headerStyle: {
-            backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
-        },
-        headerTitleStyle: {
-            fontFamily: 'open-sans'
-        },
-    
-    }
+   return navigationOptions("Order")
 }
 
 const styles = StyleSheet.create({
