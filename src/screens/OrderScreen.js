@@ -8,21 +8,15 @@ import Communications from 'react-native-communications';
 import CustomButton from '../components/Component/CustomButton';
 const OrderScreen = props => {
     const dialCall = () => {
-
         let phoneNumber = '';
-
         if (Platform.OS === 'android') {
             phoneNumber = 'tel:${}';
         }
         else {
             phoneNumber = 'telprompt:${}';
         }
-
         Linking.openURL(phoneNumber);
     };
-
-
-
     return (
         <View style={styles.screen}>
             <Text style={styles.title}>Send Via</Text>
