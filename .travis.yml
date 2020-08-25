@@ -30,7 +30,7 @@ deploy:
 
 branches:
   only:
-  - inventory
+  - vuepress
 # language: node_js
 # node_js:
 #   - "stable"
