@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/prokuranepal/inventory_app.svg?branch=inventory)](https://travis-ci.org/prokuranepal/inventory_app)
 <a href="https://codeclimate.com/github/prokuranepal/inventory_app/maintainability"><img src="https://api.codeclimate.com/v1/badges/ad49e8b0db169560dfd9/maintainability" /></a>
 <a href="https://codeclimate.com/github/prokuranepal/inventory_app/test_coverage"><img src="https://api.codeclimate.com/v1/badges/ad49e8b0db169560dfd9/test_coverage" /></a>
+<a href="https://prokuranepal.github.io/inventory_app/">Vuepress Doc</a>
 
 ### Inventory Management System (Mobile App)
 
