@@ -12,16 +12,17 @@ const CategoryGridTile = props => {
     let icon = null;
     if (props.iconValue == "drug-pack") {
         // icon = <Fontisto name={props.iconValue} size={100} color={Colors.iconColor} />
-        icon= <Image source={require('../../../assets/medicine.png')}  style={{ width: 150, height: 120, opacity: 0.7 }} />
+        icon= <Image data-test= "imageIcon1"source={require('../../../assets/medicine.png')}  style={{ width: 150, height: 120, opacity: 0.7 }} />
 
     }
     else {
-        icon = <Ionicons name={props.iconValue} size={100} color={Colors.primaryColor} />;
+        icon = <Ionicons data-test="imageIcon2" name={props.iconValue} size={100} color={Colors.primaryColor} />;
 
     }
     return (
         <View style={styles.gridItem} >
             <TouchableCmp
+            data-test="touchComp"
                 onPress={props.onSelect} >
 
                 <View style={{ ...styles.container, ...{ backgroundColor: props.color } }}>

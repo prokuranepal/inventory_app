@@ -1,15 +1,8 @@
 import navigationOptions from './navigationOptions';
 import Colors from '../constants/Colors'
 import { JestEnvironment } from '@jest/environment/build/';
+import {mockPlatform} from '../_test_/componenets/test_function'
 
-//  jest.mock("Platform",()=>"android")
-const mockPlatform = OS => {
-    jest.resetModules();
-    jest.doMock('react-native/Libraries/Utilities/Platform', () => ({
-      OS,
-      select: config => config[OS],
-    }));
-  };
 
 
 const expected = {

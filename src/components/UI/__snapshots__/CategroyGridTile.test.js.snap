@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CategoryGridTile/> renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "borderRadius": 10,
+      "elevation": 3,
+      "flex": 1,
+      "height": 150,
+      "margin": 15,
+      "overflow": "visible",
+    }
+  }
+>
+  <View
+    accessible={true}
+    focusable={false}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "flex-start",
+          "backgroundColor": undefined,
+          "borderRadius": 10,
+          "flex": 1,
+          "justifyContent": "flex-end",
+          "padding": 10,
+          "shadowColor": "black",
+          "shadowOffset": Object {
+            "height": 2,
+            "width": 0,
+          },
+          "shadowOpacity": 0.26,
+          "shadowRadius": 10,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "height": "100%",
+            "justifyContent": "center",
+            "opacity": 0.35,
+            "width": "100%",
+          }
+        }
+      >
+        <Text />
+      </View>
+      <Text
+        numberOfLines={2}
+        style={
+          Object {
+            "fontFamily": "open-sans-bold",
+            "fontSize": 22,
+            "textAlign": "left",
+          }
+        }
+      >
+         
+         
+      </Text>
+    </View>
+  </View>
+</View>
+`;

@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CartItem/> renders correctly 1`] = `
+<View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "white",
+        "borderRadius": 10,
+        "elevation": 5,
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "marginBottom": 20,
+        "marginHorizontal": 20,
+        "padding": 10,
+        "shadowColor": "black",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.26,
+        "shadowRadius": 8,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text />
+    </View>
+    <View>
+      <Text
+        data-test="mainText"
+        style={
+          Object {
+            "fontFamily": "open-sans-bold",
+            "fontSize": 16,
+          }
+        }
+      />
+      <Text
+        data-test="quantity"
+        style={
+          Object {
+            "color": "#888",
+            "fontFamily": "open-sans",
+            "fontSize": 16,
+            "paddingLeft": 10,
+          }
+        }
+      >
+        Qty:
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+        }
+      }
+    />
+  </View>
+</View>
+`;
