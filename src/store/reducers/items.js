@@ -3,9 +3,9 @@ import { ADD_ITEMS, UPDATE_ITEMS, SET_ITEMS, DELETE_ITEM } from '../actions/item
 import Item from "../../models/item";
 
 const initialState = {
-    // items: [],
+    items: [],
     // attentionItems: []
-    items: ITEMS,
+    // items: ITEMS,
     attentionItems: ITEMS.filter(item => {
         if ((item.quantity / 1) >= 30) {
             return false;
@@ -29,7 +29,8 @@ const itemsReducer = (state = initialState, action) => {
             }
         case ADD_ITEMS:
             const newProduct = new Item(
-                "i" + (state.items.length + 1),
+                // "i" + (state.items.length + 1),
+                action.iid,
                 action.itemData.name,
                 action.itemData.price,
                 action.itemData.company,
@@ -37,12 +38,12 @@ const itemsReducer = (state = initialState, action) => {
                 action.itemData.quantity,
                 action.itemData.description,
                 action.itemData.type,
+                action.itemData.createdAt,
                 action.itemData.updatedAt,
                 action.itemData.user_added,
-                action.itemData.createdAt,
+                action.itemData.healthFacilities,
                 action.itemData.dosage,
-                action.itemData.exp_date,
-                action.itemData.healthFacilities
+                action.itemData.exp_date
             );
             const updatedAttention1 = [...state.attentionItems];
             const itemIndexAttention1 = state.attentionItems.findIndex(
@@ -73,12 +74,12 @@ const itemsReducer = (state = initialState, action) => {
                 action.itemData.quantity,
                 action.itemData.description,
                 action.itemData.type,
+                action.itemData.createdAt,
                 action.itemData.updatedAt,
                 action.itemData.user_added,
-                action.itemData.createdAt,
+                action.itemData.healthFacilities,
                 action.itemData.dosage,
-                action.itemData.exp_date,
-                action.itemData.healthFacilities
+                action.itemData.exp_date
 
             );
             console.log("item reducer", updatedItem)

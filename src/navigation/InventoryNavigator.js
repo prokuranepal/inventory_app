@@ -238,7 +238,7 @@ const MainNavigator = createDrawerNavigator({
 const loginNavigator = createSwitchNavigator({
 
     // Splash: SplashScreen,
-    // Login: AuthScreen, //uncomment for authentication
+    Login: AuthScreen, //uncomment for authentication
     Tabs: MainNavigator
 }, {
     defaultNavigationOptions: defaultData
