@@ -47,7 +47,7 @@ const CategoriesScreen = props => {
                             routeName: route,
                             params: {
                                 categoryId: itemData.item.id,
-                                name: itemData.item.title
+                                title: itemData.item.title
                             }
                         })
                 }} />

@@ -13,7 +13,7 @@ const ItemListScreen = props => {
     const [text, settext] = useState('');
     const [dataSource, setdataSource] = useState('');
     let availableItems = null;
-    // console.log("catTitle", catTitle)
+    console.log("catTitle", catTitle)
     let attentionMsg = null;
     switch (catTitle) {
         case "Attention":

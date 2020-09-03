@@ -34,7 +34,9 @@ const CartScreen = props => {
         return transformedCartItems.sort((a, b) =>
             a.quantity > b.quantity ? -1 : 1
         );
+
     });
+    console.log("cart",cartItems)
 
     const dispatch = useDispatch();
 

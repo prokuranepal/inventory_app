@@ -50,7 +50,7 @@ export const addItems = (name, company, quantity, description, price, type) => {
             //         method: 'GET',
             //     })
             let resdata = await response.json();
-            console.log("response from backend", resdata)
+            console.log("response from backend", JSON.stringify(resdata))
             const itemId = resdata._id;
             createdAt=resdata.createdAt;
             updatedAt=resdata.updatedAt;
@@ -127,65 +127,72 @@ export const updateItem = (id, name, company, quantity, description, price, imag
         let user_added= data2.user_added;
         let updatedAt = data2.updatedAt;
         let createdAt = data2.createdAt
-    // return async (dispatch, getState) => {
+    return async (dispatch, getState) => {
 
 
-    //     try {
-    //         const ip = getState().ip.ip;
-    //         const response = await fetch(`${ip}/medicines/${id}`
-    //             , {
-    //                 method: 'PUT',
-    //                 headers: {
-    //                     'Content-Type': 'application/json',
-    //                     'Authorization': 'Bearer ' + getState().auth.token
-    //                 },
-    //                 body: JSON.stringify(data2)
-    //             })
-    //         console.log("axios to backend", response)
-    //         dispatch({
-    //             type: UPDATE_ITEMS,
-    //             iid: id,
-    //             itemData: {
-    //                 name,
-    //                 company,
-    //                 quantity,
-    //                 description,
-    //                 image,
-    //                 price,
-    //                 type,
-    //                 exp_date,
-    //                 healthFacilities,
-    //                 dosage,
-    //                 user_added,
-    //                 updatedAt,
-    //                 createdAt
-    //             }
-    //         })
-    //     }
-    //     catch (err) {
-    //         console.log("error at updateitem action",err)
-    //     }
-    // }
-
-    return ({
-        type: UPDATE_ITEMS,
-        iid: id,
-        itemData: {
-            name,
-            company,
-            quantity,
-            description,
-            image,
-            price,
-            type,
-            exp_date,
-            healthFacilities,
-            dosage,
-            user_added,
-            updatedAt,
-            createdAt
+        try {
+            const ip = getState().ip.ip;
+            const response = await fetch(`${ip}/medicines/${id}`
+                , {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + getState().auth.token
+                    },
+                    body: JSON.stringify(data2)
+                })
+                let resdata = await response.json();
+                 exp_date = resdata.exp_date;
+                 healthFacilities=resdata.healthFacilities;
+                 dosage = resdata.dosage;
+                 user_added= resdata.user_added;
+                 updatedAt = resdata.updatedAt;
+                 createdAt = resdata.createdAt
+            console.log("axios to backend", JSON.stringify(response))
+            dispatch({
+                type: UPDATE_ITEMS,
+                iid: id,
+                itemData: {
+                    name,
+                    company,
+                    quantity,
+                    description,
+                    image,
+                    price,
+                    type,
+                    exp_date,
+                    healthFacilities,
+                    dosage,
+                    user_added,
+                    updatedAt,
+                    createdAt
+                }
+            })
         }
-    })
+        catch (err) {
+            console.log("error at updateitem action",err)
+        }
+    }
+
+    // return ({
+    //     type: UPDATE_ITEMS,
+    //     iid: id,
+    //     itemData: {
+    //         name,
+    //         company,
+    //         quantity,
+    //         description,
+    //         image,
+    //         price,
+    //         type,
+    //         exp_date,
+    //         healthFacilities,
+    //         dosage,
+    //         user_added,
+    //         updatedAt,
+    //         createdAt
+    //     }
+    // })
 }
 
 
@@ -250,22 +257,21 @@ export const setItems = () => {
 
 
 export const deleteItem = itemId => {
-    // return async (dispatch, getState) => {
-    //     try {
-    //         const ip = getState().ip.ip;
-    //         const response = await fetch(`${ip}/medicines/${itemId}`
-    //             ,
-    //             { method: 'DELETE' });
-    //         let resdata = await response.json();
-    //         // console.log("response from backend", resdata)
+    return async (dispatch, getState) => {
+        try {
+            const ip = getState().ip.ip;
+            const response = await fetch(`${ip}/medicines/${itemId}`
+                ,
+                { method: 'DELETE' });
+            let resdata = await response.json();
+            // console.log("response from backend", resdata)
 
-
-    //         dispatch({ type: DELETE_ITEM, iid: itemId })
-    //     }
-    //     catch (err) {
-    //         console.log(err)
-    //     }
-    // }
-    return ({ type: DELETE_ITEM, iid: itemId })
+            dispatch({ type: DELETE_ITEM, iid: itemId })
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+    // return ({ type: DELETE_ITEM, iid: itemId })
 
 }

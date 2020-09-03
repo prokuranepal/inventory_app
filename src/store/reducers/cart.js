@@ -12,7 +12,7 @@ export default (state = initialState, action) => {
         case ADD_TO_CART:
             const addedItem = action.item;
             const itemPrice = addedItem.price
-            const itemTitle = addedItem.title;
+            const itemTitle = addedItem.name;
 
             let updatedOrNewCartItem;
 

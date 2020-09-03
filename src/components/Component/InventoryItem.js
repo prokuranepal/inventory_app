@@ -46,9 +46,9 @@ const InventoryItem = props => {
 
         if (Platform.OS === 'android') {
 
-            ToastAndroid.show(quantityInput + ' ' + selectedItemCart.title + " has been added to cart", ToastAndroid.SHORT)
+            ToastAndroid.show(quantityInput + ' ' + selectedItemCart.name + " has been added to cart", ToastAndroid.SHORT)
         } else {
-            AlertIOS.alert(quantityInput + " " + selectedItemCart.title + " has been added to cart");
+            AlertIOS.alert(quantityInput + " " + selectedItemCart.name + " has been added to cart");
         }
     }
     const quantityInputChange = (value) => {
@@ -98,7 +98,7 @@ const InventoryItem = props => {
                                 width: 300,
                                 height: 280
                             }}>
-                                <Text style={{ ...styles.label, marginTop: 0 }}>Medicine Name : {selectedItemCart.title}</Text>
+                                <Text style={{ ...styles.label, marginTop: 0 }}>Medicine Name : {selectedItemCart.name}</Text>
                                 <Text style={styles.label}>Rate : Rs. {selectedItemCart.price}/pc</Text>
                                 <Text style={styles.label}>Price : Rs. {selectedItemCart.price * quantityInput} </Text>
                                 <Text style={styles.label}>Available Quantity : {selectedItemCart.quantity} </Text>
