@@ -15,10 +15,10 @@ export const authenticate = (userId, token, expiryTime) => {
 
 export const signUp = (email, password) => {
     // console.log("authentication", email, password)
-    return async dispatch => {
+    return async  (dispatch, getState)=> {
         const data = {
 
-            username: email,
+            email: email,
             password: password
 
         }
@@ -60,10 +60,8 @@ export const signUp = (email, password) => {
 export const login = (email, password) => {
     return async (dispatch, getState) => {
         const data = {
-
-            username: email,
+            email: email,
             password: password
-
         }
         try {
             // console.log("login action", getState().ip.ip)
@@ -77,7 +75,7 @@ export const login = (email, password) => {
                 }
             )
             let respData = await response.json();
-            // console.log("login response", respData)
+            console.log("login response", respData)
             if (!respData.success) {
                 Alert.alert(respData["err"].name, respData["err"].message)
                 return;

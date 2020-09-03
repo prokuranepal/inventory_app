@@ -16,7 +16,7 @@ const ManageItemScreen = props => {
         //passing the inserted text in textinput
         const newData = availableItems.filter(function (item) {
             //applying filter for the inserted text in search bar
-            const itemData = item.title ? item.title.toUpperCase() : ''.toUpperCase();
+            const itemData = item.name ? item.name.toUpperCase() : ''.toUpperCase();
             const textData = text.toUpperCase();
             return itemData.indexOf(textData) > -1;
         });

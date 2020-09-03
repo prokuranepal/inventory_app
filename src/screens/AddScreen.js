@@ -85,11 +85,11 @@ const AddScreen = props => {
 
     const [formState, dispatchFormState] = useReducer(formReducer, {
         inputValues: {
-            title: '',
+            name: '',
             quantity: '',
         },
         inputValidities: {
-            title: '' ? false : true,
+            name: '' ? false : true,
             quantity: '' ? false : true,
         },
         formIsValid: !'' ? true : false
@@ -110,11 +110,11 @@ const AddScreen = props => {
 
         // const selected = selectedItem.find(item => item.title === formState.inputValues.title)
         // console.log(formState.inputValues.title, formState.inputValues.quantity)
-        if (formState.inputValues.title === '' || undefined) {
+        if (formState.inputValues.name === '' || undefined) {
             alert(`Please enter the medicine type`);
         }
         else {
-            let selected = selectedItem.find(item => item.title === formState.inputValues.title)
+            let selected = selectedItem.find(item => item.name === formState.inputValues.name)
             // console.log(selected)
             dispatch(cardActions.addToCart(selected, +formState.inputValues.quantity));
             props.navigation.pop();
@@ -129,7 +129,7 @@ const AddScreen = props => {
             if (['Sinex', 'Antacids', 'Antibiotics', 'Electrobion', 'Paracetamol',
                 'Digene', 'Neurobion', 'Masks'].indexOf(inputIdentifier) >= 0) {
                 input = inputIdentifier;
-                identifier = "title";
+                identifier = "name";
                 inputValidity = 'true'
             }
 

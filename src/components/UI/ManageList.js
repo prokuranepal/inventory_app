@@ -10,7 +10,7 @@ const ManageList = props => {
         return (
             <ManageItem
                 key={itemData.item._id}
-                title={itemData.item.title}
+                title={itemData.item.name}
                 quantity={itemData.item.quantity}
                 company={itemData.item.company}
                 price={itemData.item.price}
@@ -20,7 +20,7 @@ const ManageList = props => {
                         routeName: 'AddItem',
                         params: {
                             itemId: itemData.item._id,
-                            itemTitle: itemData.item.title,
+                            itemTitle: itemData.item.name,
                         }
                     }
                     );

@@ -11,9 +11,9 @@ import { AntDesign } from '@expo/vector-icons';
 
 const CategoriesScreen = props => {
     const dispatch = useDispatch();
-    // useEffect(() => {
-    //     dispatch(itemsActions.setItems())
-    // }, [])
+    useEffect(() => {
+        dispatch(itemsActions.setItems())
+    }, [])
 
     const renderGridItem = (itemData) => {
         return (
@@ -47,7 +47,7 @@ const CategoriesScreen = props => {
                             routeName: route,
                             params: {
                                 categoryId: itemData.item.id,
-                                title: itemData.item.title
+                                name: itemData.item.title
                             }
                         })
                 }} />

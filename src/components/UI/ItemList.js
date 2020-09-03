@@ -8,10 +8,10 @@ const ItemList = props => {
 
         return (
             <InventoryItem
-                title={itemData.item.title}
+                title={itemData.item.name}
                 image={itemData.item.image}
                 quantity={itemData.item.quantity}
-                company={itemData.item.company}
+                company="abc"//{itemData.item.company} 
                 price={itemData.item.price}
                 titles={props.catTitle}
                 id={itemData.item._id}
@@ -21,7 +21,7 @@ const ItemList = props => {
                         routeName: 'ItemDetail',
                         params: {
                             itemId: itemData.item._id,
-                            itemTitle: itemData.item.title,
+                            itemTitle: itemData.item.name,
 
                         }
                     });

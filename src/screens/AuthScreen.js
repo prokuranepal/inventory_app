@@ -28,7 +28,7 @@ class Authentication extends Component {
         viewMode: Dimensions.get("window").height > 500 ? "portrait" : "landscape",
         controls: {
             email: {
-                value: "sa@gmail.com",
+                value: "9841122040",
                 valid: false,
                 validationRules: {
                     isEmail: true
@@ -36,7 +36,7 @@ class Authentication extends Component {
                 touched: false
             },
             password: {
-                value: "shrestha",
+                value: "abc",
                 valid: false,
                 validationRules: {
                     minLength: 6

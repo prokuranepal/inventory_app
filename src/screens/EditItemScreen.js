@@ -127,7 +127,7 @@ const EditItemScreen = props => {
 
   const [formState, dispatchFormState] = useReducer(formReducer, {
     inputValues: {
-      title: editedItem ? editedItem.title : '',
+      name: editedItem ? editedItem.name : '',
       company: editedItem ? editedItem.company : '',
       description: editedItem ? editedItem.description : '',
       quantity: editedItem ? editedItem.quantity : '',
@@ -135,7 +135,7 @@ const EditItemScreen = props => {
       type: editedItem ? editedItem.type : 'Pain killer',
     },
     inputValidities: {
-      title: editedItem ? true : false,
+      name: editedItem ? true : false,
       company: editedItem ? true : false,
       description: editedItem ? true : false,
       quantity: editedItem ? true : false,
@@ -174,7 +174,7 @@ const EditItemScreen = props => {
         await dispatch(
           itemsActions.updateItem(
             itemId,
-            formState.inputValues.title,
+            formState.inputValues.name,
             formState.inputValues.company,
             +formState.inputValues.quantity,
             formState.inputValues.description,
@@ -187,7 +187,7 @@ const EditItemScreen = props => {
 
         await dispatch(
           itemsActions.addItems(
-            formState.inputValues.title,
+            formState.inputValues.name,
             formState.inputValues.company,
             +formState.inputValues.quantity,
             formState.inputValues.description,
@@ -252,15 +252,15 @@ const EditItemScreen = props => {
       <ScrollView>
         <View style={styles.form}>
           <Input
-            id="title"
+            id="name"
             label="Item/Medicine Name"
-            errorText="Please enter a valid title!"
+            errorText="Please enter a valid name!"
             keyboardType="default"
             autoCapitalize="sentences"
             autoCorrect
             onInputChange={inputChangeHandler}
             returnKeyType="next"
-            initialValue={editedItem ? editedItem.title : ''}
+            initialValue={editedItem ? editedItem.name : ''}
             initiallyValid={!!editedItem}
             required
           />

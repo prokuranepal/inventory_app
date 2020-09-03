@@ -30,13 +30,19 @@ const itemsReducer = (state = initialState, action) => {
         case ADD_ITEMS:
             const newProduct = new Item(
                 "i" + (state.items.length + 1),
-                action.itemData.title,
+                action.itemData.name,
                 action.itemData.price,
                 action.itemData.company,
                 'https://cdn2.iconfinder.com/data/icons/medicine-84/1000/Medicine-color-04-512.png',
                 action.itemData.quantity,
                 action.itemData.description,
-                action.itemData.type
+                action.itemData.type,
+                action.itemData.updatedAt,
+                action.itemData.user_added,
+                action.itemData.createdAt,
+                action.itemData.dosage,
+                action.itemData.exp_date,
+                action.itemData.healthFacilities
             );
             const updatedAttention1 = [...state.attentionItems];
             const itemIndexAttention1 = state.attentionItems.findIndex(
@@ -59,13 +65,19 @@ const itemsReducer = (state = initialState, action) => {
             );
             const updatedItem = new Item(
                 action.iid,
-                action.itemData.title,
+                action.itemData.name,
                 action.itemData.price,
                 action.itemData.company,
                 action.itemData.image,
                 action.itemData.quantity,
                 action.itemData.description,
-                action.itemData.type
+                action.itemData.type,
+                action.itemData.updatedAt,
+                action.itemData.user_added,
+                action.itemData.createdAt,
+                action.itemData.dosage,
+                action.itemData.exp_date,
+                action.itemData.healthFacilities
 
             );
             const updatedItems = [...state.items];

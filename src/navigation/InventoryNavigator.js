@@ -11,7 +11,7 @@ import Colors from '../constants/Colors';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
-// import AuthScreen from '../screens/AuthScreen';
+import AuthScreen from '../screens/AuthScreen';
 import EditItemScreen from '../screens/EditItemScreen';
 import ItemCategoryScreen from '../screens/ItemCategoryScreen';
 import SplashScreen from '../screens/Splashscreen';
@@ -197,6 +197,7 @@ const CartScreenNavigator = createStackNavigator({
 )
 
 const OrderScreenListNavigator = createStackNav("OrderList", OrderListScreen)
+// const logOUtNav = createStackNav("Logout", loginNavigator)
 
 const MainNavigator = createDrawerNavigator({
 
@@ -205,6 +206,7 @@ const MainNavigator = createDrawerNavigator({
     OrderList: OrderScreenListNavigator,
     SupplierContact: SupplierContactScreenNavigator,
     Settings: SettingsNavigator,
+    // PLogout: AuthScreen
 
 
 },
@@ -235,8 +237,8 @@ const MainNavigator = createDrawerNavigator({
 
 const loginNavigator = createSwitchNavigator({
 
-    Splash: SplashScreen,
-    // Login: AuthScreen, //uncomment for authentication
+    // Splash: SplashScreen,
+    Login: AuthScreen, //uncomment for authentication
     Tabs: MainNavigator
 }, {
     defaultNavigationOptions: defaultData
