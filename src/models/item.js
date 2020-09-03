@@ -23,7 +23,7 @@ class Item {
         this.quantity = quantity;
         this.description = description;
         this.type = type;
-        this.createAt=createdAt;
+        this.createdAt=createdAt;
         this.updatedAt=updatedAt;
         this.user_added=userAdded;
         this.healthFacilities=healthFacilities;

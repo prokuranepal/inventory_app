@@ -11,6 +11,7 @@ const ManageItemScreen = props => {
     const availableItems = useSelector(state => state.items.items);
     const [text, settext] = useState('');
     const [dataSource, setdataSource] = useState('');
+console.log("manageitemscreen availableItems", availableItems)
 
     const SearchFilterFunction = (text) => {
         //passing the inserted text in textinput
@@ -20,29 +21,38 @@ const ManageItemScreen = props => {
             const textData = text.toUpperCase();
             return itemData.indexOf(textData) > -1;
         });
-        setdataSource(newData)
+setdataSource(newData,()=>{console.log("manageitemscreen dataSource", dataSource)
+})
         settext(text)
     }
-    return (
-        <View style={styles.container}>
-            <View style={styles.SectionStyle}>
-                <Ionicons style={styles.ImageStyle}
-                    name={Platform.OS === 'android' ? 'md-search' : 'ios-search'}
-                    size={20} color="#000" />
-                <TextInput
-                    style={styles.textInputStyle}
-                    onChangeText={text => SearchFilterFunction(text)}
-                    underlineColorAndroid='transparent'
-                    value={text}
-                    autoCorrect={false}
-                    placeholder="Search Here"
-                />
+    let val = null;
+    try{
+        val =   <View style={styles.container}>
+        <View style={styles.SectionStyle}>
+            <Ionicons style={styles.ImageStyle}
+                name={Platform.OS === 'android' ? 'md-search' : 'ios-search'}
+                size={20} color="#000" />
+            <TextInput
+                style={styles.textInputStyle}
+                onChangeText={text => SearchFilterFunction(text)}
+                underlineColorAndroid='transparent'
+                value={text}
+                autoCorrect={false}
+                placeholder="Search Here"
+            />
 
-            </View>
-            <ManageList
-                listData={dataSource || availableItems}
-                navigation={props.navigation} />
         </View>
+        <ManageList
+            listData={dataSource || availableItems}
+            navigation={props.navigation} />
+    </View>
+    }
+    catch(error)
+    {
+        console.log("error in manage Item", error)
+    }
+    return (
+     val
     );
 
 };

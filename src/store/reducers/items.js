@@ -33,7 +33,7 @@ const itemsReducer = (state = initialState, action) => {
                 action.itemData.name,
                 action.itemData.price,
                 action.itemData.company,
-                'https://cdn2.iconfinder.com/data/icons/medicine-84/1000/Medicine-color-04-512.png',
+                action.itemData.image,
                 action.itemData.quantity,
                 action.itemData.description,
                 action.itemData.type,
@@ -57,6 +57,7 @@ const itemsReducer = (state = initialState, action) => {
                 attentionItems: updatedAttention1,
             };
         case UPDATE_ITEMS:
+            try{
             const itemIndex = state.items.findIndex(
                 item => item._id === action.iid
             );
@@ -80,8 +81,10 @@ const itemsReducer = (state = initialState, action) => {
                 action.itemData.healthFacilities
 
             );
+            console.log("item reducer", updatedItem)
             const updatedItems = [...state.items];
             updatedItems[itemIndex] = updatedItem;
+            console.log("item reducer items", updatedItems)
 
             const updatedAttention = [...state.attentionItems];
             if (action.itemData.quantity < 30 && itemIndexAttention >= 0) {
@@ -98,6 +101,11 @@ const itemsReducer = (state = initialState, action) => {
                 items: updatedItems,
                 attentionItems: updatedAttention,
             };
+        }
+        catch(e)
+        {
+            console.log("error at item reducer", e)
+        }
         case DELETE_ITEM:
             return {
                 ...state,
