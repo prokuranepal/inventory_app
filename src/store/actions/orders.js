@@ -75,15 +75,54 @@ export const addOrder = (cartItems) => {
     //         }
     //     });
     // };
-    const date = new Date();
-    return ({
-        type: ADD_ORDER,
-        orderData: {
-            // id: i,
-            id: "i" + Math.random(),
-            items: cartItems,
-            // amount: totalAmount,
-            date: date
+    let data={
+        order_id:new Date(),
+        OrderItem:cartItems,
+        date_order:new Date(),
+        Origin:"Nangi",
+        created_user: getState().items.user_added,
+        Destination:"Ramche",
+        Status:"pending"
+    }
+    return async (dispatch, getState) => {
+        try {
+            const ip = getState().ip.ip;
+            const response = await fetch(ip + "/order"
+                , {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + getState().auth.token,
+
+                    },
+                    body: JSON.stringify(data)
+                })
+
+            // console.log("response from backend")
+            // const response = await fetch("http://192.168.10.17:3000/medicines"
+            //     , {
+            //         method: 'GET',
+            //     })
+            let resdata = await response.json();
+            console.log("response from backend order", JSON.stringify(resdata))
+            const itemId = resdata._id;
+            createdAt=resdata.createdAt;
+            updatedAt=resdata.updatedAt;
+            user_added= resdata.user_added            
+            dispatch({
+                        type: ADD_ORDER,
+                        orderData: {
+                            // id: i,
+                            id: data.order_id,
+                            items: cartItems,
+                            // amount: totalAmount,
+                            date: data.date_order
+                        }
+                    });
+                }
+        
+        catch (err) {
+            console.log(err);
         }
-    });
+    }
 };
