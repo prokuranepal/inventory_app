@@ -75,19 +75,29 @@ export const addOrder = (cartItems) => {
     //         }
     //     });
     // };
-    let data={
-        order_id:new Date(),
-        OrderItem:cartItems,
-        date_order:new Date(),
-        Origin:"Nangi",
-        created_user: getState().items.user_added,
-        Destination:"Ramche",
-        Status:"pending"
-    }
+   
     return async (dispatch, getState) => {
+        let orderItemValue= cartItems.map((order)=>{
+            return{
+                medicine:order.itemId,
+                quantity:order.quantity
+            }
+
+        })
+        console.log("cartItems", orderItemValue)
+        let data={
+            order_id:new Date(),
+            OrderItem:cartItems,
+            orderDate:new Date(),
+            Origin:"Nangi",
+            created_user: getState().items.user_added,
+            deliveryDate:new Date(2020,9,30),
+            orderItem:orderItemValue,
+            name:"Order"+ (new Date()).toString()+ getState().items.user_added
+        }
         try {
             const ip = getState().ip.ip;
-            const response = await fetch(ip + "/order"
+            const response = await fetch(ip + "/orders"
                 , {
                     method: 'POST',
                     headers: {

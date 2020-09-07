@@ -31,7 +31,7 @@ const CategoriesScreen = props => {
                             route = "AddItem"
                             break;
                         case "Send/Req":
-                            route = "Logs"
+                            route = "Send"
                             break;
                         case "Logs":
                             route = "Logs"

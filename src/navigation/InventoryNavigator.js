@@ -24,6 +24,7 @@ import ScannerScreen from '../screens/ScannerScreen';
 import OrderListScreen from '../screens/OrderListScreen';
 import SupplierContactScreen from '../screens/SupplierContactScreen';
 import ReceivedItemScreen from '../screens/ReceivedItemScreen';
+import SendScreen from '../screens/SendScreen';
 import { color } from 'react-native-reanimated';
 const defaultData = {
     headerStyle: {
@@ -47,6 +48,7 @@ const ItemsNavigator = createStackNavigator({
     ManageInventory: ManageItemScreen,
     Add: AddItemScreen,
     Logs: LogsScreen,
+    Send: SendScreen,
     Order: OrderScreen,
     Scanner: ScannerScreen,
     ReceivedItemList: ReceivedItemScreen
