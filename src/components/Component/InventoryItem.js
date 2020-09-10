@@ -81,7 +81,7 @@ const InventoryItem = props => {
                    </View > : }*/
 
         <View style={styles.Items}>
-            {/* <ModalComponent isModalVisible={isModalVisible}   >
+            <ModalComponent isModalVisible={isModalVisible}   >
                 <KeyboardAvoidingView
                     style={{ flex: 1 }}
                     behavior="height"
@@ -129,7 +129,7 @@ const InventoryItem = props => {
                         </View>
                     </ScrollView>
                 </KeyboardAvoidingView>
-            </ModalComponent > */}
+            </ModalComponent >
             <TouchableOpacity onPress={props.onSelectItem} style={{width:"100%"}} >
                 <View style={{width:"100%",alignItems:"center"}} >
                     <Card style={{...styles.summary, width:"86%", flexDirection:"row", justifyContent:"space-between"}}>
