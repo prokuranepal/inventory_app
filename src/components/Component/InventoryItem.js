@@ -81,7 +81,7 @@ const InventoryItem = props => {
                    </View > : }*/
 
         <View style={styles.Items}>
-            <ModalComponent isModalVisible={isModalVisible}  >
+            {/* <ModalComponent isModalVisible={isModalVisible}   >
                 <KeyboardAvoidingView
                     style={{ flex: 1 }}
                     behavior="height"
@@ -129,21 +129,21 @@ const InventoryItem = props => {
                         </View>
                     </ScrollView>
                 </KeyboardAvoidingView>
-            </ModalComponent >
-            <TouchableOpacity onPress={props.onSelectItem} >
-                <View>
-                    <Card style={styles.summary}>
-                        <ImageBackground source={{ uri: props.image }} style={{ width: '40%', height: '100%' }} />
-                        <View >
+            </ModalComponent > */}
+            <TouchableOpacity onPress={props.onSelectItem} style={{width:"100%"}} >
+                <View style={{width:"100%",alignItems:"center"}} >
+                    <Card style={{...styles.summary, width:"86%", flexDirection:"row", justifyContent:"space-between"}}>
+                        <ImageBackground source={{ uri: props.image }} style={{ width: '100%', height: '100%', flex:1 }} />
+                        <View style={{flex:2, paddingLeft:20}}>
                             <Text style={styles.test} numberOfLines={1}>
                                 {props.title}</Text>
                         </View>
-                        <View>
+                        <View style={{flex:2}}>
                             <Text> {props.quantity}pcs</Text>
                             <Text> Rs. {props.price}/PC</Text>
                             <Text> {props.company.toUpperCase()}</Text>
                         </View>
-                        <View >
+                        <View style={{flex:1}}>
                             <TouchableOpacity
                                 onPress={() => { props.sendCardHandlrer(props.id) }}
                                 style={styles.deleteButton}
@@ -192,11 +192,12 @@ const styles = StyleSheet.create({
         fontSize: 18
     },
     Items: {
-        width: '100%',
+        flex:1,
         height: 100,
         backgroundColor: '#f5f5f5',
         borderRadius: 10,
         overflow: 'hidden',
+        justifyContent:'space-around'
 
     },
     Row: {

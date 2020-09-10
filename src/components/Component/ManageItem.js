@@ -12,11 +12,11 @@ const ManageItem = props => {
             <TouchableOpacity onPress={props.onSelectItem} >
 
                 <View style={{ ...styles.mealRow, ...styles.mealDetails }}>
-                    <Text> {sn}</Text>
-                    <Text numberOfLines={1}>{props.title}</Text>
-                    <Text> {props.quantity}pcs</Text>
-                    <Text> {props.company.toUpperCase()}</Text>
-                    <Text> Rs. {props.price}/PC</Text>
+                    <Text style={{flex:.2}} > {sn}</Text>
+                    <Text style={{flex:.4}} numberOfLines={1}>{props.title}</Text>
+                    <Text style={{flex:.4}}> {props.quantity}pcs</Text>
+                    <Text style={{flex:.4}}> {props.company.toUpperCase()}</Text>
+                    <Text style={{flex:.3}}> Rs. {props.price}/PC</Text>
                 </View>
             </TouchableOpacity>
         </View >

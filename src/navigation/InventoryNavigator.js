@@ -11,7 +11,7 @@ import Colors from '../constants/Colors';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
-// import AuthScreen from '../screens/AuthScreen';
+import AuthScreen from '../screens/AuthScreen';
 import EditItemScreen from '../screens/EditItemScreen';
 import ItemCategoryScreen from '../screens/ItemCategoryScreen';
 import SplashScreen from '../screens/Splashscreen';
@@ -24,6 +24,7 @@ import ScannerScreen from '../screens/ScannerScreen';
 import OrderListScreen from '../screens/OrderListScreen';
 import SupplierContactScreen from '../screens/SupplierContactScreen';
 import ReceivedItemScreen from '../screens/ReceivedItemScreen';
+import SendScreen from '../screens/SendScreen';
 import { color } from 'react-native-reanimated';
 const defaultData = {
     headerStyle: {
@@ -47,6 +48,7 @@ const ItemsNavigator = createStackNavigator({
     ManageInventory: ManageItemScreen,
     Add: AddItemScreen,
     Logs: LogsScreen,
+    Send: SendScreen,
     Order: OrderScreen,
     Scanner: ScannerScreen,
     ReceivedItemList: ReceivedItemScreen
@@ -197,6 +199,7 @@ const CartScreenNavigator = createStackNavigator({
 )
 
 const OrderScreenListNavigator = createStackNav("OrderList", OrderListScreen)
+// const logOUtNav = createStackNav("Logout", loginNavigator)
 
 const MainNavigator = createDrawerNavigator({
 
@@ -205,6 +208,7 @@ const MainNavigator = createDrawerNavigator({
     OrderList: OrderScreenListNavigator,
     SupplierContact: SupplierContactScreenNavigator,
     Settings: SettingsNavigator,
+    // PLogout: AuthScreen
 
 
 },
@@ -235,7 +239,7 @@ const MainNavigator = createDrawerNavigator({
 
 const loginNavigator = createSwitchNavigator({
 
-    Splash: SplashScreen,
+    // Splash: SplashScreen,
     // Login: AuthScreen, //uncomment for authentication
     Tabs: MainNavigator
 }, {
