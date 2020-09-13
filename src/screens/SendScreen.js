@@ -83,10 +83,10 @@ const submitHandler=()=>{
         total_price=total_price+item.price*item.quantity;
         return( 
         <View style={styles.requestedList} key={index} >
-            <Text style={{flex:.2}}>{index+1}</Text>
-            <Text style={{flex:.4}}>{item.title}</Text>
-            <Text style={{flex:.2}}>{item.price}</Text>
-            <Text style={{flex:.2}} >{item.quantity}</Text>
+            <Text style={{flex:.2}}    >{index+1}</Text>
+            <Text style={{flex:.4}} data-test={`itemTitle${index}`}>{item.title}</Text>
+            <Text style={{flex:.2}} data-test={`itemPrice${index}`}>{item.price}</Text>
+            <Text style={{flex:.2}} data-test={`itemQuantity${index}`}>{item.quantity}</Text>
         </View>)
       })
       let restrictor={height:"40%"}
@@ -117,10 +117,11 @@ const submitHandler=()=>{
     >
       <ScrollView nestedScrollEnabled = {true}>
         <View style={styles.form}>
-          <Text style={styles.label}>{"Destination"}</Text>
+          <Text style={styles.label} data-test="labelDestination">{"Destination"}</Text>
           <RNPickerSelect
             onValueChange={inputChangeHandler}
             useNativeAndroidPickerStyle={false}
+            data-test="destinationPicker"
             placeholder={{
               label: 'Select Destination',
               value: '',
@@ -144,7 +145,7 @@ const submitHandler=()=>{
             items={categories}
           />
 
-       <Text style={styles.label}>{"Items to Send"}</Text>
+       <Text style={styles.label}  data-test="labelItems">{"Items to Send"}</Text>
        <SafeAreaView style={{borderWidth:1,...listHeight}}>
        <View style={styles.requestedList}>
             <Text style={{flex:.2}}>{"SN"}</Text>
@@ -157,19 +158,20 @@ const submitHandler=()=>{
           </ScrollView> 
          </SafeAreaView >
          <View >
-         <Text style={styles.label}>{"Total Price"}</Text>
+         <Text style={styles.label}  data-test="labelPrice">{"Total Price"}</Text>
          <View style={styles.calendar} >
-            <Text style={{marginLeft:20, fontSize: 16, fontFamily: 'open-sans-bold',}}>Rs. {total_price}</Text>
+            <Text style={{marginLeft:20, fontSize: 16, fontFamily: 'open-sans-bold',}} data-test="priceTotal">Rs. {total_price}</Text>
           </View>
           </View>
          <View >
-         <Text style={styles.label}>{"Scheduled Date"}</Text>
-         <TouchableOpacity onPress={()=>showDate(true)} >
+         <Text style={styles.label}  data-test="labelDate">{"Scheduled Date"}</Text>
+         <TouchableOpacity onPress={()=>showDate(true)} data-test="touchDate" >
          <View style={styles.calendar} >
             <Text style={{marginLeft:20,   fontSize: 16, fontFamily: 'open-sans-bold',}}>{ newDate.toLocaleDateString("en-US", options)}</Text>
           </View>
           </TouchableOpacity>
             {date && (<DateTimePicker
+            data-test="datePicker"
           testID="datePicker"
           value={new Date()}
           mode={"date"}
@@ -179,20 +181,22 @@ const submitHandler=()=>{
             />)}
         </View>
         <View >
-         <Text style={styles.label}>{"Scheduled Time"}</Text>
-         <TouchableOpacity onPress={()=>showTime(true)} >
+         <Text style={styles.label}  data-test="labelTime">{"Scheduled Time"}</Text>
+         <TouchableOpacity onPress={()=>showDate(true)} data-test="touchTime">
          <View style={styles.calendar} >
             <Text style={{marginLeft:20,   fontSize: 16, fontFamily: 'open-sans-bold',}}>{ newTime.toLocaleTimeString("en-US", options)}</Text>
           </View>
           </TouchableOpacity>
             {time && (<DateTimePicker
+            data-test="timePicker"
           testID="timePicker"
-          value={new Date()}
-          mode={"time"}
+          value={()=>new Date()}
+          mode={"dare"}
           is24Hour={true}
           display="default"
           onChange={onTimeChange}
-            />)}
+            />
+            )}
         </View>
         </View>
       </ScrollView>
@@ -217,7 +221,7 @@ SendScreen.navigationOptions = navData => {
           iconName={
             Platform.OS === 'android' ? 'md-checkmark' : 'ios-checkmark'
           }
-          onPress={submitFn}
+          onPress={()=>submitFn} data-test="goBack"
         />
       </HeaderButtons>
     )

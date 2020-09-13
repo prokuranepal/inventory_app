@@ -28,7 +28,7 @@ SettingsScreen.navigationOptions = navData => {
         },
         headerLeft: () => (
             <HeaderButtons HeaderButtonComponent={HeaderButton} >
-                <Item title="Menu" iconName="ios-menu" onPress={() => {
+                <Item title="Menu" iconName="ios-menu" data-test="navToggle" onPress={() => {
                     navData.navigation.toggleDrawer()
                 }} />
             </HeaderButtons>

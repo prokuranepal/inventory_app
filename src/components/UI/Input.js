@@ -4,7 +4,7 @@ import TestInput from '../Component/testInput';
 
 const INPUT_CHANGE = 'INPUT_CHANGE';
 
-const inputReducer = (state, action) => {
+export const inputReducer = (state, action) => {
     switch (action.type) {
         case INPUT_CHANGE:
             return {

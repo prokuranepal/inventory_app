@@ -301,7 +301,11 @@
 <a name='L242'></a><a href='#L242'>242</a>
 <a name='L243'></a><a href='#L243'>243</a>
 <a name='L244'></a><a href='#L244'>244</a>
-<a name='L245'></a><a href='#L245'>245</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L245'></a><a href='#L245'>245</a>
+<a name='L246'></a><a href='#L246'>246</a>
+<a name='L247'></a><a href='#L247'>247</a>
+<a name='L248'></a><a href='#L248'>248</a>
+<a name='L249'></a><a href='#L249'>249</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -316,6 +320,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -330,18 +348,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -501,7 +507,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -558,7 +566,7 @@ import Colors from '../constants/Colors';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
-// import AuthScreen from '../screens/AuthScreen';
+import AuthScreen from '../screens/AuthScreen';
 import EditItemScreen from '../screens/EditItemScreen';
 import ItemCategoryScreen from '../screens/ItemCategoryScreen';
 import SplashScreen from '../screens/Splashscreen';
@@ -571,6 +579,7 @@ import ScannerScreen from '../screens/ScannerScreen';
 import OrderListScreen from '../screens/OrderListScreen';
 import SupplierContactScreen from '../screens/SupplierContactScreen';
 import ReceivedItemScreen from '../screens/ReceivedItemScreen';
+import SendScreen from '../screens/SendScreen';
 import { color } from 'react-native-reanimated';
 const defaultData = {
     headerStyle: {
@@ -594,6 +603,7 @@ const ItemsNavigator = createStackNavigator({
     ManageInventory: ManageItemScreen,
     Add: AddItemScreen,
     Logs: LogsScreen,
+    Send: SendScreen,
     Order: OrderScreen,
     Scanner: ScannerScreen,
     ReceivedItemList: ReceivedItemScreen
@@ -744,6 +754,7 @@ const CartScreenNavigator = createStackNavigator({
 )
 &nbsp;
 const OrderScreenListNavigator = createStackNav("OrderList", OrderListScreen)
+// const logOUtNav = createStackNav("Logout", loginNavigator)
 &nbsp;
 const MainNavigator = createDrawerNavigator({
 &nbsp;
@@ -752,6 +763,7 @@ const MainNavigator = createDrawerNavigator({
     OrderList: OrderScreenListNavigator,
     SupplierContact: SupplierContactScreenNavigator,
     Settings: SettingsNavigator,
+    // PLogout: AuthScreen
 &nbsp;
 &nbsp;
 },
@@ -782,7 +794,7 @@ const MainNavigator = createDrawerNavigator({
 &nbsp;
 const loginNavigator = createSwitchNavigator({
 &nbsp;
-    Splash: SplashScreen,
+    // Splash: SplashScreen,
     // Login: AuthScreen, //uncomment for authentication
     Tabs: MainNavigator
 }, {
@@ -796,7 +808,7 @@ export default createAppContainer(loginNavigator);</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Sep 04 2020 23:01:21 GMT+0545 (Nepal Time)
+                at Mon Sep 14 2020 02:11:47 GMT+0545 (Nepal Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>

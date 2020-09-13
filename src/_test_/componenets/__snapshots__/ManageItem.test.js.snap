@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ManageItem/> renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderRadius": 10,
+      "height": 50,
+      "justifyContent": "center",
+      "overflow": "hidden",
+      "width": "100%",
+    }
+  }
+>
+  <View
+    accessible={true}
+    focusable={false}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "paddingHorizontal": 10,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "flex": 2,
+          }
+        }
+      >
+         
+      </Text>
+      <Text
+        numberOfLines={1}
+        style={
+          Object {
+            "flex": 4,
+          }
+        }
+      />
+      <Text
+        style={
+          Object {
+            "flex": 4,
+          }
+        }
+      >
+         
+        pcs
+      </Text>
+      <Text
+        style={
+          Object {
+            "flex": 4,
+          }
+        }
+      >
+         
+      </Text>
+      <Text
+        style={
+          Object {
+            "flex": 3,
+          }
+        }
+      >
+         Rs. 
+        /PC
+      </Text>
+    </View>
+  </View>
+</View>
+`;

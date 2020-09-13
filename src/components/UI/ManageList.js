@@ -31,11 +31,11 @@ const ManageList = props => {
     return (
         <View style={styles.list}>
             <View style={styles.title}>
-                <Text style={{...styles.topic, flex:0.2}}> SN</Text>
-                <Text style={{...styles.topic, flex:0.4}}>ITEM NAME</Text>
-                <Text style={{...styles.topic, flex:0.4}}> QUANTITY</Text>
-                <Text style={{...styles.topic, flex:0.4}}> COMPANY</Text>
-                <Text style={{...styles.topic, flex:0.3}}> PRICE</Text>
+                <Text style={{...styles.topic, flex:2}}> SN</Text>
+                <Text style={{...styles.topic, flex:4}}>ITEM NAME</Text>
+                <Text style={{...styles.topic, flex:4}}> QUANTITY</Text>
+                <Text style={{...styles.topic, flex:4}}> COMPANY</Text>
+                <Text style={{...styles.topic, flex:3}}> PRICE</Text>
             </View>
             <FlatList
                 data={props.listData}

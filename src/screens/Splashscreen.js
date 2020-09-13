@@ -21,7 +21,7 @@ class SplashScreen extends React.Component {
         // }
         setTimeout(
             () => { this.props.navigation.navigate('Tabs') },
-            3000
+            1500
         )
     }
 

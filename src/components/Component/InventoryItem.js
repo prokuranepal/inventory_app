@@ -30,11 +30,12 @@ const InventoryItem = props => {
 
 
     const sendCardHandlrer = (id) => {
+
         const selected = selectedItem.find(item => item._id === id)
         setModalVisibility(true);
         setSelectedItemCart(selected);
 
-        // console.log(selected)
+        console.log('invent',id,selected,selectedItemCart.title)
     };
     const cancelPressHandler = () => {
         setModalVisibility(false);
@@ -54,7 +55,6 @@ const InventoryItem = props => {
     const quantityInputChange = (value) => {
         setQuantityInput(value)
     }
-    const inputChangeHandler = () => { }
     return (
         /*    <>
                {{props.titles !== 'Type' ?
@@ -81,7 +81,7 @@ const InventoryItem = props => {
                    </View > : }*/
 
         <View style={styles.Items}>
-            <ModalComponent isModalVisible={isModalVisible}   >
+            <ModalComponent isModalVisible={isModalVisible}  data-test="modalComp" >
                 <KeyboardAvoidingView
                     style={{ flex: 1 }}
                     behavior="height"
@@ -98,10 +98,10 @@ const InventoryItem = props => {
                                 width: 300,
                                 height: 280
                             }}>
-                                <Text style={{ ...styles.label, marginTop: 0 }}>Medicine Name : {selectedItemCart.title}</Text>
-                                <Text style={styles.label}>Rate : Rs. {selectedItemCart.price}/pc</Text>
-                                <Text style={styles.label}>Price : Rs. {selectedItemCart.price * quantityInput} </Text>
-                                <Text style={styles.label}>Available Quantity : {selectedItemCart.quantity} </Text>
+                                <Text style={{ ...styles.label, marginTop: 0 }} data-test="medTitle">Medicine Name : {selectedItemCart.title}</Text>
+                                <Text style={styles.label} data-test="medRate">Rate : Rs. {selectedItemCart.price}/pc</Text>
+                                <Text style={styles.label} data-test="medTotal">Price : Rs. {selectedItemCart.price * quantityInput}</Text>
+                                <Text style={styles.label} data-test="medQuan">Available Quantity : {selectedItemCart.quantity}</Text>
 
                                 <View style={{ flexDirection: "row", alignItems: 'center' }} >
                                     <Text style={styles.label}>Quantity : </Text>
@@ -118,39 +118,40 @@ const InventoryItem = props => {
                                         returnKeyType="next"
                                         required
                                         value={quantityInput}
+                                        data-test="onChangeQuan"
                                         onChangeText={(text) => quantityInputChange(text)}
                                     ></TextInput>
                                 </View>
                                 <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', flex: 1 }}>
-                                    <Button title="CONFIRM "  color="#3aae6d" onPress={confirmPressHandler} style={styles.confirmButton}></Button>
-                                    <Button title="CANCEL " color="#3aae6d" onPress={cancelPressHandler} style={styles.cancelButton}></Button>
+                                    <Button title="CONFIRM "  color="#3aae6d" onPress={confirmPressHandler} style={styles.confirmButton} data-test="confirmComp"></Button>
+                                    <Button title="CANCEL " color="#3aae6d" onPress={cancelPressHandler} style={styles.cancelButton} data-test="cancelComp"></Button>
                                 </View>
                             </View>
                         </View>
                     </ScrollView>
                 </KeyboardAvoidingView>
             </ModalComponent >
-            <TouchableOpacity onPress={props.onSelectItem} style={{width:"100%"}} >
+            <TouchableOpacity onPress={props.onSelectItem} style={{width:"100%"}} data-test="touchCard">
                 <View style={{width:"100%",alignItems:"center"}} >
                     <Card style={{...styles.summary, width:"86%", flexDirection:"row", justifyContent:"space-between"}}>
                         <ImageBackground source={{ uri: props.image }} style={{ width: '100%', height: '100%', flex:1 }} />
                         <View style={{flex:2, paddingLeft:20}}>
-                            <Text style={styles.test} numberOfLines={1}>
+                            <Text style={styles.test} numberOfLines={1} data-test="titleComp">
                                 {props.title}</Text>
                         </View>
                         <View style={{flex:2}}>
-                            <Text> {props.quantity}pcs</Text>
-                            <Text> Rs. {props.price}/PC</Text>
-                            <Text> {props.company.toUpperCase()}</Text>
+                            <Text data-test="quantityComp"> {props.quantity}pcs</Text>
+                            <Text data-test="priceComp"> Rs. {props.price}/PC</Text>
+                            <Text data-test="companyComp"> {props.company}</Text>
                         </View>
                         <View style={{flex:1}}>
                             <TouchableOpacity
                                 onPress={() => { props.sendCardHandlrer(props.id) }}
-                                style={styles.deleteButton}
+                                style={styles.deleteButton} data-test="addComp"
                             >
                                 <AntDesign name="pluscircle" size={24} color='green' onPress={() => {
                                     sendCardHandlrer(props.id)
-                                }}
+                                }} data-test="addComp2"
                                 />
                             </TouchableOpacity>
 
