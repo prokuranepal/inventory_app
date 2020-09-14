@@ -78,7 +78,7 @@ describe('<SendScreen />', () => {
     
   it("Events and props test in SendScreen", () =>
         {
-            const wrapper1 = renderer.create(<Provider store={store}><SendScreen  {...dummy_data} /> </Provider>)
+          const wrapper1 = renderer.create(<Provider store={store}><SendScreen  {...dummy_data} /> </Provider>)
             const wrapper = wrapper1.root;
             console.log("wrapper",wrapper )
 

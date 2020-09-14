@@ -4,8 +4,8 @@ import renderer from 'react-test-renderer';
 
 import {
     configure,
-    mount,
-    shallow
+    shallow,
+    mount
 } from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
 import test_function, {findByTestAttr, mockPlatform, findByTestProps, mockAlert} from '../_test_/componenets/test_function';
@@ -44,11 +44,11 @@ const dummy_data = {
 
 describe('<SupplierContactScreen />', () => {
 
-  
+  mockPlatform("android")
     
   it("Events and props test in SupplierContactScreen", () =>
         {
-            const wrapper = shallow(<SupplierContactScreen {...dummy_data}></SupplierContactScreen>)
+            const wrapper = mount(<SupplierContactScreen {...dummy_data}></SupplierContactScreen>)
             expect(wrapper).toMatchSnapshot();
             let flatListComp = findByTestAttr(wrapper, "flatListComp").at(0)
             console.log("flatList supplier",flatListComp)
@@ -58,6 +58,15 @@ describe('<SupplierContactScreen />', () => {
                 new Contact("t3", "Supplier3", 66666, "jhapa"),
                 new Contact("t4", "Supplier4", 7777, "dharan")
              ])   
+             let cardComp= findByTestAttr(wrapper,"cardComp")
+             expect(cardComp).toHaveLength(4)
+             let nameSupp= findByTestAttr(wrapper,"nameSupp").at(0)
+             let numSupp= findByTestAttr(wrapper,"numSupp").at(0)
+             let addSupp= findByTestAttr(wrapper,"addSupp").at(0)
+             expect(nameSupp.props().children).toEqual([" Supplier Name:", "Supplier1"])
+             expect(numSupp.props().children).toEqual(["Phone Number: ", 333333])
+             expect(addSupp.props().children).toEqual("Kathmandu")
+
              const navOption= SupplierContactScreen.navigationOptions(dummy_data)
              let wrap= shallow(navOption.headerLeft())
               let toggle = findByTestAttr(wrap, "navToggle")
@@ -70,9 +79,9 @@ describe('<SupplierContactScreen />', () => {
             // expect(firstChild).toHaveLength(1)
             //  let supplierName = findByTestAttr(wrapper, "supplierName").at(2);
             //  expect(supplierName).toEqual("Supplier3")
-            //  let callButton = findByTestAttr(wrapper, "callButton").at(2);
-            //  callButton.props().onPress()
-            // expect(function_click).toHaveBeenCalledWith(66666) 
+             let callButton = findByTestAttr(wrapper, "callButton").at(0);
+             callButton.props().onPress()
+            expect(function_click).toHaveBeenCalledWith('tel:${}') 
             //  let navOption= SendScreen.navigationOptions(dummy_data)
             // let header = navOption.headerRight()
             // let c = mount(header.headerRight())

@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">53.33% </span>
+                <span class="strong">93.33% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>8/15</span>
+                <span class='fraction'>14/15</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/4</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">57.14% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/7</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">53.33% </span>
+                <span class="strong">93.33% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>8/15</span>
+                <span class='fraction'>14/15</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -182,14 +182,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -199,9 +199,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -286,16 +286,16 @@ import Card from '../components/Component/Card';
 import { Linking } from 'react-native'
 const SupplierContactScreen = props =&gt; {
 &nbsp;
-    const dialCall = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+    const dialCall = () =&gt; {
 &nbsp;
-        let phoneNumber = <span class="cstat-no" title="statement not covered" >'';</span>
-<span class="cstat-no" title="statement not covered" >        if (Platform.OS === 'android') {</span>
-<span class="cstat-no" title="statement not covered" >            phoneNumber = 'tel:${}';</span>
+        let phoneNumber = '';
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (Platform.OS === 'android') {
+            phoneNumber = 'tel:${}';
         }
         else {
 <span class="cstat-no" title="statement not covered" >            phoneNumber = 'telprompt:${}';</span>
         }
-<span class="cstat-no" title="statement not covered" >        Linking.openURL(phoneNumber);</span>
+        Linking.openURL(phoneNumber);
     };
 &nbsp;
 &nbsp;
@@ -305,15 +305,15 @@ const SupplierContactScreen = props =&gt; {
 &nbsp;
             &lt;FlatList data-test="flatListComp"
                 data={CONTACTS}
-                keyExtractor={<span class="fstat-no" title="function not covered" >it</span>em =&gt; <span class="cstat-no" title="statement not covered" >item.id}</span>
-                renderItem={<span class="fstat-no" title="function not covered" >it</span>emData =&gt; (
-<span class="cstat-no" title="statement not covered" >                    &lt;Card style={styles.orderItem}&gt;</span>
+                keyExtractor={item =&gt; item.id}
+                renderItem={itemData =&gt; (
+                    &lt;Card style={styles.orderItem} data-test="cardComp" &gt;
                         &lt;View style={styles.summary}&gt;
                             &lt;View&gt;
 &nbsp;
-                                &lt;Text style={styles.name} data-test="supplierName"&gt; Supplier Name:{itemData.item.name}&lt;/Text&gt;
-                                &lt;Text style={styles.number}&gt;Phone Number: {itemData.item.phoneNumber}&lt;/Text&gt;
-                                &lt;Text&gt;{itemData.item.address}&lt;/Text&gt;
+                                &lt;Text style={styles.name} data-test="supplierName" data-test="nameSupp"&gt; Supplier Name:{itemData.item.name}&lt;/Text&gt;
+                                &lt;Text style={styles.number} data-test="numSupp"&gt;Phone Number: {itemData.item.phoneNumber}&lt;/Text&gt;
+                                &lt;Text data-test="addSupp"&gt;{itemData.item.address}&lt;/Text&gt;
                             &lt;/View&gt;
                             &lt;Button
                                 color={Colors.primary}
@@ -335,7 +335,7 @@ SupplierContactScreen.navigationOptions = navData =&gt; {
     return {
         headerTitle: "Supplier Contact",
         headerStyle: {
-            backgroundColor: Platform.OS === 'android' ? <span class="branch-0 cbranch-no" title="branch not covered" >Colors.primaryColor </span>: ''
+            backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : <span class="branch-1 cbranch-no" title="branch not covered" >''</span>
         },
         headerTitleStyle: {
             fontFamily: 'open-sans'
@@ -382,7 +382,7 @@ export default SupplierContactScreen;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Sep 14 2020 02:11:47 GMT+0545 (Nepal Time)
+                at Mon Sep 14 2020 18:14:30 GMT+0545 (Nepal Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>
