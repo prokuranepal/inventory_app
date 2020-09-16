@@ -13,8 +13,8 @@ Welcome to Inventory App's documentation!
 .. js:autoclass:: Authentication
    :members:
    :private-members:
-.. js:autofunction:: AddScreen
 
+.. js:autofunction:: AddScreen
 .. js:autofunction:: card
 
 Indices and tables

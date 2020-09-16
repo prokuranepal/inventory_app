@@ -42,10 +42,9 @@ describe('<ManageList />', () => {
             expect(flatList.prop("data")).toEqual(["a","b","c"])
             let dive = flatList.props().renderItem(dummy_data)
             wrapper.update()
-            console.log(dive)
             expect(dive.type).toEqual(ManageItem)
             expect(dive.props.title).toEqual("hello")
-            console.log(dive.props.onSelectItem())
+            dive.props.onSelectItem()
             expect(function_click).toHaveBeenCalledTimes(1);
             expect(function_click).toHaveBeenCalledWith({
                 "routeName": "AddItem",               
