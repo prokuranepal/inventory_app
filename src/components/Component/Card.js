@@ -1,6 +1,12 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
+/**
+ * 
+ * @returns {card} returns a component with styling eq. to card
+ * @param {props} props
+ * @property {children} props.children any children component usually Text, Views to be wrapped as card
+ */
 const card = props => {
     return <View style={{ ...styles.card, ...props.style }}>{props.children}</View>;
 };

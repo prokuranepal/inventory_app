@@ -22,6 +22,10 @@ import ButtonWithBackground from "../components/Component/ButtonWIthBackground";
 import * as authActions from '../store/actions/auth';
 import * as ipActions from '../store/actions/ip';
 
+/**
+ * This is the main entry screen to the app
+ * The user is able to sign in or signup for a new account 
+ */
 class Authentication extends Component {
     state = {
         newIPAddress: '',
@@ -54,7 +58,9 @@ class Authentication extends Component {
 
         }
     };
-
+/**
+ * The constructor listens for orientation changes
+ */
     constructor(props) {
         super(props);
         Dimensions.addEventListener("change", this.updateStyles);
@@ -64,15 +70,18 @@ class Authentication extends Component {
         Dimensions.removeEventListener("change", this.updateStyles);
     }
 
-
-
+/**
+ * Updates style based on the window height(landscape or portrait)
+ */
     updateStyles = dims => {
         this.setState({
             viewMode: dims.window.height > 500 ? "portrait" : "landscape"
         });
     };
 
-
+/**
+ * checks for mode change between login and signup 
+*/
 
     switchAuthModeHandler = () => {
         // this.setState(prevState => {
@@ -82,6 +91,9 @@ class Authentication extends Component {
         // });
         this.props.switchMode();
     };
+/**
+ *  Performs signup or login option based on loginMode state
+ */
     onButtonPress = async () => {
         if (this.props.loginMode) {
             this.props.authLogin(this.state.controls.email.value, this.state.controls.password.value)
@@ -91,7 +103,11 @@ class Authentication extends Component {
             this.props.authSignUp(this.state.controls.email.value, this.state.controls.password.value)
         }
     }
-
+/**
+ * updates the password and confirm password states after validation
+ * 
+ * @param {string} value - Input value to password field
+ */
     updateInputState = (key, value) => {
         let connectedValue = {};//used for confirm password
         if (this.state.controls[key].validationRules.equalTo) {//checking if the validation rule consists of equalTo field , here it is valid only for confirmPassword control
@@ -165,6 +181,9 @@ class Authentication extends Component {
             )
         }
     }
+    /**
+ * Handles changing ip of background 
+ */
     changeIPHandler = () => {
         this.props.changeMode();
     }
@@ -179,6 +198,9 @@ class Authentication extends Component {
     updateIpState = val => {
         this.setState({ ...this.state, newIPAddress: val })
     }
+    /**
+ * Renders form for login/ signup based on the mode
+ */
     render() {
 
         let headingText = null;
