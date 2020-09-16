@@ -47,19 +47,7 @@ describe('<OrderScreen />', () => {
             callComp.props().pressHandler()
             expect(function_dial).toHaveBeenCalledTimes(1);
             expect(function_dial).toHaveBeenCalledWith('tel:${}')
-            // let textComp= findByTestAttr(wrapper, "textComp")
-            // textComp.props().pressHandler()
-            // expect(function_text).toHaveBeenCalledTimes(1);
-            // expect(function_text).toHaveBeenCalledWith('','')
-        
-
-
-        
-
-            // let touchTime= findByTestProps(wrapper, "touchTime")
-            // act(() => {console.log("touchTime", touchTime.props.onPress())})
-            // touchTime.props.onPress()
-            // expect(findByTestProps(wrapper, "timePicker").props.display).toEqual("time")
+          
  
             const naviProp = { navigation:{navigate: function_click ,getParam: function_click }}
             let navOption= OrderScreen.navigationOptions(naviProp)
