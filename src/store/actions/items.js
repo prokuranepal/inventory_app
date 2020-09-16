@@ -5,7 +5,6 @@ export const DELETE_ITEM = 'DELETE_ITEM';
 // import { ip } from '../../server/iplocation'
 import Item from '../../models/item'
 import { ITEMS } from '../../data/dummy-data'
-
 export const addItems = (title, company, quantity, description, price, type) => {
     const data = {
         "title": title,

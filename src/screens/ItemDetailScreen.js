@@ -12,13 +12,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import Colors from '../constants/Colors';
 import navigationOptions from '../utility/navigationOptions';
 
-const ListItem = props => {
-    return (
-        <View style={styles.listItem}>
-            <DefaultText>{props.children}</DefaultText>
-        </View>
-    );
-};
+// const ListItem = props => {
+//     return (
+//         <View style={styles.listItem}>
+//             <DefaultText>{props.children}</DefaultText>
+//         </View>
+//     );
+// };
 const ItemDetailScreen = props => {
     const itemId = props.navigation.getParam('itemId');
     const availableItems = useSelector(state => state.items.items)
@@ -27,14 +27,14 @@ const ItemDetailScreen = props => {
 
     return (
         <ScrollView>
-            <Image source={{ uri: selectedItem.image }} style={styles.image} />
+            <Image source={{ uri: selectedItem.image }} style={styles.image} data-test= "imageComp"/>
             <View style={styles.details}>
-                <DefaultText>{selectedItem.quantity}pcs</DefaultText>
-                <DefaultText>{selectedItem.company.toUpperCase()}</DefaultText>
-                <DefaultText>Rs. {selectedItem.price}/PC</DefaultText>
+                <DefaultText data-test="quantityComp">{selectedItem.quantity}pcs</DefaultText>
+                <DefaultText data-test="companyComp">{selectedItem.company}</DefaultText>
+                <DefaultText  data-test="priceComp">Rs. {selectedItem.price}/PC</DefaultText>
             </View>
             <Text style={styles.title}>Description</Text>
-            <DefaultText style={styles.description}> {selectedItem.description}</DefaultText>
+            <DefaultText style={styles.description} data-test="descriptionComp">{selectedItem.description}</DefaultText>
 
         </ScrollView >
     );

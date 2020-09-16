@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ManageList/> renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+      "padding": 15,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "paddingBottom": 10,
+        "paddingHorizontal": 8,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "flex": 2,
+          "fontFamily": "open-sans-bold",
+          "fontSize": 16,
+        }
+      }
+    >
+       SN
+    </Text>
+    <Text
+      style={
+        Object {
+          "flex": 4,
+          "fontFamily": "open-sans-bold",
+          "fontSize": 16,
+        }
+      }
+    >
+      ITEM NAME
+    </Text>
+    <Text
+      style={
+        Object {
+          "flex": 4,
+          "fontFamily": "open-sans-bold",
+          "fontSize": 16,
+        }
+      }
+    >
+       QUANTITY
+    </Text>
+    <Text
+      style={
+        Object {
+          "flex": 4,
+          "fontFamily": "open-sans-bold",
+          "fontSize": 16,
+        }
+      }
+    >
+       COMPANY
+    </Text>
+    <Text
+      style={
+        Object {
+          "flex": 3,
+          "fontFamily": "open-sans-bold",
+          "fontSize": 16,
+        }
+      }
+    >
+       PRICE
+    </Text>
+  </View>
+  <RCTScrollView
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View />
+  </RCTScrollView>
+</View>
+`;

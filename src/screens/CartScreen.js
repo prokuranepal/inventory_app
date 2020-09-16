@@ -58,18 +58,19 @@ const CartScreen = props => {
                     <Text style={styles.title}> LIST OF MEDICINES</Text>
                     <FlatList
                         data={cartItems}
+                        data-test="flatListComp"
                         keyExtractor={item => item.itemId}
                         renderItem={itemData => (
                             <CartItem
                                 quantity={itemData.item.quantity}
                                 title={itemData.item.itemTitle}
-                                deletable
+                                deletable data-test="cartItem"
                                 onRemove={() => {
                                     dispatch(cartActions.removeFromCart(itemData.item.itemId));
                                 }}
                             />
                         )}
-                    /></> : <Text style={styles.title}>No Medicine in cart</Text>}
+                    /></> : <Text style={styles.title}  data-test="emptyComp">No Medicine in cart</Text>}
 
             <View style={styles.buttonContainer}>
                 {/* {isLoading ? (
@@ -79,12 +80,14 @@ const CartScreen = props => {
                     color="#3aae6d"
                     title="Order Now"
                     disabled={cartItems.length === 0}
+                    data-test="sendButton"
                     onPress={sendOrderHandler} />
                 {/* )} */}
             </View>
             <CustomButtom style= {styles.buttonContainer} 
                           title="ADD ITEM"
                           color="#3aae6d"
+                          data-test="customSendButton"
                           pressHandler={sendAddHandler} />
         </View>
     );
@@ -101,7 +104,7 @@ CartScreen.navigationOptions = navData => {
         },
         headerLeft: () => (
             <HeaderButtons HeaderButtonComponent={HeaderButton} >
-                <Item title="Menu" iconName="ios-menu" onPress={() => {
+                <Item title="Menu" iconName="ios-menu" data-test="navToggle" onPress={() => {
                     navData.navigation.toggleDrawer()
                 }} />
             </HeaderButtons>

@@ -9,15 +9,14 @@ import Card from '../Component/Card'
 import { Entypo, FontAwesome5 } from '@expo/vector-icons';
 const CartItem = props => {
     return (
-
         <View>
             <Card style={styles.cartItem}>
                 <View style={styles.itemData}>
                     <FontAwesome5 name="capsules" size={24} color="black" />
                 </View>
                 <View>
-                    <Text style={styles.mainText}>{props.title}</Text>
-                    <Text style={styles.quantity}>Qty:{props.quantity} </Text>
+                    <Text style={styles.mainText} data-test="mainText">{props.title}</Text>
+                    <Text style={styles.quantity} data-test="quantity">Qty:{props.quantity}</Text>
                 </View>
                 <View style={styles.itemData}>
                     {/* <Text style={styles.mainText}>${props.amount.toFixed(2)}</Text> */}
@@ -25,6 +24,7 @@ const CartItem = props => {
                         <TouchableOpacity
                             onPress={props.onRemove}
                             style={styles.deleteButton}
+                            data-test="touchComp"
                         >
                             <Entypo name="cross" size={24} color="black" size={23}
                                 color="red" />
