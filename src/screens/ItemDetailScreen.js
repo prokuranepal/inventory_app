@@ -12,13 +12,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import Colors from '../constants/Colors';
 import navigationOptions from '../utility/navigationOptions';
 
-const ListItem = props => {
-    return (
-        <View style={styles.listItem}>
-            <DefaultText>{props.children}</DefaultText>
-        </View>
-    );
-};
+// const ListItem = props => {
+//     return (
+//         <View style={styles.listItem}>
+//             <DefaultText>{props.children}</DefaultText>
+//         </View>
+//     );
+// };
 const ItemDetailScreen = props => {
     const itemId = props.navigation.getParam('itemId');
     const availableItems = useSelector(state => state.items.items)
@@ -27,14 +27,16 @@ const ItemDetailScreen = props => {
 
     return (
         <ScrollView>
-            <Image source={{ uri: selectedItem.image }} style={styles.image} />
+            <View style={styles.imageContainer}>
+            <Image source={{ uri: selectedItem.image?selectedItem.image:"https://ui3.assets-asda.com/dm/230720_pharmacy_pill_icon?fmt=png-alpha&scl=1&qlt=100" }} style={styles.image} data-test= "imageComp"/>
+            </View>
             <View style={styles.details}>
-                <DefaultText>{selectedItem.quantity}pcs</DefaultText>
-                <DefaultText>{selectedItem.company.toUpperCase()}</DefaultText>
-                <DefaultText>Rs. {selectedItem.price}/PC</DefaultText>
+                <DefaultText data-test="quantityComp">{selectedItem.quantity}pcs</DefaultText>
+                <DefaultText data-test="companyComp">{selectedItem.company}</DefaultText>
+                <DefaultText  data-test="priceComp">Rs. {selectedItem.price}/PC</DefaultText>
             </View>
             <Text style={styles.title}>Description</Text>
-            <DefaultText style={styles.description}> {selectedItem.description}</DefaultText>
+            <DefaultText style={styles.description} data-test="descriptionComp">{selectedItem.description}</DefaultText>
 
         </ScrollView >
     );
@@ -45,8 +47,15 @@ ItemDetailScreen.navigationOptions = navigationData => {
 };
 const styles = StyleSheet.create({
     image: {
-        width: '100%',
-        height: 200
+        width: '60%',
+        height: 200,
+       
+    },
+    imageContainer:{
+        flexDirection:"column",
+        justifyContent:"center",
+        flex:1,
+        alignItems:"center"
     },
     details: {
         flexDirection: 'row',

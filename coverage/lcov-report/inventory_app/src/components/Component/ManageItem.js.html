@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -129,14 +129,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -150,7 +148,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -197,21 +197,21 @@
 import { View, Text, StyleSheet, TouchableOpacity, ImageBackground } from 'react-native';
 &nbsp;
 &nbsp;
-const ManageItem = <span class="fstat-no" title="function not covered" >pr</span>ops =&gt; {
-    let sn = <span class="cstat-no" title="statement not covered" >props.serialNo</span>
+const ManageItem = props =&gt; {
+    let sn = props.serialNo
     // let sn = props.serialNo.replace('i', '');
-    let styler = <span class="cstat-no" title="statement not covered" >sn % 2 === 0 ? styles.mealItem : styles.mealItem2;</span>
+    let styler = sn % 2 === 0 ? <span class="branch-0 cbranch-no" title="branch not covered" >styles.mealItem </span>: styles.mealItem2;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return (</span>
+    return (
         &lt;View style={styler}&gt;
-            &lt;TouchableOpacity onPress={props.onSelectItem} &gt;
+            &lt;TouchableOpacity onPress={props.onSelectItem} data-test="touch"&gt;
 &nbsp;
                 &lt;View style={{ ...styles.mealRow, ...styles.mealDetails }}&gt;
-                    &lt;Text&gt; {sn}&lt;/Text&gt;
-                    &lt;Text numberOfLines={1}&gt;{props.title}&lt;/Text&gt;
-                    &lt;Text&gt; {props.quantity}pcs&lt;/Text&gt;
-                    &lt;Text&gt; {props.company.toUpperCase()}&lt;/Text&gt;
-                    &lt;Text&gt; Rs. {props.price}/PC&lt;/Text&gt;
+                    &lt;Text style={{flex:2}} &gt; {sn}&lt;/Text&gt;
+                    &lt;Text style={{flex:4}} numberOfLines={1}&gt;{props.title}&lt;/Text&gt;
+                    &lt;Text style={{flex:4}}&gt; {props.quantity}pcs&lt;/Text&gt;
+                    &lt;Text style={{flex:4}}&gt; {props.company}&lt;/Text&gt;
+                    &lt;Text style={{flex:3}}&gt; Rs. {props.price}/PC&lt;/Text&gt;
                 &lt;/View&gt;
             &lt;/TouchableOpacity&gt;
         &lt;/View &gt;
@@ -268,7 +268,7 @@ export default ManageItem;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Sep 01 2020 19:50:14 GMT+0545 (Nepal Time)
+                at Mon Sep 14 2020 18:14:30 GMT+0545 (Nepal Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>

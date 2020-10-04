@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">30% </span>
+                <span class="strong">90% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>3/10</span>
+                <span class='fraction'>9/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">60% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>3/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">30% </span>
+                <span class="strong">90% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>3/10</span>
+                <span class='fraction'>9/10</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -119,37 +119,37 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -174,20 +174,20 @@ import { Linking } from 'react-native'
 import Communications from 'react-native-communications';
 import CustomButton from '../components/Component/CustomButton';
 import navigationOptions from '../utility/navigationOptions';
-const OrderScreen = <span class="fstat-no" title="function not covered" >pr</span>ops =&gt; {
-    const dialCall = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-        let phoneNumber = <span class="cstat-no" title="statement not covered" >'';    </span>
-<span class="cstat-no" title="statement not covered" >        phoneNumber = Platform.OS==="android"?'tel:${}':'telprompt:${}';</span>
-<span class="cstat-no" title="statement not covered" >        Linking.openURL(phoneNumber);</span>
+const OrderScreen = props =&gt; {
+    const dialCall = () =&gt; {
+        let phoneNumber = '';    
+        phoneNumber = Platform.OS==="android"?'tel:${}':<span class="branch-1 cbranch-no" title="branch not covered" >'telprompt:${}';</span>
+        Linking.openURL(phoneNumber);
     };
-<span class="cstat-no" title="statement not covered" >    return (</span>
+    return (
         &lt;View style={styles.screen}&gt;
             &lt;Text style={styles.title}&gt;Send Via&lt;/Text&gt;
-            &lt;CustomButton container_style ={styles.buttonContainer} 
+            &lt;CustomButton container_style ={styles.buttonContainer} data-test="callComp" 
                         title="Call" 
                         color="#3aae6d" 
                         pressHandler={dialCall} /&gt;
-            &lt;CustomButton container_style ={styles.buttonContainer} 
+            &lt;CustomButton container_style ={styles.buttonContainer} data-test="textComp" 
                         title="SMS" 
                         color="#3aae6d" 
                         pressHandler={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >Communications.text('', '')}</span> /&gt;
@@ -200,8 +200,8 @@ const OrderScreen = <span class="fstat-no" title="function not covered" >pr</spa
     );
 };
 &nbsp;
-OrderScreen.navigationOptions = <span class="fstat-no" title="function not covered" >na</span>vData =&gt; {
-<span class="cstat-no" title="statement not covered" >   return navigationOptions("Order")</span>
+OrderScreen.navigationOptions = navData =&gt; {
+   return navigationOptions("Order")
 }
 &nbsp;
 const styles = StyleSheet.create({
@@ -229,7 +229,7 @@ export default OrderScreen;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Sep 01 2020 19:50:14 GMT+0545 (Nepal Time)
+                at Mon Sep 14 2020 18:14:30 GMT+0545 (Nepal Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>

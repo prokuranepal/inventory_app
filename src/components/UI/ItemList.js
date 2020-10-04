@@ -7,7 +7,7 @@ const ItemList = props => {
     const renderInventoryItem = itemData => {
 
         return (
-            <InventoryItem
+            <InventoryItem data-test="inventoryItem"
                 title={itemData.item.name}
                 image={itemData.item.image}
                 quantity={itemData.item.quantity}

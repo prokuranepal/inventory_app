@@ -162,15 +162,13 @@ const EditItemScreen = props => {
       ]);
       return;
     }
-
     setError(null);
     setIsLoading(true);
     // console.log("type error", formState.inputValues.type)
     try {
       if (editedItem) {
         // console.log("type", editedItem.type)
-        // setIsLoading(true);
-
+        // setIsLoading(true)
         await dispatch(
           itemsActions.updateItem(
             itemId,
@@ -184,7 +182,6 @@ const EditItemScreen = props => {
           )
         );
       } else {
-
         await dispatch(
           itemsActions.addItems(
             formState.inputValues.name,

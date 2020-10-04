@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TestInput/> renders correctly 1`] = `
+<View>
+  <TextInput
+    allowFontScaling={true}
+    data-test="container1"
+    rejectResponderTermination={true}
+    style={
+      Object {
+        "borderBottomColor": "#ccc",
+        "borderBottomWidth": 1,
+        "paddingHorizontal": 2,
+        "paddingVertical": 3,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+</View>
+`;

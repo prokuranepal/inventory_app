@@ -1,7 +1,7 @@
 import { UPDATE_IP, CHANGE_MODE } from '../actions/ip';
 const initialState = {
     // ip: "http://192.168.10.17:3000",
-    ip: "http://daafa5fd0159.ngrok.io",
+    ip: "http://b3b1c604111a.ngrok.io",
     changeMode: 'changable',
     newIP: false,
 

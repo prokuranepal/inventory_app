@@ -44,7 +44,12 @@ const formReducer = (state, action) => {
     return state;
 };
 
-
+/**
+ * 
+ * The AddScreen presents a form to add new items to the inventory
+ * @property {items} items - It uses items state from items reducer which gives an array of items with title, quantity, price and so on
+ * @property {navigation} navigation - Provides navigation options 
+ */
 const AddScreen = props => {
 
     const selectedItem = useSelector(state =>
@@ -97,7 +102,9 @@ const AddScreen = props => {
     });
 
 
-
+/** 
+* submitHanler to submit form input after validation
+*/
 
     const submitHandler = () => {
         // console.log(formState.formIsValid)

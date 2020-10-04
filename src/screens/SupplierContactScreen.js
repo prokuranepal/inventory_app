@@ -32,22 +32,23 @@ const SupplierContactScreen = props => {
         <View >
 
 
-            <FlatList
+            <FlatList data-test="flatListComp"
                 data={CONTACTS}
                 keyExtractor={item => item.id}
                 renderItem={itemData => (
-                    <Card style={styles.orderItem}>
+                    <Card style={styles.orderItem} data-test="cardComp" >
                         <View style={styles.summary}>
                             <View>
 
-                                <Text style={styles.name}> Supplier Name:{itemData.item.name}</Text>
-                                <Text style={styles.number}>Phone Number: {itemData.item.phoneNumber}</Text>
-                                <Text>{itemData.item.address}</Text>
+                                <Text style={styles.name} data-test="supplierName" data-test="nameSupp"> Supplier Name:{itemData.item.name}</Text>
+                                <Text style={styles.number} data-test="numSupp">Phone Number: {itemData.item.phoneNumber}</Text>
+                                <Text data-test="addSupp">{itemData.item.address}</Text>
                             </View>
                             <Button
                                 color={Colors.primary}
                                 title="Call"
                                 onPress={dialCall}
+                                data-test="callButton"
                             />
                         </View>
                     </Card>
@@ -70,7 +71,7 @@ SupplierContactScreen.navigationOptions = navData => {
         },
         headerLeft: () => (
             <HeaderButtons HeaderButtonComponent={HeaderButton} >
-                <Item title="Menu" iconName="ios-menu" onPress={() => {
+                <Item title="Menu" iconName="ios-menu" data-test="navToggle" onPress={() => {
                     navData.navigation.toggleDrawer()
                 }} />
             </HeaderButtons>

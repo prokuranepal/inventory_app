@@ -14,11 +14,11 @@ const OrderScreen = props => {
     return (
         <View style={styles.screen}>
             <Text style={styles.title}>Send Via</Text>
-            <CustomButton container_style ={styles.buttonContainer} 
+            <CustomButton container_style ={styles.buttonContainer} data-test="callComp" 
                         title="Call" 
                         color="#3aae6d" 
                         pressHandler={dialCall} />
-            <CustomButton container_style ={styles.buttonContainer} 
+            <CustomButton container_style ={styles.buttonContainer} data-test="textComp" 
                         title="SMS" 
                         color="#3aae6d" 
                         pressHandler={() => Communications.text('', '')} />

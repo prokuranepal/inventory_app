@@ -22,6 +22,10 @@ import ButtonWithBackground from "../components/Component/ButtonWIthBackground";
 import * as authActions from '../store/actions/auth';
 import * as ipActions from '../store/actions/ip';
 
+/**
+ * This is the main entry screen to the app
+ * The user is able to sign in or signup for a new account 
+ */
 class Authentication extends Component {
     state = {
         newIPAddress: '',
@@ -54,7 +58,9 @@ class Authentication extends Component {
 
         }
     };
-
+/**
+ * The constructor listens for orientation changes
+ */
     constructor(props) {
         super(props);
         Dimensions.addEventListener("change", this.updateStyles);
@@ -64,15 +70,18 @@ class Authentication extends Component {
         Dimensions.removeEventListener("change", this.updateStyles);
     }
 
-
-
+/**
+ * Updates style based on the window height(landscape or portrait)
+ */
     updateStyles = dims => {
         this.setState({
             viewMode: dims.window.height > 500 ? "portrait" : "landscape"
         });
     };
 
-
+/**
+ * checks for mode change between login and signup 
+*/
 
     switchAuthModeHandler = () => {
         // this.setState(prevState => {
@@ -82,6 +91,9 @@ class Authentication extends Component {
         // });
         this.props.switchMode();
     };
+/**
+ *  Performs signup or login option based on loginMode state
+ */
     onButtonPress = async () => {
         if (this.props.loginMode) {
             this.props.authLogin(this.state.controls.email.value, this.state.controls.password.value)
@@ -91,7 +103,11 @@ class Authentication extends Component {
             this.props.authSignUp(this.state.controls.email.value, this.state.controls.password.value)
         }
     }
-
+/**
+ * updates the password and confirm password states after validation
+ * 
+ * @param {string} value - Input value to password field
+ */
     updateInputState = (key, value) => {
         let connectedValue = {};//used for confirm password
         if (this.state.controls[key].validationRules.equalTo) {//checking if the validation rule consists of equalTo field , here it is valid only for confirmPassword control
@@ -153,8 +169,9 @@ class Authentication extends Component {
 
     }
     componentDidUpdate(prevState) {
+        console.log("componentdidupdate", this.isAuthenticated, this.props.token)
         if (this.isAuthenticated !== this.props.token && this.props.token) {
-
+            console.log('inside componentdidupdate')
             this.props.navigation.navigate({
                 routeName: 'Tabs',
                 params: {
@@ -164,6 +181,9 @@ class Authentication extends Component {
             )
         }
     }
+    /**
+ * Handles changing ip of background 
+ */
     changeIPHandler = () => {
         this.props.changeMode();
     }
@@ -178,6 +198,9 @@ class Authentication extends Component {
     updateIpState = val => {
         this.setState({ ...this.state, newIPAddress: val })
     }
+    /**
+ * Renders form for login/ signup based on the mode
+ */
     render() {
 
         let headingText = null;
@@ -185,34 +208,40 @@ class Authentication extends Component {
 
         if (this.state.viewMode === "portrait" && this.props.loginMode) {
             headingText = (
-                <MainText>
+                <MainText data-test="headingText">
                     <HeadingText>Please Login </HeadingText>
                 </MainText>
             );
         }
         let newIPAddress = null;
         let changeIPAddress = null;
+        console.log("mode changable",this.props.mode)
         if (this.props.mode === "changable") {
             console.log("change mode created", this.props.newIP)
             changeIPAddress = (<ButtonWithBackground
+                data-test="changeIP" 
                 color="#29aaf4"
                 style={styles.changIPAddressButton}
                 onPress={this.changeIPHandler}
             >
                 Change IP
-            </ButtonWithBackground>)
+            </ButtonWithBackground>);
         }
         if (this.props.newIP) {
             changeIPAddress = null;
-            newIPAddress = (<View style={styles.changeIP}><DefaultInput
+            newIPAddress = (<View style={styles.changeIP}                
+            ><DefaultInput
                 placeholder="IP Address"
                 style={styles.changeIPInput}
                 value={this.state.newIPAddress}
+                data-test="newIP"
                 onChangeText={val => this.updateIpState(val)}
                 keyboardType="numeric"
             /><ButtonWithBackground
                 color="#29aaf4"
                 onPress={this.submitIP}
+                data-test="newIPAddress"
+
                 style={styles.changeIPButton}
                 disabled={this.state.newIPAddress === this.props.ip} >
                     SUBMIT
@@ -221,7 +250,7 @@ class Authentication extends Component {
         let confirmPaswordControl = null;
         if (!this.props.loginMode) {
             confirmPasswordControl = (
-                <View
+                <View data-test="confirmPasswordControl"
                     style={
                         this.state.viewMode === "portrait"
                             ? styles.portraitPasswordWrapper
@@ -230,6 +259,7 @@ class Authentication extends Component {
                 >
                     <DefaultInput
                         placeholder="Confirm Password"
+                        data-test="confirmPassword"
                         style={styles.input}
                         value={this.state.controls.confirmPassword.value}
                         onChangeText={val => this.updateInputState("confirmPassword", val)}
@@ -241,12 +271,14 @@ class Authentication extends Component {
             );
         }
         return (
-            <View style={styles.container}>
+            <View style={styles.container} data-test="containerComp"            
+            >
                 {changeIPAddress}
                 {newIPAddress}
                 {headingText}
                 <ButtonWithBackground
                     color="#29aaf4"
+                    data-test="authModeSwitch"
                     onPress={this.switchAuthModeHandler}
                 >
                     Switch to {this.props.loginMode ? "Sign Up" : "Login"}
@@ -258,6 +290,7 @@ class Authentication extends Component {
                         value={this.state.controls.email.value}
                         onChangeText={val => this.updateInputState("email", val)}
                         valid={this.state.controls.email.valid}
+                        data-test="emailComp"
                         touched={this.state.controls.email.touched}
                     />
                     <View
@@ -279,6 +312,7 @@ class Authentication extends Component {
                             <DefaultInput
                                 placeholder="Password"
                                 style={styles.input}
+                                data-test="passwordComp"
                                 value={this.state.controls.password.value}
                                 onChangeText={val => this.updateInputState("password", val)}
                                 valid={this.state.controls.password.valid}
@@ -292,6 +326,7 @@ class Authentication extends Component {
                 <ButtonWithBackground
                     color="#29aaf4"
                     onPress={this.onButtonPress}
+                    data-test="loginup"
                 // disabled={
                 //     (!this.state.controls.confirmPassword.valid &&
                 //         !this.props.loginMode) ||

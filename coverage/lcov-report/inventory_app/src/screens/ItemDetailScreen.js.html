@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">28.57% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>4/14</span>
+                <span class='fraction'>10/12</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">80% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>4/12</span>
+                <span class='fraction'>8/10</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -147,38 +147,38 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -223,29 +223,29 @@ import { useSelector, useDispatch } from 'react-redux';
 import Colors from '../constants/Colors';
 import navigationOptions from '../utility/navigationOptions';
 &nbsp;
-const ListItem = <span class="fstat-no" title="function not covered" >pr</span>ops =&gt; {
-<span class="cstat-no" title="statement not covered" >    return (</span>
-        &lt;View style={styles.listItem}&gt;
-            &lt;DefaultText&gt;{props.children}&lt;/DefaultText&gt;
-        &lt;/View&gt;
-    );
-};
-const ItemDetailScreen = <span class="fstat-no" title="function not covered" >pr</span>ops =&gt; {
-    const itemId = <span class="cstat-no" title="statement not covered" >props.navigation.getParam('itemId');</span>
-    const availableItems = <span class="cstat-no" title="statement not covered" >useSelector(<span class="fstat-no" title="function not covered" >st</span>ate =&gt; <span class="cstat-no" title="statement not covered" >state.items.items)</span></span>
-    const selectedItem = <span class="cstat-no" title="statement not covered" >availableItems.find(<span class="fstat-no" title="function not covered" >it</span>em =&gt; <span class="cstat-no" title="statement not covered" >item._id === itemId)</span>;</span>
-    const dispatch = <span class="cstat-no" title="statement not covered" >useDispatch();</span>
+// const ListItem = props =&gt; {
+//     return (
+//         &lt;View style={styles.listItem}&gt;
+//             &lt;DefaultText&gt;{props.children}&lt;/DefaultText&gt;
+//         &lt;/View&gt;
+//     );
+// };
+const ItemDetailScreen = props =&gt; {
+    const itemId = props.navigation.getParam('itemId');
+    const availableItems = useSelector(state =&gt; state.items.items)
+    const selectedItem = availableItems.find(item =&gt; item._id === itemId);
+    const dispatch = useDispatch();
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return (</span>
+    return (
         &lt;ScrollView&gt;
-            &lt;Image source={{ uri: selectedItem.image }} style={styles.image} /&gt;
+            &lt;Image source={{ uri: selectedItem.image }} style={styles.image} data-test= "imageComp"/&gt;
             &lt;View style={styles.details}&gt;
-                &lt;DefaultText&gt;{selectedItem.quantity}pcs&lt;/DefaultText&gt;
-                &lt;DefaultText&gt;{selectedItem.company.toUpperCase()}&lt;/DefaultText&gt;
-                &lt;DefaultText&gt;Rs. {selectedItem.price}/PC&lt;/DefaultText&gt;
+                &lt;DefaultText data-test="quantityComp"&gt;{selectedItem.quantity}pcs&lt;/DefaultText&gt;
+                &lt;DefaultText data-test="companyComp"&gt;{selectedItem.company}&lt;/DefaultText&gt;
+                &lt;DefaultText  data-test="priceComp"&gt;Rs. {selectedItem.price}/PC&lt;/DefaultText&gt;
             &lt;/View&gt;
             &lt;Text style={styles.title}&gt;Description&lt;/Text&gt;
-            &lt;DefaultText style={styles.description}&gt; {selectedItem.description}&lt;/DefaultText&gt;
+            &lt;DefaultText style={styles.description} data-test="descriptionComp"&gt;{selectedItem.description}&lt;/DefaultText&gt;
 &nbsp;
         &lt;/ScrollView &gt;
     );
@@ -292,7 +292,7 @@ export default ItemDetailScreen;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Sep 01 2020 19:50:14 GMT+0545 (Nepal Time)
+                at Mon Sep 14 2020 18:14:30 GMT+0545 (Nepal Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>

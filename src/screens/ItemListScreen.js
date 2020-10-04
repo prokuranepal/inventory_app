@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Button, FlatList, TextInput } from 'react-native';
 import { CATEGORIES } from '../data/dummy-data';
+import HeaderButton from '../components/Component/HeaderButton';
 import ItemList from '../components/UI/ItemList';
 import { useSelector, Usedispatch, useEffect } from 'react-redux';
 import DefaultText from '../components/Component/DefaultText';
 import Colors from '../constants/Colors';
 import { Ionicons } from '@expo/vector-icons';
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
 const ItemListScreen = props => {
 
@@ -88,9 +90,21 @@ ItemListScreen.navigationOptions = navigationData => {
         headerTitle: value,
         headerStyle: {
             backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
-        }
+        },
+        headerRight: () => (
+            <HeaderButtons HeaderButtonComponent={HeaderButton}>
+              <Item
+                title="Save"
+                iconName={
+                  Platform.OS === 'android' ? 'ios-cart' : 'ios-cart'
+                }
+                onPress={()=>{navigationData.navigation.navigate("Cart")}}
+              />
+            </HeaderButtons>
+          )
 
     }
+    
 };
 
 const styles = StyleSheet.create({

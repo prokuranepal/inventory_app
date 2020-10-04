@@ -34,6 +34,13 @@ const fetchFonts = () => {
   })
 }
 
+
+
+/**
+ * Return the ratio of the inline text length of the links in an element to
+ * the inline text length of the entire element.
+ *
+ */
 export default function App() {
   const [fontLoaded, setFontLoaded] = useState(false);
   if (!fontLoaded) {

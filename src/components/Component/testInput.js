@@ -5,6 +5,7 @@ import { TextInput, StyleSheet, View } from 'react-native';
 import Colors from '../../constants/Colors';
 const TestInput = (props) => {
     let textInput = <TextInput
+    data-test="container1"
         style={styles.input}
         {...props}
         value={props.value1}
@@ -13,21 +14,22 @@ const TestInput = (props) => {
     />;
     if (props.idName === 'quantity') {
         textInput = (
-            <View style={styles.quantityContainer}>
+            <View style={styles.quantityContainer} data-test="container">
                 <View style={styles.quantity}>
                     <TextInput
                         {...props}
                         style={styles.input}
                         value={props.value1}
                         onChangeText={props.textChangeHandler}
+                        data-test="textComp"
                     // onBlur={lostFocusHandler}
                     />
                 </View>
                 <View style={styles.quantityButtons}>
-                    <MainButton onPress={props.changeHandler.bind(this, 'increase')} >
+                    <MainButton onPress={props.changeHandler.bind(this, 'increase')} data-test="increaseComp" >
                         <Ionicons name='ios-add' size={20} color="black" />
                     </MainButton>
-                    <MainButton onPress={props.changeHandler.bind(this, 'decrease')} >
+                    <MainButton onPress={props.changeHandler.bind(this, 'decrease')} data-test="decreaseComp">
                         <Ionicons name='ios-remove' size={20} color="black" />
                     </MainButton>
                 </View>
