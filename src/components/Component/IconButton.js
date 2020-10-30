@@ -18,11 +18,11 @@ const iconButton = props => {
     }
     return (
         <View style={{ width: "100%", alignItems: "center" }} >
-            <TouchableCmp onPress={props.onPressHandler} >
+            <TouchableCmp onPress={props.onPressHandler} data-test="touchableComp">
                 <View style={styles.gridItem} >
                     <View style={{ ...styles.container, ...{ backgroundColor: props.color } }}>
                         <View style={styles.iconContainer}>
-                            <Ionicons name={props.iconValue} size={100} color={props.iconColor} />
+                            <Ionicons name={props.iconValue} data-test="iconComp" size={100} color={props.iconColor} />
                         </View>
 
                     </View>
