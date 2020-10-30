@@ -20,6 +20,7 @@ const ItemCategoryScreen = props => {
 
             <CategoryGridTile title={itemData.item.title}
                 iconValue={itemData.item.icon}
+                data-test="categoryItem"
                 color={itemData.item.color}
                 onSelect={() => {
 
@@ -44,6 +45,7 @@ const ItemCategoryScreen = props => {
             keyExtractor={(item, index) => {
                 return index
             }}
+            data-test="flatListComp"
             data={type} renderItem={renderGridItem} numColumns={2} />
     );
 
@@ -61,7 +63,7 @@ ItemCategoryScreen.navigationOptions = navData => {
             fontFamily: 'open-sans'
         },
         headerRight: () => (
-            <AntDesign name="qrcode" size={24} color="white" onPress={() => {
+            <AntDesign name="qrcode" size={24} color="white" data-test="navigate" onPress={() => {
                 // <AntDesign name="qrcode" size={24} color="black" />
                 navData.navigation.navigate('Scanner')
             }} />

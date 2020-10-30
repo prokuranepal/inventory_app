@@ -53,5 +53,5 @@ html_theme = 'alabaster'
 html_static_path = ['_static']
 extensions = ['sphinx_js']
 primary_domain = 'js'
-js_source_path=['../src/screens','../src/components/Component','../src/components/UI']
-root_for_relative_js_paths='../src'
+js_source_path=['../../src/screens','../../src/components/Component','../../src/components/UI']
+root_for_relative_js_paths='../../src'

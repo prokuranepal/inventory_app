@@ -20,6 +20,36 @@ import navigationOptions from '../utility/navigationOptions';
 
 
 const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE';
+export    const categories = [{
+    label: "Sinex",
+    value: "Sinex",
+}, {
+    label: "Antacids",
+    value: 'Antacids',
+}, {
+    label: "Antibiotics",
+    value: 'Antibiotics',
+},
+{
+    label: "Paracetamol",
+    value: 'Paracetamol',
+},
+{
+    label: "Electrobion",
+    value: 'Electrobion',
+},
+{
+    label: 'Digene',
+    value: 'Digene',
+},
+{
+    label: 'Masks',
+    value: 'Masks',
+},
+{
+    label: 'Neurobion',
+    value: 'Neurobion',
+}];
 
 const formReducer = (state, action) => {
     if (action.type === FORM_INPUT_UPDATE) {
@@ -57,36 +87,7 @@ const AddScreen = props => {
     );
 
     const dispatch = useDispatch();
-    const categories = [{
-        label: "Sinex",
-        value: "Sinex",
-    }, {
-        label: "Antacids",
-        value: 'Antacids',
-    }, {
-        label: "Antibiotics",
-        value: 'Antibiotics',
-    },
-    {
-        label: "Paracetamol",
-        value: 'Paracetamol',
-    },
-    {
-        label: "Electrobion",
-        value: 'Electrobion',
-    },
-    {
-        label: 'Digene',
-        value: 'Digene',
-    },
-    {
-        label: 'Masks',
-        value: 'Masks',
-    },
-    {
-        label: 'Neurobion',
-        value: 'Neurobion',
-    }];
+ 
 
     const [formState, dispatchFormState] = useReducer(formReducer, {
         inputValues: {
@@ -155,7 +156,7 @@ const AddScreen = props => {
             behavior="padding"
             keyboardVerticalOffset={20}
         >
-            <ScrollView>
+            <ScrollView data-test="scrollComp">
                 <View style={styles.form}>
 
                     <Text style={styles.label}>{"Medicine Type"}</Text>
@@ -183,6 +184,7 @@ const AddScreen = props => {
                             },
                         }}
                         items={categories}
+                        data-test="categoryPicker"
                     />
                     <Input
                         id="quantity"
