@@ -5,12 +5,12 @@ import Colors from '../constants/Colors';
 import CategoryGridTile from '../components/UI/CategroyGridTile';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import HeaderButton from '../components/Component/HeaderButton';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import * as itemsActions from '../store/actions/items';
 import { AntDesign } from '@expo/vector-icons';
 
 const CategoriesScreen = props => {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     // useEffect(() => {
     //     dispatch(itemsActions.setItems())
     // }, [])
@@ -21,6 +21,7 @@ const CategoriesScreen = props => {
             <CategoryGridTile title={itemData.item.title}
                 iconValue={itemData.item.icon}
                 color={itemData.item.color}
+                data-test="categoryItem"
                 onSelect={() => {
                     let route = 'CategoryItems';
                     switch (itemData.item.title) {
@@ -57,6 +58,7 @@ const CategoriesScreen = props => {
 
     return (
         <FlatList
+            data-test="flatListComp"
             keyExtractor={(item, index) => {
                 return item.id
             }}
@@ -78,7 +80,7 @@ CategoriesScreen.navigationOptions = navData => {
         },
         headerLeft: () => (
             <HeaderButtons HeaderButtonComponent={HeaderButton} >
-                <Item title="Menu" iconName="ios-menu" onPress={() => {
+                <Item title="Menu" iconName="ios-menu" data-test="navToggle" onPress={() => {
                     navData.navigation.toggleDrawer()
                 }} />
             </HeaderButtons>

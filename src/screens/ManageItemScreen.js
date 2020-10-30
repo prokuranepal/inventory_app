@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Button, FlatList, TextInput } from 'react-native';
+import { View, Text, StyleSheet, Platform, Button, FlatList, TextInput } from 'react-native';
 import ManageList from '../components/UI/ManageList';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { useSelector } from 'react-redux';
@@ -35,13 +35,15 @@ const ManageItemScreen = props => {
                     underlineColorAndroid='transparent'
                     value={text}
                     autoCorrect={false}
+                    data-test="textInput"
                     placeholder="Search Here"
                 />
 
             </View>
             <ManageList
                 listData={dataSource || availableItems}
-                navigation={props.navigation} />
+                navigation={props.navigation}
+                data-test="manageListComp" />
         </View>
     );
 

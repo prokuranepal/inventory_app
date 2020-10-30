@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Button, FlatList, TextInput } from 'react-native';
+import { View, Text, StyleSheet, Button, FlatList, TextInput,Platform } from 'react-native';
 import { CATEGORIES } from '../data/dummy-data';
 import HeaderButton from '../components/Component/HeaderButton';
 import ItemList from '../components/UI/ItemList';
@@ -20,7 +20,7 @@ const ItemListScreen = props => {
     switch (catTitle) {
         case "Attention":
             availableItems = useSelector(state => state.items.attentionItems)
-            attentionMsg = <DefaultText style={{ color: 'red', marginBottom: 10, fontSize: 16, fontFamily: 'open-sans-bold' }}>Items with quantity below 30 are:</DefaultText>
+            attentionMsg = <DefaultText data-test="attentionComp" style={{ color: 'red', marginBottom: 10, fontSize: 16, fontFamily: 'open-sans-bold' }}>Items with quantity below 30 are:</DefaultText>
 
             break;
         case "Type":
@@ -41,17 +41,19 @@ const ItemListScreen = props => {
             break;
     }
 
-    const SearchFilterFunction = (text) => {
+    const SearchFilterFunction = (text1) => {
+        console.log("text data")
         //passing the inserted text in textinput
         const newData = availableItems.filter(function (item) {
             //applying filter for the inserted text in search bar
             const itemData = item.title ? item.title.toUpperCase() : ''.toUpperCase();
-            const textData = text.toUpperCase();
+            const textData = text1.toUpperCase();
             return itemData.indexOf(textData) > -1;
         });
+        console.log("text Data",newData, text1, newData)
+
         setdataSource(newData)
-        settext(text)
-        // console.log(newData, text)
+        settext(text1)
     }
 
     return (
@@ -64,10 +66,11 @@ const ItemListScreen = props => {
                     size={20} color="#000" />
                 <TextInput
                     style={styles.textInputStyle}
-                    onChangeText={text => SearchFilterFunction(text)}
+                    onChangeText={text1 => SearchFilterFunction(text1)}
                     underlineColorAndroid='transparent'
                     value={text}
                     autoCorrect={false}
+                    data-test="textInputComp"
                     placeholder="Search Here"
                 />
 
@@ -77,6 +80,7 @@ const ItemListScreen = props => {
                 listData={dataSource || availableItems}
                 navigation={props.navigation}
                 catTitle={catTitle}
+                data-test="itemListComp"
             />
 
         </View>
@@ -98,6 +102,7 @@ ItemListScreen.navigationOptions = navigationData => {
                 iconName={
                   Platform.OS === 'android' ? 'ios-cart' : 'ios-cart'
                 }
+                data-test="navigation"
                 onPress={()=>{navigationData.navigation.navigate("Cart")}}
               />
             </HeaderButtons>
