@@ -2,6 +2,8 @@
 <a href="https://codeclimate.com/github/prokuranepal/inventory_app/maintainability"><img src="https://api.codeclimate.com/v1/badges/ad49e8b0db169560dfd9/maintainability" /></a>
 <a href="https://codeclimate.com/github/prokuranepal/inventory_app/test_coverage"><img src="https://api.codeclimate.com/v1/badges/ad49e8b0db169560dfd9/test_coverage" /></a>
 
+<a href="https://prokuranepal.github.io/inventory_app/">Vuepress Doc</a>
+
 ### Inventory Management System (Mobile App)
 
 Inventory Management System is a cross platform mobile application based on React Native. Its primary function is to store and manage the inventory specifically medicines in the remote health posts of a country. A user can add, update, delete and display the inventory. A user can also add medicines to a cart and order them from the central distribution center. There is also a QR code scanner to quickly scan the incoming package and add it to the inventory. The user can order the items via call or messages or over internet.
