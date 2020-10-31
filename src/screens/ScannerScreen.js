@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, StyleSheet, Button } from 'react-native';
+import { Text, View, StyleSheet, Button,Platform } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import HeaderButton from '../components/Component/HeaderButton';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
@@ -67,6 +67,7 @@ const ScannerScreen = props => {
             }}>
             <BarCodeScanner
                 onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
+                data-test="barComp"
                 style={StyleSheet.absoluteFillObject}
             />
 

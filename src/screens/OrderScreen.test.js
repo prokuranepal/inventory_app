@@ -21,8 +21,6 @@ const function_openURL= jest.fn()
 
 
 describe('<OrderScreen />', () => {
-
- 
     beforeEach(() => {
         jest.doMock('react-native/Libraries/Linking/Linking', () => ({
             openURL:function_dial,

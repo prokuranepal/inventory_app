@@ -15,18 +15,18 @@ import HeaderButton from '../components/Component/HeaderButton';
 import OrderItem from '../components/UI/OrderItem';
 import * as itemsActions from '../store/actions/items';
 import Colors from '../constants/Colors';
-
+export const date = new Date();
+export const idRan= Math.random();
 const ReceivedItemScreen = props => {
     // const [isLoading, setIsLoading] = useState(false);
     const data = props.navigation.getParam('data');
-    const date = new Date();
     receiveditems = [
         Order = {
             date: moment(date).format('MMMM Do YYYY, hh:mm'),
             // id: "i" + Math.random(),
             items: [
                 {
-                    itemid: "i" + Math.random(),
+                    itemid: "i" + idRan,
                     itemPrice: 20,
                     quantity: 5,
                     itemTitle: data
@@ -60,7 +60,7 @@ const ReceivedItemScreen = props => {
 
     if (receiveditems.length === 0) {
         return (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <View data-test="receivedComp" style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                 <Text>No received item  found.</Text>
             </View>
         );
@@ -72,8 +72,10 @@ const ReceivedItemScreen = props => {
             <FlatList
                 data={receiveditems}
                 keyExtractor={(item => item.id)}
+                data-test="flatListComp"
                 renderItem={itemData => (
                     <OrderItem
+                    data-test="orderItem"
                         // amount={itemData.item.totalAmount}
                         date={itemData.item.date}
                         items={itemData.item.items}
@@ -85,13 +87,16 @@ const ReceivedItemScreen = props => {
                     <ActivityIndicator size="small" color={Colors.primary} />
                 ) : ( */}
                 <Button
+                data-test="buttonComp"
                     color={Colors.accent}
                     title="ADD TO INVENTORY"
                     onPress={sendAddToInventoryHandler} />
                 {/* )} */}
             </View>
             <View style={styles.buttonContainer}>
-                <Button title="CANCEL" onPress={sendCancelHandler} />
+                <Button title="CANCEL" 
+                data-test="buttonComp2"
+                onPress={sendCancelHandler} />
             </View>
         </View>
     );
