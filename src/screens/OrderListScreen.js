@@ -47,9 +47,11 @@ const OrderListScreen = props => {
     return (
         <FlatList
             data={orders}
+            data-test="flatListComp"
             keyExtractor={(item => item.id)}
             renderItem={itemData => (
                 <OrderItem
+                    data-test="itemComp"
                     // amount={itemData.item.totalAmount}
                     date={itemData.item.readableDate}
                     items={itemData.item.items}
@@ -73,6 +75,7 @@ OrderListScreen.navigationOptions = navData => {
                 <Item
                     title="Menu"
                     iconName={Platform.OS === 'android' ? 'md-menu' : 'ios-menu'}
+                    data-test="navToggle"
                     onPress={() => {
                         navData.navigation.toggleDrawer();
                     }}
