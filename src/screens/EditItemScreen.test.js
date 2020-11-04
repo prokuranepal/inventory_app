@@ -42,7 +42,24 @@ const dummy_data = {
 
 }
 
-
+const mockState={
+  inputValues:{
+title:"title1",
+company:"company1",
+description:"description",
+quantity:23,
+price:300,
+type:"Pain kiler"  ,
+inputValidities: {
+  title: false,
+  company: false,
+  description: false,
+  quantity: false,
+  price: false,
+  type: false,
+},
+formIsValid: false
+}}
 describe('<EditItemScreen />', () => {
      let store;
  
@@ -76,6 +93,11 @@ describe('<EditItemScreen />', () => {
             const wrapper = mount(<Provider store={store} ><EditItemScreen  {...dummy_data} /></Provider> )
             expect(wrapper).toMatchSnapshot()
         });
+        it("action test for type",(
+          )=>{
+          const action = formReducer();
+          expect(action).toEqual({})
+        })
     
         });
 

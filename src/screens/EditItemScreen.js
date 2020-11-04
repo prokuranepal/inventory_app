@@ -21,7 +21,7 @@ import IconButton from '../components/Component/IconButton';
 import Colors from '../constants/Colors';
 const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE';
 
-const formReducer = (state, action) => {
+export const formReducer = (state, action) => {
   if (action.type === FORM_INPUT_UPDATE) {
     const updatedValues = {
       ...state.inputValues,
