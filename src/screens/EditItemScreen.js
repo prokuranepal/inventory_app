@@ -22,6 +22,7 @@ import Colors from '../constants/Colors';
 const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE';
 
 export const formReducer = (state, action) => {
+  console.log("actions for debugging", action)
   if (action.type === FORM_INPUT_UPDATE) {
     const updatedValues = {
       ...state.inputValues,
@@ -47,7 +48,20 @@ export const formReducer = (state, action) => {
 };
 
 
-
+export const categories = [{
+  label: "Pain killer",
+  value: "Pain killer",
+}, {
+  label: "Vitamin",
+  value: 'Vitamin',
+}, {
+  label: "Antibiotic",
+  value: 'Antibiotic',
+},
+{
+  label: "General",
+  value: 'General',
+}];
 
 const EditItemScreen = props => {
   const dispatch = useDispatch();
@@ -57,20 +71,7 @@ const EditItemScreen = props => {
   // console.log("Editscreen ", itemId)
   let editedItem = null;
   let deleteComponent = null;
-  const categories = [{
-    label: "Pain killer",
-    value: "Pain killer",
-  }, {
-    label: "Vitamin",
-    value: 'Vitamin',
-  }, {
-    label: "Antibiotic",
-    value: 'Antibiotic',
-  },
-  {
-    label: "General",
-    value: 'General',
-  }];
+  
   if (itemId) {
     editedItem = useSelector(state =>
       state.items.items.find(item => {
@@ -87,7 +88,7 @@ const EditItemScreen = props => {
         itemsActions.deleteItem(
           itemId
         )
-
+console.log("allle")
       Alert.alert(
         "DELETE ITEM",
         "Are you sure?",
@@ -99,11 +100,13 @@ const EditItemScreen = props => {
           {
             text: "OK", onPress: async () => {
               try {
+                console.log("ALLLERRRRTRTT")
                 setIsLoading(true);
                 await dispatch(action);
                 setIsLoading(false);
                 props.navigation.navigate('ManageInventory')
               } catch (err) {
+                console.log("alert error")
                 Alert.alert("ERROR", "Something went wrong cannot delete")
               }
             }
@@ -117,6 +120,7 @@ const EditItemScreen = props => {
       iconValue="ios-trash"
       iconColor="#dd0000"
       onPressHandler={deleteHandler}
+      data-test='deleteComp'
     // icon="delete"
     // color="red"
     // size={60}
@@ -234,7 +238,7 @@ const EditItemScreen = props => {
 
   if (isLoading) {
     return (
-      <View style={styles.centered}>
+      <View style={styles.centered} data-test="activityIndicator" data-test="isLoadingComp">
         <ActivityIndicator size="large" color={Colors.primaryColor} />
       </View>
     )
@@ -259,6 +263,7 @@ const EditItemScreen = props => {
             returnKeyType="next"
             initialValue={editedItem ? editedItem.title : ''}
             initiallyValid={!!editedItem}
+            data-test="titleComp"
             required
           />
           <Input
@@ -271,6 +276,7 @@ const EditItemScreen = props => {
             autoCorrect
             initialValue={editedItem ? editedItem.company : ''}
             returnKeyType="next"
+            data-test="companyComp"
             initiallyValid={!!editedItem}
             required
           />
@@ -280,6 +286,7 @@ const EditItemScreen = props => {
           <RNPickerSelect
             onValueChange={inputChangeHandler}
             useNativeAndroidPickerStyle={false}
+            data-test="typeComp"
             placeholder={{
               label: editedItem ? editedItem.type : 'Select a Category',
               value: editedItem ? editedItem.type : '',
@@ -309,6 +316,7 @@ const EditItemScreen = props => {
             errorText="Please enter a valid quantity"
             keyboardType="numeric"
             returnKeyType="next"
+            data-test="quantityComp"
             onInputChange={inputChangeHandler}
             initialValue={editedItem ? `${editedItem.quantity}` : ''}//to convert into string
             required
@@ -320,6 +328,7 @@ const EditItemScreen = props => {
             label="Price/pc"
             errorText="Please enter a valid price!"
             keyboardType="decimal-pad"
+            data-test="priceComp"
             returnKeyType="next"
             onInputChange={inputChangeHandler}
             required
@@ -331,6 +340,7 @@ const EditItemScreen = props => {
           <Input
             id="description"
             label="Description"
+            data-test="descriptionComp"
             errorText="Please enter a valid description!"
             keyboardType="default"
             autoCapitalize="sentences"
@@ -367,6 +377,7 @@ EditItemScreen.navigationOptions = navData => {
           iconName={
             Platform.OS === 'android' ? 'md-checkmark' : 'ios-checkmark'
           }
+          data-test="saveComp"
           onPress={submitFn}
         />
       </HeaderButtons>

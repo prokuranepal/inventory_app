@@ -2,7 +2,7 @@ import { ITEMS } from "../../data/dummy-data";
 import { ADD_ITEMS, UPDATE_ITEMS, SET_ITEMS, DELETE_ITEM } from '../actions/items';
 import Item from "../../models/item";
 
-const initialState = {
+export const initialState = {
     // items: [],
     // attentionItems: []
     items: ITEMS,
@@ -74,12 +74,17 @@ const itemsReducer = (state = initialState, action) => {
             const updatedAttention = [...state.attentionItems];
             if (action.itemData.quantity < 30 && itemIndexAttention >= 0) {
                 updatedAttention[itemIndexAttention] = updatedItem;
+                console.log("inside first")
             }
             else if (action.itemData.quantity < 30) {
                 updatedAttention.push(updatedItem)
+                console.log("inside second")
+
             }
             else if (action.itemData.quantity >= 30 && itemIndexAttention >= 0 && action.iid === updatedAttention[itemIndexAttention]._id) {
                 updatedAttention.splice(itemIndexAttention, 1)
+                console.log("inside third")
+
             }
             return {
                 ...state,
@@ -92,7 +97,7 @@ const itemsReducer = (state = initialState, action) => {
                 items: state.items.filter(
                     item => item._id !== action.iid
                 ),
-                attentionItems: state.items.filter(
+                attentionItems: state.attentionItems.filter(
                     item => item._id !== action.iid
                 )
             };

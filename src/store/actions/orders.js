@@ -2,7 +2,8 @@
 
 export const ADD_ORDER = 'ADD_ORDER';
 export const SET_ORDERS = 'SET_ORDERS';
-
+export const rand_num=Math.random();
+export const new_date= new Date();
 // export const fetchOrders = () => {
 // return async (dispatch, getState) => {
 //     const userId = getState().auth.userId;
@@ -75,15 +76,14 @@ export const addOrder = (cartItems) => {
     //         }
     //     });
     // };
-    const date = new Date();
     return ({
         type: ADD_ORDER,
         orderData: {
             // id: i,
-            id: "i" + Math.random(),
+            id: "i" + rand_num,
             items: cartItems,
             // amount: totalAmount,
-            date: date
+            date: new_date
         }
     });
 };

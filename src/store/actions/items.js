@@ -5,6 +5,7 @@ export const DELETE_ITEM = 'DELETE_ITEM';
 // import { ip } from '../../server/iplocation'
 import Item from '../../models/item'
 import { ITEMS } from '../../data/dummy-data'
+export const date_now=new Date().toLocaleString();
 export const addItems = (title, company, quantity, description, price, type) => {
     const data = {
         "title": title,
@@ -60,7 +61,7 @@ export const addItems = (title, company, quantity, description, price, type) => 
 
     return ({
         type: ADD_ITEMS,
-        iid: new Date().toLocaleString(),
+        iid: date_now,
         itemData: {
             title,
             company,

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1604123639136" clover="3.2.0">
-  <project timestamp="1604123639136" name="All files">
-    <metrics statements="833" coveredstatements="607" conditionals="359" coveredconditionals="164" methods="253" coveredmethods="191" elements="1445" coveredelements="962" complexity="0" loc="833" ncloc="833" packages="14" files="64" classes="64"/>
+<coverage generated="1605519310469" clover="3.2.0">
+  <project timestamp="1605519310469" name="All files">
+    <metrics statements="843" coveredstatements="677" conditionals="359" coveredconditionals="190" methods="253" coveredmethods="207" elements="1455" coveredelements="1074" complexity="0" loc="843" ncloc="843" packages="14" files="64" classes="64"/>
     <package name="inventory_app">
       <metrics statements="10" coveredstatements="4" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
       <file name="App.js" path="/home/sa/react_native_workspace/new_inventory/inventory_app/App.js">
@@ -30,20 +30,20 @@
       </file>
     </package>
     <package name="inventory_app.src._test_.componenets">
-      <metrics statements="25" coveredstatements="25" conditionals="8" coveredconditionals="8" methods="13" coveredmethods="12"/>
+      <metrics statements="25" coveredstatements="25" conditionals="8" coveredconditionals="8" methods="13" coveredmethods="13"/>
       <file name="test_function.js" path="/home/sa/react_native_workspace/new_inventory/inventory_app/src/_test_/componenets/test_function.js">
-        <metrics statements="25" coveredstatements="25" conditionals="8" coveredconditionals="8" methods="13" coveredmethods="12"/>
-        <line num="13" count="37" type="stmt"/>
-        <line num="14" count="107" type="stmt"/>
-        <line num="17" count="37" type="stmt"/>
+        <metrics statements="25" coveredstatements="25" conditionals="8" coveredconditionals="8" methods="13" coveredmethods="13"/>
+        <line num="13" count="40" type="stmt"/>
+        <line num="14" count="115" type="stmt"/>
+        <line num="17" count="40" type="stmt"/>
         <line num="18" count="10" type="stmt"/>
-        <line num="22" count="37" type="stmt"/>
+        <line num="22" count="40" type="stmt"/>
         <line num="23" count="16" type="stmt"/>
         <line num="24" count="21" type="stmt"/>
         <line num="26" count="39" type="stmt"/>
-        <line num="29" count="37" type="stmt"/>
-        <line num="30" count="24" type="stmt"/>
-        <line num="31" count="24" type="stmt"/>
+        <line num="29" count="40" type="stmt"/>
+        <line num="30" count="34" type="stmt"/>
+        <line num="31" count="34" type="stmt"/>
         <line num="36" count="16" type="stmt"/>
         <line num="38" count="16" type="stmt"/>
         <line num="39" count="30" type="stmt"/>
@@ -107,7 +107,7 @@
       <file name="HeaderButton.js" path="/home/sa/react_native_workspace/new_inventory/inventory_app/src/components/Component/HeaderButton.js">
         <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="7" count="13" type="stmt"/>
-        <line num="8" count="3" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
       </file>
       <file name="HeadingText.js" path="/home/sa/react_native_workspace/new_inventory/inventory_app/src/components/Component/HeadingText.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -118,10 +118,10 @@
       <file name="IconButton.js" path="/home/sa/react_native_workspace/new_inventory/inventory_app/src/components/Component/IconButton.js">
         <metrics statements="6" coveredstatements="5" conditionals="8" coveredconditionals="4" methods="1" coveredmethods="1"/>
         <line num="13" count="3" type="stmt"/>
-        <line num="15" count="5" type="stmt"/>
-        <line num="16" count="5" type="cond" truecount="2" falsecount="2"/>
+        <line num="15" count="25" type="stmt"/>
+        <line num="16" count="25" type="cond" truecount="2" falsecount="2"/>
         <line num="17" count="0" type="stmt"/>
-        <line num="19" count="5" type="stmt"/>
+        <line num="19" count="25" type="stmt"/>
         <line num="38" count="3" type="stmt"/>
       </file>
       <file name="InventoryItem.js" path="/home/sa/react_native_workspace/new_inventory/inventory_app/src/components/Component/InventoryItem.js">
@@ -157,7 +157,7 @@
       <file name="MainButton.js" path="/home/sa/react_native_workspace/new_inventory/inventory_app/src/components/Component/MainButton.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="5" count="9" type="stmt"/>
-        <line num="6" count="12" type="stmt"/>
+        <line num="6" count="52" type="stmt"/>
         <line num="14" count="9" type="stmt"/>
       </file>
       <file name="MainText.js" path="/home/sa/react_native_workspace/new_inventory/inventory_app/src/components/Component/MainText.js">
@@ -182,15 +182,15 @@
       <file name="testInput.js" path="/home/sa/react_native_workspace/new_inventory/inventory_app/src/components/Component/testInput.js">
         <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="6" count="8" type="stmt"/>
-        <line num="7" count="17" type="stmt"/>
-        <line num="15" count="17" type="cond" truecount="2" falsecount="0"/>
-        <line num="16" count="6" type="stmt"/>
-        <line num="39" count="17" type="stmt"/>
+        <line num="7" count="117" type="stmt"/>
+        <line num="15" count="117" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="26" type="stmt"/>
+        <line num="39" count="117" type="stmt"/>
         <line num="48" count="8" type="stmt"/>
       </file>
     </package>
     <package name="inventory_app.src.components.UI">
-      <metrics statements="58" coveredstatements="41" conditionals="36" coveredconditionals="11" methods="17" coveredmethods="14"/>
+      <metrics statements="58" coveredstatements="41" conditionals="36" coveredconditionals="12" methods="17" coveredmethods="14"/>
       <file name="CartItem.js" path="/home/sa/react_native_workspace/new_inventory/inventory_app/src/components/UI/CartItem.js">
         <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="10" count="6" type="stmt"/>
@@ -211,18 +211,18 @@
         <line num="38" count="4" type="stmt"/>
       </file>
       <file name="Input.js" path="/home/sa/react_native_workspace/new_inventory/inventory_app/src/components/UI/Input.js">
-        <metrics statements="27" coveredstatements="11" conditionals="24" coveredconditionals="3" methods="5" coveredmethods="2"/>
+        <metrics statements="27" coveredstatements="11" conditionals="24" coveredconditionals="4" methods="5" coveredmethods="2"/>
         <line num="5" count="7" type="stmt"/>
         <line num="7" count="7" type="stmt"/>
         <line num="8" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="10" count="0" type="stmt"/>
         <line num="17" count="0" type="stmt"/>
         <line num="23" count="7" type="stmt"/>
-        <line num="24" count="13" type="stmt"/>
-        <line num="30" count="13" type="stmt"/>
-        <line num="31" count="13" type="stmt"/>
-        <line num="32" count="6" type="stmt"/>
-        <line num="36" count="13" type="stmt"/>
+        <line num="24" count="113" type="stmt"/>
+        <line num="30" count="113" type="stmt"/>
+        <line num="31" count="113" type="stmt"/>
+        <line num="32" count="41" type="stmt"/>
+        <line num="36" count="113" type="stmt"/>
         <line num="37" count="0" type="stmt"/>
         <line num="38" count="0" type="cond" truecount="0" falsecount="4"/>
         <line num="39" count="0" type="stmt"/>
@@ -233,11 +233,11 @@
         <line num="48" count="0" type="cond" truecount="0" falsecount="4"/>
         <line num="49" count="0" type="stmt"/>
         <line num="51" count="0" type="stmt"/>
-        <line num="54" count="13" type="stmt"/>
+        <line num="54" count="113" type="stmt"/>
         <line num="55" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="56" count="0" type="stmt"/>
         <line num="59" count="0" type="stmt"/>
-        <line num="62" count="13" type="stmt"/>
+        <line num="62" count="113" type="stmt"/>
         <line num="80" count="7" type="stmt"/>
       </file>
       <file name="ItemList.js" path="/home/sa/react_native_workspace/new_inventory/inventory_app/src/components/UI/ItemList.js">
@@ -278,58 +278,58 @@
       <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="dummy-data.js" path="/home/sa/react_native_workspace/new_inventory/inventory_app/src/data/dummy-data.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="6" count="7" type="stmt"/>
-        <line num="25" count="7" type="stmt"/>
-        <line num="35" count="7" type="stmt"/>
-        <line num="152" count="7" type="stmt"/>
+        <line num="6" count="10" type="stmt"/>
+        <line num="25" count="10" type="stmt"/>
+        <line num="35" count="10" type="stmt"/>
+        <line num="152" count="10" type="stmt"/>
       </file>
     </package>
     <package name="inventory_app.src.models">
-      <metrics statements="27" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="4"/>
+      <metrics statements="27" coveredstatements="26" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="6"/>
       <file name="cart-items.js" path="/home/sa/react_native_workspace/new_inventory/inventory_app/src/models/cart-items.js">
-        <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="6" type="stmt"/>
+        <line num="4" count="6" type="stmt"/>
+        <line num="5" count="6" type="stmt"/>
       </file>
       <file name="category.js" path="/home/sa/react_native_workspace/new_inventory/inventory_app/src/models/category.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="42" type="stmt"/>
-        <line num="4" count="42" type="stmt"/>
-        <line num="5" count="42" type="stmt"/>
-        <line num="6" count="42" type="stmt"/>
+        <line num="3" count="60" type="stmt"/>
+        <line num="4" count="60" type="stmt"/>
+        <line num="5" count="60" type="stmt"/>
+        <line num="6" count="60" type="stmt"/>
       </file>
       <file name="contact.js" path="/home/sa/react_native_workspace/new_inventory/inventory_app/src/models/contact.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="4" count="32" type="stmt"/>
-        <line num="5" count="32" type="stmt"/>
-        <line num="6" count="32" type="stmt"/>
-        <line num="7" count="32" type="stmt"/>
+        <line num="4" count="44" type="stmt"/>
+        <line num="5" count="44" type="stmt"/>
+        <line num="6" count="44" type="stmt"/>
+        <line num="7" count="44" type="stmt"/>
       </file>
       <file name="item.js" path="/home/sa/react_native_workspace/new_inventory/inventory_app/src/models/item.js">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="4" count="88" type="stmt"/>
-        <line num="5" count="88" type="stmt"/>
-        <line num="6" count="88" type="stmt"/>
-        <line num="7" count="88" type="stmt"/>
-        <line num="8" count="88" type="stmt"/>
-        <line num="9" count="88" type="stmt"/>
-        <line num="10" count="88" type="stmt"/>
-        <line num="11" count="88" type="stmt"/>
+        <line num="4" count="129" type="stmt"/>
+        <line num="5" count="129" type="stmt"/>
+        <line num="6" count="129" type="stmt"/>
+        <line num="7" count="129" type="stmt"/>
+        <line num="8" count="129" type="stmt"/>
+        <line num="9" count="129" type="stmt"/>
+        <line num="10" count="129" type="stmt"/>
+        <line num="11" count="129" type="stmt"/>
       </file>
       <file name="order.js" path="/home/sa/react_native_workspace/new_inventory/inventory_app/src/models/order.js">
-        <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
+        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
         <line num="11" count="0" type="stmt"/>
       </file>
       <file name="type.js" path="/home/sa/react_native_workspace/new_inventory/inventory_app/src/models/type.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="4" count="28" type="stmt"/>
-        <line num="5" count="28" type="stmt"/>
-        <line num="6" count="28" type="stmt"/>
-        <line num="7" count="28" type="stmt"/>
+        <line num="4" count="40" type="stmt"/>
+        <line num="5" count="40" type="stmt"/>
+        <line num="6" count="40" type="stmt"/>
+        <line num="7" count="40" type="stmt"/>
       </file>
     </package>
     <package name="inventory_app.src.navigation">
@@ -360,7 +360,7 @@
       </file>
     </package>
     <package name="inventory_app.src.screens">
-      <metrics statements="445" coveredstatements="352" conditionals="204" coveredconditionals="103" methods="147" coveredmethods="118"/>
+      <metrics statements="449" coveredstatements="365" conditionals="204" coveredconditionals="107" methods="147" coveredmethods="122"/>
       <file name="AddScreen.js" path="/home/sa/react_native_workspace/new_inventory/inventory_app/src/screens/AddScreen.js">
         <metrics statements="39" coveredstatements="26" conditionals="18" coveredconditionals="7" methods="8" coveredmethods="5"/>
         <line num="22" count="2" type="stmt"/>
@@ -530,77 +530,81 @@
         <line num="97" count="2" type="stmt"/>
       </file>
       <file name="EditItemScreen.js" path="/home/sa/react_native_workspace/new_inventory/inventory_app/src/screens/EditItemScreen.js">
-        <metrics statements="70" coveredstatements="40" conditionals="62" coveredconditionals="28" methods="13" coveredmethods="8"/>
+        <metrics statements="74" coveredstatements="53" conditionals="62" coveredconditionals="32" methods="13" coveredmethods="12"/>
         <line num="22" count="2" type="stmt"/>
         <line num="24" count="2" type="stmt"/>
-        <line num="25" count="5" type="cond" truecount="1" falsecount="1"/>
-        <line num="26" count="5" type="stmt"/>
-        <line num="30" count="5" type="stmt"/>
-        <line num="34" count="5" type="stmt"/>
-        <line num="35" count="5" type="stmt"/>
-        <line num="36" count="30" type="cond" truecount="2" falsecount="0"/>
-        <line num="39" count="5" type="stmt"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="52" count="2" type="stmt"/>
-        <line num="53" count="2" type="stmt"/>
-        <line num="54" count="2" type="stmt"/>
-        <line num="55" count="2" type="stmt"/>
-        <line num="56" count="2" type="stmt"/>
-        <line num="58" count="2" type="stmt"/>
-        <line num="59" count="2" type="stmt"/>
-        <line num="60" count="2" type="stmt"/>
-        <line num="74" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="75" count="2" type="stmt"/>
-        <line num="76" count="3" type="stmt"/>
-        <line num="78" count="6" type="cond" truecount="1" falsecount="1"/>
-        <line num="79" count="0" type="stmt"/>
-        <line num="85" count="2" type="stmt"/>
-        <line num="87" count="0" type="stmt"/>
-        <line num="91" count="0" type="stmt"/>
-        <line num="101" count="0" type="stmt"/>
-        <line num="102" count="0" type="stmt"/>
-        <line num="103" count="0" type="stmt"/>
-        <line num="104" count="0" type="stmt"/>
-        <line num="105" count="0" type="stmt"/>
+        <line num="25" count="47" type="stmt"/>
+        <line num="26" count="47" type="cond" truecount="1" falsecount="1"/>
+        <line num="27" count="47" type="stmt"/>
+        <line num="31" count="47" type="stmt"/>
+        <line num="35" count="47" type="stmt"/>
+        <line num="36" count="47" type="stmt"/>
+        <line num="37" count="281" type="cond" truecount="2" falsecount="0"/>
+        <line num="40" count="47" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="51" count="2" type="stmt"/>
+        <line num="66" count="2" type="stmt"/>
+        <line num="67" count="23" type="stmt"/>
+        <line num="68" count="23" type="stmt"/>
+        <line num="69" count="23" type="stmt"/>
+        <line num="70" count="23" type="stmt"/>
+        <line num="72" count="23" type="stmt"/>
+        <line num="73" count="23" type="stmt"/>
+        <line num="75" count="23" type="cond" truecount="1" falsecount="1"/>
+        <line num="76" count="23" type="stmt"/>
+        <line num="77" count="31" type="stmt"/>
+        <line num="79" count="62" type="cond" truecount="2" falsecount="0"/>
+        <line num="80" count="31" type="stmt"/>
+        <line num="86" count="23" type="stmt"/>
+        <line num="88" count="1" type="stmt"/>
+        <line num="91" count="1" type="stmt"/>
+        <line num="92" count="1" type="stmt"/>
+        <line num="102" count="1" type="stmt"/>
+        <line num="103" count="1" type="stmt"/>
+        <line num="104" count="1" type="stmt"/>
+        <line num="105" count="1" type="stmt"/>
+        <line num="106" count="0" type="stmt"/>
         <line num="107" count="0" type="stmt"/>
-        <line num="116" count="2" type="stmt"/>
-        <line num="128" count="2" type="stmt"/>
-        <line num="151" count="2" type="stmt"/>
-        <line num="152" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="153" count="0" type="stmt"/>
-        <line num="157" count="2" type="stmt"/>
-        <line num="159" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="160" count="0" type="stmt"/>
-        <line num="163" count="0" type="stmt"/>
-        <line num="165" count="0" type="stmt"/>
-        <line num="166" count="0" type="stmt"/>
-        <line num="168" count="0" type="stmt"/>
-        <line num="169" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="109" count="0" type="stmt"/>
+        <line num="110" count="0" type="stmt"/>
+        <line num="119" count="23" type="stmt"/>
+        <line num="132" count="23" type="stmt"/>
+        <line num="155" count="23" type="stmt"/>
+        <line num="156" count="8" type="cond" truecount="1" falsecount="1"/>
+        <line num="157" count="0" type="stmt"/>
+        <line num="161" count="23" type="stmt"/>
+        <line num="163" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="164" count="0" type="stmt"/>
+        <line num="167" count="0" type="stmt"/>
+        <line num="169" count="0" type="stmt"/>
+        <line num="170" count="0" type="stmt"/>
         <line num="172" count="0" type="stmt"/>
-        <line num="185" count="0" type="stmt"/>
-        <line num="197" count="0" type="stmt"/>
-        <line num="199" count="0" type="stmt"/>
+        <line num="173" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="176" count="0" type="stmt"/>
+        <line num="189" count="0" type="stmt"/>
         <line num="201" count="0" type="stmt"/>
-        <line num="205" count="2" type="stmt"/>
-        <line num="206" count="2" type="stmt"/>
-        <line num="209" count="2" type="stmt"/>
-        <line num="212" count="5" type="stmt"/>
-        <line num="213" count="5" type="stmt"/>
-        <line num="215" count="5" type="cond" truecount="1" falsecount="1"/>
-        <line num="216" count="0" type="stmt"/>
-        <line num="217" count="0" type="stmt"/>
-        <line num="218" count="0" type="stmt"/>
-        <line num="222" count="5" type="stmt"/>
-        <line num="235" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="236" count="0" type="stmt"/>
-        <line num="243" count="2" type="stmt"/>
-        <line num="289" count="2" type="stmt"/>
-        <line num="353" count="2" type="stmt"/>
-        <line num="354" count="0" type="stmt"/>
-        <line num="355" count="0" type="stmt"/>
-        <line num="364" count="0" type="stmt"/>
-        <line num="377" count="2" type="stmt"/>
-        <line num="392" count="2" type="stmt"/>
+        <line num="203" count="0" type="stmt"/>
+        <line num="205" count="0" type="stmt"/>
+        <line num="209" count="23" type="stmt"/>
+        <line num="210" count="22" type="stmt"/>
+        <line num="213" count="23" type="stmt"/>
+        <line num="216" count="46" type="stmt"/>
+        <line num="217" count="46" type="stmt"/>
+        <line num="219" count="46" type="cond" truecount="1" falsecount="1"/>
+        <line num="220" count="0" type="stmt"/>
+        <line num="221" count="0" type="stmt"/>
+        <line num="222" count="0" type="stmt"/>
+        <line num="226" count="46" type="stmt"/>
+        <line num="239" count="23" type="cond" truecount="2" falsecount="0"/>
+        <line num="240" count="1" type="stmt"/>
+        <line num="247" count="22" type="stmt"/>
+        <line num="296" count="22" type="stmt"/>
+        <line num="363" count="2" type="stmt"/>
+        <line num="364" count="1" type="stmt"/>
+        <line num="365" count="1" type="stmt"/>
+        <line num="374" count="1" type="stmt"/>
+        <line num="388" count="2" type="stmt"/>
+        <line num="403" count="2" type="stmt"/>
       </file>
       <file name="ItemCategoryScreen.js" path="/home/sa/react_native_workspace/new_inventory/inventory_app/src/screens/ItemCategoryScreen.js">
         <metrics statements="13" coveredstatements="13" conditionals="2" coveredconditionals="1" methods="7" coveredmethods="7"/>
@@ -862,7 +866,7 @@
       </file>
     </package>
     <package name="inventory_app.src.store.actions">
-      <metrics statements="65" coveredstatements="37" conditionals="6" coveredconditionals="0" methods="16" coveredmethods="9"/>
+      <metrics statements="67" coveredstatements="43" conditionals="6" coveredconditionals="0" methods="16" coveredmethods="12"/>
       <file name="auth.js" path="/home/sa/react_native_workspace/new_inventory/inventory_app/src/store/actions/auth.js">
         <metrics statements="34" coveredstatements="10" conditionals="6" coveredconditionals="0" methods="7" coveredmethods="3"/>
         <line num="2" count="2" type="stmt"/>
@@ -902,138 +906,144 @@
       </file>
       <file name="cart.js" path="/home/sa/react_native_workspace/new_inventory/inventory_app/src/store/actions/cart.js">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="1" count="6" type="stmt"/>
-        <line num="2" count="6" type="stmt"/>
-        <line num="4" count="6" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="8" count="6" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
+        <line num="1" count="8" type="stmt"/>
+        <line num="2" count="8" type="stmt"/>
+        <line num="4" count="8" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="8" count="8" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
       </file>
       <file name="ip.js" path="/home/sa/react_native_workspace/new_inventory/inventory_app/src/store/actions/ip.js">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
       </file>
       <file name="items.js" path="/home/sa/react_native_workspace/new_inventory/inventory_app/src/store/actions/items.js">
-        <metrics statements="14" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1"/>
-        <line num="1" count="5" type="stmt"/>
-        <line num="2" count="5" type="stmt"/>
-        <line num="3" count="5" type="stmt"/>
-        <line num="4" count="5" type="stmt"/>
-        <line num="8" count="5" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="61" count="1" type="stmt"/>
-        <line num="76" count="5" type="stmt"/>
-        <line num="120" count="0" type="stmt"/>
-        <line num="136" count="5" type="stmt"/>
-        <line num="137" count="0" type="stmt"/>
-        <line num="175" count="0" type="stmt"/>
-        <line num="184" count="5" type="stmt"/>
-        <line num="201" count="0" type="stmt"/>
+        <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="1" count="8" type="stmt"/>
+        <line num="2" count="8" type="stmt"/>
+        <line num="3" count="8" type="stmt"/>
+        <line num="4" count="8" type="stmt"/>
+        <line num="8" count="8" type="stmt"/>
+        <line num="9" count="8" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="62" count="2" type="stmt"/>
+        <line num="77" count="8" type="stmt"/>
+        <line num="121" count="1" type="stmt"/>
+        <line num="137" count="8" type="stmt"/>
+        <line num="138" count="1" type="stmt"/>
+        <line num="176" count="1" type="stmt"/>
+        <line num="185" count="8" type="stmt"/>
+        <line num="202" count="2" type="stmt"/>
       </file>
       <file name="orders.js" path="/home/sa/react_native_workspace/new_inventory/inventory_app/src/store/actions/orders.js">
-        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="42" count="2" type="stmt"/>
-        <line num="78" count="1" type="stmt"/>
-        <line num="79" count="1" type="stmt"/>
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="43" count="4" type="stmt"/>
+        <line num="79" count="2" type="stmt"/>
       </file>
     </package>
     <package name="inventory_app.src.store.reducers">
-      <metrics statements="74" coveredstatements="17" conditionals="42" coveredconditionals="8" methods="11" coveredmethods="5"/>
+      <metrics statements="78" coveredstatements="62" conditionals="42" coveredconditionals="29" methods="11" coveredmethods="11"/>
       <file name="auth.js" path="/home/sa/react_native_workspace/new_inventory/inventory_app/src/store/reducers/auth.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
       <file name="cart.js" path="/home/sa/react_native_workspace/new_inventory/inventory_app/src/store/reducers/cart.js">
-        <metrics statements="24" coveredstatements="3" conditionals="10" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="11" count="3" type="cond" truecount="0" falsecount="3"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="19" count="0" type="cond" truecount="0" falsecount="2"/>
+        <metrics statements="24" coveredstatements="15" conditionals="10" coveredconditionals="5" methods="1" coveredmethods="1"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="11" count="8" type="cond" truecount="2" falsecount="1"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="19" count="2" type="cond" truecount="1" falsecount="1"/>
         <line num="21" count="0" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="39" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="47" count="0" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="39" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
         <line num="49" count="0" type="stmt"/>
         <line num="50" count="0" type="stmt"/>
-        <line num="52" count="0" type="stmt"/>
+        <line num="52" count="1" type="stmt"/>
         <line num="60" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="61" count="0" type="stmt"/>
         <line num="63" count="0" type="stmt"/>
         <line num="64" count="0" type="stmt"/>
         <line num="65" count="0" type="stmt"/>
         <line num="66" count="0" type="stmt"/>
-        <line num="72" count="3" type="stmt"/>
+        <line num="72" count="5" type="stmt"/>
       </file>
       <file name="ip.js" path="/home/sa/react_native_workspace/new_inventory/inventory_app/src/store/reducers/ip.js">
-        <metrics statements="7" coveredstatements="4" conditionals="4" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="9" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="10" count="3" type="cond" truecount="1" falsecount="2"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="23" count="3" type="stmt"/>
+        <metrics statements="7" coveredstatements="6" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="9" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="10" count="6" type="cond" truecount="3" falsecount="0"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="23" count="4" type="stmt"/>
         <line num="26" count="0" type="stmt"/>
       </file>
       <file name="items.js" path="/home/sa/react_native_workspace/new_inventory/inventory_app/src/store/reducers/items.js">
-        <metrics statements="37" coveredstatements="7" conditionals="25" coveredconditionals="4" methods="8" coveredmethods="2"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="10" count="9" type="cond" truecount="2" falsecount="0"/>
-        <line num="11" count="5" type="stmt"/>
-        <line num="13" count="4" type="stmt"/>
-        <line num="17" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="18" count="3" type="cond" truecount="1" falsecount="4"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="24" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="45" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="48" count="0" type="stmt"/>
-        <line num="54" count="0" type="stmt"/>
-        <line num="55" count="0" type="stmt"/>
-        <line num="57" count="0" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
-        <line num="60" count="0" type="stmt"/>
-        <line num="71" count="0" type="stmt"/>
-        <line num="72" count="0" type="stmt"/>
-        <line num="74" count="0" type="stmt"/>
-        <line num="75" count="0" type="cond" truecount="0" falsecount="4"/>
+        <metrics statements="40" coveredstatements="34" conditionals="25" coveredconditionals="17" methods="8" coveredmethods="8"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="10" count="18" type="cond" truecount="2" falsecount="0"/>
+        <line num="11" count="10" type="stmt"/>
+        <line num="13" count="8" type="stmt"/>
+        <line num="17" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="18" count="8" type="cond" truecount="5" falsecount="0"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="24" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="4" type="stmt"/>
+        <line num="45" count="1" type="cond" truecount="3" falsecount="1"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="54" count="1" type="stmt"/>
+        <line num="55" count="3" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="58" count="4" type="stmt"/>
+        <line num="60" count="1" type="stmt"/>
+        <line num="71" count="1" type="stmt"/>
+        <line num="72" count="1" type="stmt"/>
+        <line num="74" count="1" type="stmt"/>
+        <line num="75" count="1" type="cond" truecount="3" falsecount="1"/>
         <line num="76" count="0" type="stmt"/>
-        <line num="78" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="79" count="0" type="stmt"/>
-        <line num="81" count="0" type="cond" truecount="0" falsecount="5"/>
-        <line num="82" count="0" type="stmt"/>
-        <line num="84" count="0" type="stmt"/>
-        <line num="90" count="0" type="stmt"/>
-        <line num="93" count="0" type="stmt"/>
-        <line num="96" count="0" type="stmt"/>
-        <line num="100" count="3" type="stmt"/>
-        <line num="103" count="0" type="stmt"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="79" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="80" count="1" type="stmt"/>
+        <line num="81" count="1" type="stmt"/>
+        <line num="84" count="0" type="cond" truecount="0" falsecount="5"/>
+        <line num="85" count="0" type="stmt"/>
+        <line num="86" count="0" type="stmt"/>
+        <line num="89" count="1" type="stmt"/>
+        <line num="95" count="1" type="stmt"/>
+        <line num="98" count="9" type="stmt"/>
+        <line num="101" count="4" type="stmt"/>
+        <line num="105" count="4" type="stmt"/>
+        <line num="108" count="0" type="stmt"/>
       </file>
       <file name="orders.js" path="/home/sa/react_native_workspace/new_inventory/inventory_app/src/store/reducers/orders.js">
-        <metrics statements="6" coveredstatements="3" conditionals="3" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="114" count="3" type="cond" truecount="0" falsecount="2"/>
-        <line num="116" count="0" type="stmt"/>
-        <line num="120" count="0" type="stmt"/>
-        <line num="125" count="0" type="stmt"/>
-        <line num="131" count="3" type="stmt"/>
+        <metrics statements="7" coveredstatements="7" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="113" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="114" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="116" count="1" type="stmt"/>
+        <line num="120" count="1" type="stmt"/>
+        <line num="125" count="1" type="stmt"/>
+        <line num="131" count="4" type="stmt"/>
       </file>
     </package>
     <package name="inventory_app.src.utility">

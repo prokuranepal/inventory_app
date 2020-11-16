@@ -3,7 +3,7 @@ import { ADD_TO_CART, REMOVE_FROM_CART } from '../actions/cart';
 import CartItem from '../../models/cart-items';
 import { DELETE_ITEM } from '../actions/items';
 
-const initialState = {
+export const initialState = {
     items: {}
 };
 

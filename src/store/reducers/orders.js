@@ -2,7 +2,7 @@ import { ADD_ORDER, SET_ORDERS } from '../actions/orders';
 import Order from '../../models/order';
 import Item from '../../models/item'
 
-const initialState = {
+export const initialState = {
     orders: [],
     requestedItems:[
         new Item(
@@ -110,7 +110,7 @@ const initialState = {
           ] 
 };
 
-export default (state = initialState, action) => {
+const order =(state = initialState, action) => {
     switch (action.type) {
         case SET_ORDERS:
             return {
@@ -130,3 +130,5 @@ export default (state = initialState, action) => {
 
     return state;
 };
+
+export default order;
