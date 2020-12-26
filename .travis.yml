@@ -16,6 +16,7 @@ before_script:
 
 script:
   - npm test -- --coverage
+  - make docscripts/ html
 #   - CI=false npm run build
 
 after_script:
@@ -24,6 +25,14 @@ after_script:
 branches:
   only:
   - inventory
+
+deploy:
+  - provider: pages
+    verbose: true
+    github_token: $GITHUB_TOKEN
+    edge: true
+    local_dir: docs/build/html
+    keep_history: true
 # language: node_js
 # node_js:
 #   - "stable"
