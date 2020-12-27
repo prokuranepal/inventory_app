@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to Inventory App’s documentation! &#8212; Inventory App 1 documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-inventory-app-s-documentation">
+<h1>Welcome to Inventory App’s documentation!<a class="headerlink" href="#welcome-to-inventory-app-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<dl class="js class">
+<dt id="Authentication">
+<em class="property">class </em><code class="sig-name descname">Authentication</code><span class="sig-paren">(</span><em class="sig-param">props</em><span class="sig-paren">)</span><a class="headerlink" href="#Authentication" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the main entry screen to the app
+The user is able to sign in or signup for a new account</p>
+<p>The constructor listens for orientation changes</p>
+<dl class="js attribute">
+<dt id="Authentication.changeIPHandler">
+<code class="sig-prename descclassname">Authentication.</code><code class="sig-name descname">changeIPHandler</code><a class="headerlink" href="#Authentication.changeIPHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles changing ip of background</p>
+</dd></dl>
+
+<dl class="js attribute">
+<dt id="Authentication.onButtonPress">
+<code class="sig-prename descclassname">Authentication.</code><code class="sig-name descname">onButtonPress</code><a class="headerlink" href="#Authentication.onButtonPress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs signup or login option based on loginMode state</p>
+</dd></dl>
+
+<dl class="js function">
+<dt id="Authentication.render">
+<code class="sig-prename descclassname">Authentication.</code><code class="sig-name descname">render</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Authentication.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Renders form for login/ signup based on the mode</p>
+</dd></dl>
+
+<dl class="js attribute">
+<dt id="Authentication.switchAuthModeHandler">
+<code class="sig-prename descclassname">Authentication.</code><code class="sig-name descname">switchAuthModeHandler</code><a class="headerlink" href="#Authentication.switchAuthModeHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>checks for mode change between login and signup</p>
+</dd></dl>
+
+<dl class="js attribute">
+<dt id="Authentication.updateInputState">
+<code class="sig-prename descclassname">Authentication.</code><code class="sig-name descname">updateInputState</code><a class="headerlink" href="#Authentication.updateInputState" title="Permalink to this definition">¶</a></dt>
+<dd><p>updates the password and confirm password states after validation</p>
+</dd></dl>
+
+<dl class="js attribute">
+<dt id="Authentication.updateStyles">
+<code class="sig-prename descclassname">Authentication.</code><code class="sig-name descname">updateStyles</code><a class="headerlink" href="#Authentication.updateStyles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates style based on the window height(landscape or portrait)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="js function">
+<dt id="AddScreen">
+<code class="sig-name descname">AddScreen</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AddScreen" title="Permalink to this definition">¶</a></dt>
+<dd><p>The AddScreen presents a form to add new items to the inventory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>items</strong> (<em>items</em>) – It uses items state from items reducer which gives an array of items with title, quantity, price and so on</p></li>
+<li><p><strong>navigation</strong> (<em>navigation</em>) – Provides navigation options</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="js function">
+<dt id="card">
+<code class="sig-name descname">card</code><span class="sig-paren">(</span><em class="sig-param">props</em><span class="sig-paren">)</span><a class="headerlink" href="#card" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>props</strong> (<em>props</em>) – </p></li>
+<li><p><strong>props.children</strong> (<em>children</em>) – any children component usually Text, Views to be wrapped as card</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>card</strong> – returns a component with styling eq. to card</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">Inventory App</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Prokura Innovations Pvt. Ltd..
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
