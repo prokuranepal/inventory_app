@@ -1,38 +1,59 @@
 sudo: true
+addons:
+  apt:
+    sources:
+      - deadsnakes
+    packages:
+      - python3.7
+dist: bionic
 env:
   global:
     - CC_TEST_REPORTER_ID=56ab2d0dcd3e5e23cc8f62456a2b35d1903ea997efcd696dabc19d6ce702e257
-language: node_js
-node_js:
-  - "stable"
-cache:
-  directories:
-    - node_modules
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install python3 python3-pip python3-setuptools python3-wheel -y
+  - sudo apt-get install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget
+  - pip3 install sphinx-js==3.0.1
+matrix:
+  include:
+  
+    - language: node_js
+      node_js:
+      - "stable"
+ 
+      cache:
+      directories:
+      - node_modules
 
-before_script:
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
+      before_script:
+      - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+      - chmod +x ./cc-test-reporter
+      - ./cc-test-reporter before-build
+      - npm install -g jsdoc
 
-script:
-  - npm test -- --coverage
-  - make docscripts/ html
+
+      script:
+      - make -C docscripts/ html
+      - npm test -- --coverage
+      - touch docs/html/.nojekyll
 #   - CI=false npm run build
 
-after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
-
-branches:
-  only:
-  - inventory
-
+      after_script:
+      - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  # - COVERALLS_REPO_TOKEN=$coveralls_repo_token npm run coveralls
 deploy:
   - provider: pages
+    skip_cleanup: true
     verbose: true
     github_token: $GITHUB_TOKEN
     edge: true
-    local_dir: docs/build/html
+    local_dir: docs/html
     keep_history: true
+    on:
+      branch: testing
+
+
+
 # language: node_js
 # node_js:
 #   - "stable"
