@@ -50,7 +50,7 @@ deploy:
     local_dir: docs/html
     keep_history: true
     on:
-      branch: testing
+      branch: newtest
 
 
 
