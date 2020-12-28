@@ -117,7 +117,161 @@ The user is able to sign in or signup for a new account</p>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>card</strong> – returns a component with styling eq. to card</p>
+<dd class="field-even"><p><strong>card</strong> – returns a component with styling</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="js function">
+<dt id="customButton">
+<code class="sig-name descname">customButton</code><span class="sig-paren">(</span><em class="sig-param">props</em><span class="sig-paren">)</span><a class="headerlink" href="#customButton" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>props</strong> (<em>props</em>) – overriding style, title, color, pressHandler</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>button</strong> – returns a button with custom styling</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="js function">
+<dt id="defaultInput">
+<code class="sig-name descname">defaultInput</code><span class="sig-paren">(</span><em class="sig-param">style</em><span class="sig-paren">)</span><a class="headerlink" href="#defaultInput" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>style</strong> (<em>props</em>) – for overriding style, valid to check input validity</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>TextInput</strong> – returns an input component with custom styling</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="js function">
+<dt id="DefaultText">
+<code class="sig-name descname">DefaultText</code><span class="sig-paren">(</span><em class="sig-param">style</em><span class="sig-paren">)</span><a class="headerlink" href="#DefaultText" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>style</strong> (<em>props</em>) – for overriding default style</p></li>
+<li><p><strong>props.children</strong> (<em>children</em>) – any children component usually Text, Views to be wrapped within text component</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Text</strong> – returns text component with custom styling</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="js function">
+<dt id="CustomHeaderButton">
+<code class="sig-name descname">CustomHeaderButton</code><span class="sig-paren">(</span><em class="sig-param">props</em><span class="sig-paren">)</span><a class="headerlink" href="#CustomHeaderButton" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>props</strong> (<em>props</em>) – for react navigation header button</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>HeaderButton</strong> – returns a header button component with custom styling</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="js function">
+<dt id="headingText">
+<code class="sig-name descname">headingText</code><span class="sig-paren">(</span><em class="sig-param">style</em><span class="sig-paren">)</span><a class="headerlink" href="#headingText" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>style</strong> (<em>props</em>) – for overriding style</p></li>
+<li><p><strong>props.children</strong> (<em>children</em>) – any children component usually Text to be wrapped within text component</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Text</strong> – returns a text Component with heading styling</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="js function">
+<dt id="iconButton">
+<code class="sig-name descname">iconButton</code><span class="sig-paren">(</span><em class="sig-param">color</em><span class="sig-paren">)</span><a class="headerlink" href="#iconButton" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>color,</strong> (<em>props</em>) – iconValue ionicons name, iconColor, onPressHandler action to be taken on press</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>View</strong> – returns a View- touchable view component with custom styling to work as an icon button</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="js function">
+<dt id="MainButton">
+<code class="sig-name descname">MainButton</code><span class="sig-paren">(</span><em class="sig-param">onPress</em><span class="sig-paren">)</span><a class="headerlink" href="#MainButton" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>onPress</strong> (<em>props</em>) – for handling press</p></li>
+<li><p><strong>props.children</strong> (<em>children</em>) – any children component usually Text to be wrapped within touchable view component</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>View</strong> – returns a touchable View Component with custom styling</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="js function">
+<dt id="mainText">
+<code class="sig-name descname">mainText</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mainText" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>props.children</strong> (<em>children</em>) – any children component usually Text to be wrapped within text component</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Text</strong> – returns a text Component with custom styling</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="js function">
+<dt id="ManageItem">
+<code class="sig-name descname">ManageItem</code><span class="sig-paren">(</span><em class="sig-param">onSelectItem</em><span class="sig-paren">)</span><a class="headerlink" href="#ManageItem" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>onSelectItem,</strong> (<em>props</em>) – title, quantity, company,price</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>View</strong> – returns a touchable View Component styled to reflect an inventory item with its description</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="js function">
+<dt id="ModalComponent">
+<code class="sig-name descname">ModalComponent</code><span class="sig-paren">(</span><em class="sig-param">isModalVisibile-</em><span class="sig-paren">)</span><a class="headerlink" href="#ModalComponent" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isModalVisibile-</strong> (<em>props</em>) – controls the visibility of the modal</p></li>
+<li><p><strong>props.children</strong> (<em>children</em>) – any children component usually Text, View to be wrapped within modal component</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Modal</strong> – returns a modal Component for ordering, adding new item, editing</p>
 </dd>
 </dl>
 </dd></dl>
