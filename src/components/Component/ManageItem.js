@@ -1,7 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ImageBackground } from 'react-native';
 
-
+/**
+ * 
+ * @returns {View} returns a touchable View Component styled to reflect an inventory item with its description
+ * @param {props} onSelectItem, title, quantity, company,price
+ * 
+ */
 const ManageItem = props => {
     let sn = props.serialNo
     // let sn = props.serialNo.replace('i', '');

@@ -1,6 +1,11 @@
 import React from "react";
 import { TextInput, StyleSheet } from "react-native";
-
+/**
+ * 
+ * @returns {TextInput} returns an input component with custom styling 
+ * @param {props} style for overriding style, valid to check input validity 
+ * 
+ */
 const defaultInput = props => (
   <TextInput
     underlineColorAndroid="transparent"

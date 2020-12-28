@@ -10,6 +10,12 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 
 import Colors from '../../constants/Colors'
+/**
+ * 
+ * @returns {View} returns a View- touchable view component with custom styling to work as an icon button
+ * @param {props} color, iconValue ionicons name, iconColor, onPressHandler action to be taken on press
+ * 
+ */
 const iconButton = props => {
 
     let TouchableCmp = TouchableOpacity;

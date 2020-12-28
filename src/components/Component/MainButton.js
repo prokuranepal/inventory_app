@@ -1,7 +1,13 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Colors from '../../constants/Colors';
-
+/**
+ * 
+ * @returns {View} returns a touchable View Component with custom styling
+ * @param {props} onPress for handling press
+ * @property {children} props.children any children component usually Text to be wrapped within touchable view component
+ * 
+ */
 const MainButton = props => {
     return (
         <TouchableOpacity activeOpacity={0.6} onPress={props.onPress}>

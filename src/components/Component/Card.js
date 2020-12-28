@@ -3,7 +3,7 @@ import { View, StyleSheet } from 'react-native';
 
 /**
  * 
- * @returns {card} returns a component with styling eq. to card
+ * @returns {card} returns a component with styling
  * @param {props} props
  * @property {children} props.children any children component usually Text, Views to be wrapped as card
  */
