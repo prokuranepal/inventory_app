@@ -53,5 +53,5 @@ html_theme = 'bizstyle'
 html_static_path = ['_static']
 extensions = ['sphinx_js','recommonmark']
 primary_domain = 'js'
-js_source_path=['../../src/screens','../../src/components/Component','../../src/components/UI']
+js_source_path=['../../src/screens','../../src/components/Component','../../src/components/UI',]
 root_for_relative_js_paths='../../src'
