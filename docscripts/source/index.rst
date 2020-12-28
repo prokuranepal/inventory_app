@@ -10,12 +10,16 @@ Welcome to Inventory App's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-.. js:autoclass:: Authentication
-   :members:
-   :private-members:
+.. toctree::
+   :maxdepth: 2
 
-.. js:autofunction:: AddScreen
-.. js:autofunction:: card
+   introduction
+   code_documentation
+   code_of_conduct
+   contributing_guidelines
+   license
+
+
 
 Indices and tables
 ==================
