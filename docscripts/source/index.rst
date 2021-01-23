@@ -19,6 +19,10 @@ Welcome to Inventory App's documentation!
    contributing_guidelines
    license
 
+Please Refer:
+`Contributing Guidelines <https://prokuranepal.github.io/contributing_guidelines.html>`_
+`Code of Conduct <https://prokuranepal.github.io/code_of_conduct.html>`_
+
 
 
 Indices and tables
