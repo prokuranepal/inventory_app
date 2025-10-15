@@ -14,7 +14,7 @@
     "@react-native-community/datetimepicker": "^3.0.2",
     "@react-native-community/masked-view": "0.1.6",
     "@react-native-community/picker": "^1.4.0",
-    "expo": "~37.0.3",
+    "expo": "~48.0.0",
     "expo-barcode-scanner": "^8.1.0",
     "expo-font": "~8.1.0",
     "jest": "^25.5.4",
